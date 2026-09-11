@@ -132,14 +132,4 @@ Contributions are welcome! If you'd like to help improve `clz-md2hugo`:
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
-```
-
----
-
-### Key Highlights of this Template:
-1. **Clear Badges:** Gives instant information on Go version, release status, and license.
-2. **Installation Flexibility:** Provides quick setup commands for Go developers (`go install`) as well as building from source.
-3. **Usage Table & CLI Examples:** Helps new users understand flags quickly without having to dive into source code.
-4. **Before/After Example:** Gives visual clarity on what the tool actually outputs.
+Distributed under the GNU License. See `LICENSE` for more information.
