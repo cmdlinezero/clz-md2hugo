@@ -24,7 +24,7 @@
 Make sure you have Go installed (version 1.18+ recommended):
 
 ```bash
-go install [github.com/cmdlinezero/clz-md2hugo@latest](https://github.com/cmdlinezero/clz-md2hugo@latest)
+go install https://github.com/cmdlinezero/clz-md2hugo@latest
 
 ```
 
@@ -32,7 +32,7 @@ go install [github.com/cmdlinezero/clz-md2hugo@latest](https://github.com/cmdlin
 
 ```bash
 # Clone the repository
-git clone [https://github.com/cmdlinezero/clz-md2hugo.git](https://github.com/cmdlinezero/clz-md2hugo.git)
+git clone https://github.com/cmdlinezero/clz-md2hugo.git
 cd clz-md2hugo
 
 # Build the binary
