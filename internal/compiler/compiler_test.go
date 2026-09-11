@@ -180,10 +180,10 @@ func TestCodingTutorialCompiles(t *testing.T) {
 		"Edit the program so it prints the requested greeting.\n\n" +
 		"```python {editor=true file=\"main.py\"}\nprint(\"TODO\")\n```\n\n" +
 		"```hint\nReplace TODO with Hello, Certin!.\n```\n\n" +
-		"```check {required=\"print(|Hello, Certin!\" output=\"Hello, Certin!\"}\n```\n{{< /step >}}\n\n" +
+		"```check {required=\"print\\(|Hello, Certin!\" output=\"Hello, Certin!\"}\n```\n{{< /step >}}\n\n" +
 		"{{< step id=\"uppercase\" label=\"Transform text\" title=\"Print uppercase\" >}}\n" +
 		"Change the print call to use the string upper method.\n\n" +
-		"```check {required=\"message|.upper()|print(\" output=\"HELLO, CERTIN!\"}\n```\n{{< /step >}}\n"
+		"```check {required=\"message|\\.upper\\(\\)|print\\(\" output=\"HELLO, CERTIN!\"}\n```\n{{< /step >}}\n"
 	write(t, filepath.Join(dir, "coding", "python.md"), body)
 
 	contents, err := compile(dir)
@@ -204,7 +204,7 @@ func TestCodingTutorialCompiles(t *testing.T) {
 	if first.StarterCode != "print(\"TODO\")" || first.ExpectedOutput != "Hello, Certin!" || first.Hint == "" {
 		t.Fatalf("first coding step not compiled correctly: %+v", first)
 	}
-	if len(first.Required) != 2 || first.Required[0] != "print(" || first.Required[1] != "Hello, Certin!" {
+	if len(first.Required) != 2 || first.Required[0] != `print\(` || first.Required[1] != "Hello, Certin!" {
 		t.Fatalf("required tokens not compiled: %+v", first.Required)
 	}
 	if len(first.Blocks) != 0 {
@@ -239,5 +239,80 @@ func TestCodingTutorialDefaultEntrypoints(t *testing.T) {
 				t.Fatalf("runtime %s default entrypoint = %q, want %q", tc.runtime, c.Entrypoint, tc.want)
 			}
 		})
+	}
+}
+
+func TestAttributesPreserveEscapedQuotes(t *testing.T) {
+	attrs := attributes(`required="username = \"Alice\"|age = 30|print(" output="Alice is 30 years old." single='it\'s valid' pattern="\\d+"`)
+
+	if got, want := attrs["required"], `username = "Alice"|age = 30|print(`; got != want {
+		t.Fatalf("required attribute = %q, want %q", got, want)
+	}
+	if got, want := attrs["output"], "Alice is 30 years old."; got != want {
+		t.Fatalf("output attribute = %q, want %q", got, want)
+	}
+	if got, want := attrs["single"], "it's valid"; got != want {
+		t.Fatalf("single-quoted escaped value = %q, want %q", got, want)
+	}
+	if got, want := attrs["pattern"], `\d+`; got != want {
+		t.Fatalf("backslash-preserving value = %q, want %q", got, want)
+	}
+}
+
+func TestCodingTutorialCheckWithEscapedQuotes(t *testing.T) {
+	src := `---
+id: python-profile
+type: coding-tutorial
+title: Python Profile
+runtime: python3
+---
+
+{{< step id="strings-integers" label="Strings and Integers" title="Declare Your First Variables" >}}
+Variables are containers for storing data values. In this step, you will declare variables for a user's profile.
+
+Assign the string "Alice" to the variable username and the integer 30 to the variable age. Then, print the structured profile sentence.
+
+` + "```python {editor=true file=\"main.py\"}\n" + `# Define your variables here
+username = "TODO"
+age = 0
+
+# Print the sentence: "Alice is 30 years old."
+print(f"{username} is {age} years old.")
+` + "```\n\n" + "```hint\n" + `Change username = "TODO" to username = "Alice" and age = 0 to age = 30. Keep the formatted print statement exactly as it is.
+` + "```\n\n" + "```check {required=\"username\\s*=\\s*\\\"Alice\\\"|age\\s*=\\s*30|print\\(\" output=\"Alice is 30 years old.\"}\n```\n" + `{{< /step >}}
+`
+
+	c, err := Parse(src, "python-profile.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(c.Steps) != 1 {
+		t.Fatalf("expected 1 step, got %d", len(c.Steps))
+	}
+	got := c.Steps[0].Required
+	want := []string{`username\s*=\s*"Alice"`, `age\s*=\s*30`, `print\(`}
+	if len(got) != len(want) {
+		t.Fatalf("required tokens = %#v, want %#v", got, want)
+	}
+	for i := range want {
+		if got[i] != want[i] {
+			t.Fatalf("required token %d = %q, want %q", i, got[i], want[i])
+		}
+	}
+	if c.Steps[0].ExpectedOutput != "Alice is 30 years old." {
+		t.Fatalf("expected output = %q", c.Steps[0].ExpectedOutput)
+	}
+}
+
+func TestParseRequiredRegexPatterns(t *testing.T) {
+	got := parseRequired(`inventory\["oranges"\]|print\(|(?:del\s+inventory\["bananas"\]\|inventory\.pop\("bananas"\))`)
+	want := []string{`inventory\["oranges"\]`, `print\(`, `(?:del\s+inventory\["bananas"\]|inventory\.pop\("bananas"\))`}
+	if len(got) != len(want) {
+		t.Fatalf("required regex patterns = %#v, want %#v", got, want)
+	}
+	for i := range want {
+		if got[i] != want[i] {
+			t.Fatalf("required regex %d = %q, want %q", i, got[i], want[i])
+		}
 	}
 }
