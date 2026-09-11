@@ -13,7 +13,6 @@ import (
 
 var stepStart = regexp.MustCompile(`^\{\{<\s*step\s+(.+?)\s*>\}\}$`)
 var stepEnd = regexp.MustCompile(`^\{\{<\s*/step\s*>\}\}$`)
-var attrRE = regexp.MustCompile(`([A-Za-z0-9_-]+)=(?:"([^"]*)"|'([^']*)'|([^\s]+))`)
 
 func ParseFile(path string) (Content, error) {
 	b, err := os.ReadFile(path)
@@ -294,19 +293,34 @@ func parseRequired(value string) []string {
 	if value == "" {
 		return nil
 	}
-	sep := "|"
-	if !strings.Contains(value, sep) {
-		return []string{value}
-	}
-	parts := strings.Split(value, sep)
-	out := make([]string, 0, len(parts))
-	for _, part := range parts {
-		part = strings.TrimSpace(part)
-		if part != "" {
-			out = append(out, part)
+
+	// `required` is a pipe-separated list of regular expressions. An escaped
+	// pipe (\|) belongs to the regex itself rather than separating patterns.
+	// We remove only that delimiter escape; all other backslashes are preserved
+	// for the frontend RegExp engine (for example \(, \[, and \s).
+	var parts []string
+	var current strings.Builder
+	for i := 0; i < len(value); i++ {
+		ch := value[i]
+		if ch == '\\' && i+1 < len(value) && value[i+1] == '|' {
+			current.WriteByte('|')
+			i++
+			continue
 		}
+		if ch == '|' {
+			part := strings.TrimSpace(current.String())
+			if part != "" {
+				parts = append(parts, part)
+			}
+			current.Reset()
+			continue
+		}
+		current.WriteByte(ch)
 	}
-	return out
+	if part := strings.TrimSpace(current.String()); part != "" {
+		parts = append(parts, part)
+	}
+	return parts
 }
 
 func parseBlocks(src string) ([]Block, error) {
@@ -394,17 +408,99 @@ func splitFenceHead(head string) (string, string) {
 
 func attributes(s string) map[string]string {
 	out := map[string]string{}
-	for _, m := range attrRE.FindAllStringSubmatch(s, -1) {
-		v := m[2]
-		if v == "" {
-			v = m[3]
+	for i := 0; i < len(s); {
+		// Skip whitespace between attributes.
+		for i < len(s) && isAttrSpace(s[i]) {
+			i++
 		}
-		if v == "" {
-			v = m[4]
+		if i >= len(s) {
+			break
 		}
-		out[m[1]] = v
+
+		keyStart := i
+		for i < len(s) && isAttrKeyChar(s[i]) {
+			i++
+		}
+		if keyStart == i {
+			// Ignore unexpected punctuation rather than getting stuck forever.
+			i++
+			continue
+		}
+		key := s[keyStart:i]
+
+		for i < len(s) && isAttrSpace(s[i]) {
+			i++
+		}
+		if i >= len(s) || s[i] != '=' {
+			continue
+		}
+		i++
+		for i < len(s) && isAttrSpace(s[i]) {
+			i++
+		}
+
+		value, next := parseAttributeValue(s, i)
+		out[key] = value
+		i = next
 	}
 	return out
+}
+
+func parseAttributeValue(s string, i int) (string, int) {
+	if i >= len(s) {
+		return "", i
+	}
+
+	quote := byte(0)
+	if s[i] == '"' || s[i] == '\'' {
+		quote = s[i]
+		i++
+	}
+
+	var b strings.Builder
+	for i < len(s) {
+		ch := s[i]
+		if quote != 0 {
+			if ch == quote {
+				return b.String(), i + 1
+			}
+			if ch == '\\' && i+1 < len(s) {
+				next := s[i+1]
+				// Within quoted values, allow the quote delimiter and a literal
+				// backslash to be escaped. Preserve unknown escapes verbatim so
+				// regex-like validation expressions are not silently rewritten.
+				if next == quote || next == '\\' {
+					b.WriteByte(next)
+					i += 2
+					continue
+				}
+				b.WriteByte(ch)
+				i++
+				continue
+			}
+			b.WriteByte(ch)
+			i++
+			continue
+		}
+
+		if isAttrSpace(ch) {
+			break
+		}
+		b.WriteByte(ch)
+		i++
+	}
+	return b.String(), i
+}
+
+func isAttrKeyChar(ch byte) bool {
+	return (ch >= 'A' && ch <= 'Z') ||
+		(ch >= 'a' && ch <= 'z') ||
+		(ch >= '0' && ch <= '9') ||
+		ch == '_' || ch == '-'
+}
+
+func isAttrSpace(ch byte) bool {
+	return ch == ' ' || ch == '\t' || ch == '\r' || ch == '\n'
 }
 
 func stringValue(v any) string {
