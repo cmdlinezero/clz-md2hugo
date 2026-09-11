@@ -11,15 +11,16 @@ import (
 )
 
 var allowedTypes = map[string]bool{
-	"collection":     true,
-	"learning-path":  true,
-	"certification":  true,
-	"tutorial":       true,
-	"quiz":           true,
-	"question":       true,
-	"topic":          true,
-	"flashcard-deck": true,
-	"challenge-lab":  true,
+	"collection":      true,
+	"learning-path":   true,
+	"certification":   true,
+	"tutorial":        true,
+	"coding-tutorial": true,
+	"quiz":            true,
+	"question":        true,
+	"topic":           true,
+	"flashcard-deck":  true,
+	"challenge-lab":   true,
 }
 
 func Build(input, output string, includeUnpublished bool) error {
@@ -131,6 +132,25 @@ func validateContent(c Content, file string) error {
 			}
 		}
 	}
+	if c.Type == "coding-tutorial" {
+		if c.Runtime != "python3" && c.Runtime != "go" && c.Runtime != "nodejs" {
+			return fmt.Errorf("%s: coding-tutorial runtime must be one of python3, go, nodejs", file)
+		}
+		if len(c.Steps) == 0 {
+			return fmt.Errorf("%s: coding-tutorial requires at least 1 step", file)
+		}
+		for i, step := range c.Steps {
+			if strings.TrimSpace(step.ID) == "" || strings.TrimSpace(step.Label) == "" {
+				return fmt.Errorf("%s: coding-tutorial step %d requires id and label", file, i+1)
+			}
+			if strings.TrimSpace(step.ExpectedOutput) == "" {
+				return fmt.Errorf("%s: coding-tutorial step %q requires a check block with output=...", file, step.ID)
+			}
+		}
+		if strings.TrimSpace(c.Steps[0].StarterCode) == "" {
+			return fmt.Errorf("%s: first coding-tutorial step requires an editor=true code block", file)
+		}
+	}
 	return nil
 }
 
@@ -182,6 +202,9 @@ func graphFrom(contents []Content) (ContentGraph, error) {
 		case "tutorial":
 			graph.Tutorials = append(graph.Tutorials, c)
 			graph.Stats.Tutorials++
+		case "coding-tutorial":
+			graph.CodingTutorials = append(graph.CodingTutorials, c)
+			graph.Stats.CodingTutorials++
 		case "quiz":
 			graph.Quizzes = append(graph.Quizzes, c)
 			graph.Stats.Quizzes++

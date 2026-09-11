@@ -14,6 +14,9 @@ type Content struct {
 	Provider       string      `json:"provider,omitempty"`
 	RatingID       string      `json:"rating_id,omitempty"`
 	ProductID      string      `json:"product_id,omitempty"`
+	Runtime        string      `json:"runtime,omitempty"`
+	Entrypoint     string      `json:"entrypoint,omitempty"`
+	Difficulty     string      `json:"difficulty,omitempty"`
 	Categories     []string    `json:"categories,omitempty"`
 	Tags           []string    `json:"tags,omitempty"`
 	Topics         []string    `json:"topics,omitempty"`
@@ -38,10 +41,16 @@ type Content struct {
 }
 
 type Step struct {
-	ID       string  `json:"id"`
-	Label    string  `json:"label"`
-	Duration string  `json:"duration,omitempty"`
-	Blocks   []Block `json:"blocks"`
+	ID             string   `json:"id"`
+	Label          string   `json:"label"`
+	Duration       string   `json:"duration,omitempty"`
+	Title          string   `json:"title,omitempty"`
+	Instructions   string   `json:"instructions,omitempty"`
+	StarterCode    string   `json:"starter_code,omitempty"`
+	Required       []string `json:"required,omitempty"`
+	ExpectedOutput string   `json:"expected_output,omitempty"`
+	Hint           string   `json:"hint,omitempty"`
+	Blocks         []Block  `json:"blocks,omitempty"`
 }
 
 type Block struct {
@@ -58,34 +67,36 @@ type Block struct {
 }
 
 type ContentGraph struct {
-	Version        int        `json:"version"`
-	Generated      string     `json:"generated"`
-	Collections    []Content  `json:"collections,omitempty"`
-	LearningPaths  []Content  `json:"learningPaths,omitempty"`
-	Certifications []Content  `json:"certifications,omitempty"`
-	Tutorials      []Content  `json:"tutorials,omitempty"`
-	Quizzes        []Content  `json:"quizzes,omitempty"`
-	Questions      []Content  `json:"questions,omitempty"`
-	Topics         []Content  `json:"topics,omitempty"`
-	FlashcardDecks []Content  `json:"flashcardDecks,omitempty"`
-	ChallengeLabs  []Content  `json:"challengeLabs,omitempty"`
-	Other          []Content  `json:"other,omitempty"`
-	Stats          BuildStats `json:"stats"`
+	Version         int        `json:"version"`
+	Generated       string     `json:"generated"`
+	Collections     []Content  `json:"collections,omitempty"`
+	LearningPaths   []Content  `json:"learningPaths,omitempty"`
+	Certifications  []Content  `json:"certifications,omitempty"`
+	Tutorials       []Content  `json:"tutorials,omitempty"`
+	CodingTutorials []Content  `json:"codingTutorials,omitempty"`
+	Quizzes         []Content  `json:"quizzes,omitempty"`
+	Questions       []Content  `json:"questions,omitempty"`
+	Topics          []Content  `json:"topics,omitempty"`
+	FlashcardDecks  []Content  `json:"flashcardDecks,omitempty"`
+	ChallengeLabs   []Content  `json:"challengeLabs,omitempty"`
+	Other           []Content  `json:"other,omitempty"`
+	Stats           BuildStats `json:"stats"`
 }
 
 type BuildStats struct {
-	Documents      int `json:"documents"`
-	Collections    int `json:"collections"`
-	LearningPaths  int `json:"learningPaths"`
-	Certifications int `json:"certifications"`
-	Tutorials      int `json:"tutorials"`
-	Quizzes        int `json:"quizzes"`
-	Questions      int `json:"questions"`
-	Topics         int `json:"topics"`
-	FlashcardDecks int `json:"flashcardDecks"`
-	ChallengeLabs  int `json:"challengeLabs"`
-	Steps          int `json:"steps"`
-	Blocks         int `json:"blocks"`
+	Documents       int `json:"documents"`
+	Collections     int `json:"collections"`
+	LearningPaths   int `json:"learningPaths"`
+	Certifications  int `json:"certifications"`
+	Tutorials       int `json:"tutorials"`
+	CodingTutorials int `json:"codingTutorials"`
+	Quizzes         int `json:"quizzes"`
+	Questions       int `json:"questions"`
+	Topics          int `json:"topics"`
+	FlashcardDecks  int `json:"flashcardDecks"`
+	ChallengeLabs   int `json:"challengeLabs"`
+	Steps           int `json:"steps"`
+	Blocks          int `json:"blocks"`
 }
 
 type Flashcard struct {

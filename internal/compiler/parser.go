@@ -48,6 +48,7 @@ func Parse(src, path string) (Content, error) {
 		HeroImage: stringValue(meta["hero_image"]), Issue: intValue(meta["issue"]),
 		Kind: stringValue(meta["kind"]), Provider: stringValue(meta["provider"]),
 		RatingID: stringValue(meta["rating_id"]), ProductID: stringValue(meta["product_id"]),
+		Runtime: stringValue(meta["runtime"]), Entrypoint: stringValue(meta["entrypoint"]), Difficulty: stringValue(meta["difficulty"]),
 		Options: stringSlice(meta["options"]), Answer: intValue(meta["answer"]), Explanation: stringValue(meta["explanation"]),
 		Volume: intValue(meta["volume"]), Special: boolValue(meta["special_edition"]),
 	}
@@ -71,7 +72,18 @@ func Parse(src, path string) (Content, error) {
 		return Content{}, errors.New("missing required frontmatter: title")
 	}
 
-	steps, conclusion, err := parseSteps(body)
+	if c.Type == "coding-tutorial" && c.Entrypoint == "" {
+		switch c.Runtime {
+		case "go":
+			c.Entrypoint = "main.go"
+		case "nodejs":
+			c.Entrypoint = "index.js"
+		default:
+			c.Entrypoint = "main.py"
+		}
+	}
+
+	steps, conclusion, err := parseSteps(body, c.Type)
 	if err != nil {
 		return Content{}, fmt.Errorf("%s: %w", path, err)
 	}
@@ -166,7 +178,7 @@ func parseInlineList(v string) []string {
 	return result
 }
 
-func parseSteps(body string) ([]Step, string, error) {
+func parseSteps(body, contentType string) ([]Step, string, error) {
 	lines := strings.Split(strings.ReplaceAll(body, "\r\n", "\n"), "\n")
 	var steps []Step
 	var current *Step
@@ -180,6 +192,9 @@ func parseSteps(body string) ([]Step, string, error) {
 			return err
 		}
 		current.Blocks = blocks
+		if contentType == "coding-tutorial" {
+			enrichCodingStep(current, blocks)
+		}
 		steps = append(steps, *current)
 		current = nil
 		buf = nil
@@ -197,7 +212,14 @@ func parseSteps(body string) ([]Step, string, error) {
 			if label == "" {
 				return nil, "", errors.New("step missing label")
 			}
-			current = &Step{ID: slugify(label), Label: label, Duration: attrs["duration"]}
+			id := attrs["id"]
+			if id == "" {
+				id = slugify(label)
+			}
+			current = &Step{ID: id, Label: label, Duration: attrs["duration"], Title: attrs["title"]}
+			if current.Title == "" && contentType == "coding-tutorial" {
+				current.Title = label
+			}
 			inConclusion = false
 			continue
 		}
@@ -223,6 +245,68 @@ func parseSteps(body string) ([]Step, string, error) {
 		return nil, "", err
 	}
 	return steps, strings.TrimSpace(strings.Join(conclusion, "\n")), nil
+}
+
+func enrichCodingStep(step *Step, blocks []Block) {
+	var instructions []string
+	for _, b := range blocks {
+		switch b.Type {
+		case "markdown":
+			if strings.TrimSpace(b.Content) != "" {
+				instructions = append(instructions, strings.TrimSpace(b.Content))
+			}
+		case "hint":
+			if step.Hint == "" {
+				step.Hint = strings.TrimSpace(b.Content)
+				if step.Hint == "" {
+					step.Hint = b.Attributes["message"]
+				}
+			}
+		case "check":
+			if step.ExpectedOutput == "" {
+				step.ExpectedOutput = firstNonEmpty(b.Attributes["output"], b.Attributes["expected-output"], b.Attributes["expected_output"])
+			}
+			if len(step.Required) == 0 {
+				step.Required = parseRequired(b.Attributes["required"])
+			}
+		case "code":
+			if step.StarterCode == "" && boolString(b.Attributes["editor"]) {
+				step.StarterCode = b.Content
+			}
+		}
+	}
+	step.Instructions = strings.TrimSpace(strings.Join(instructions, "\n\n"))
+	// Coding tutorial consumers use the flattened fields above rather than blocks.
+	step.Blocks = nil
+}
+
+func firstNonEmpty(values ...string) string {
+	for _, value := range values {
+		if strings.TrimSpace(value) != "" {
+			return value
+		}
+	}
+	return ""
+}
+
+func parseRequired(value string) []string {
+	value = strings.TrimSpace(value)
+	if value == "" {
+		return nil
+	}
+	sep := "|"
+	if !strings.Contains(value, sep) {
+		return []string{value}
+	}
+	parts := strings.Split(value, sep)
+	out := make([]string, 0, len(parts))
+	for _, part := range parts {
+		part = strings.TrimSpace(part)
+		if part != "" {
+			out = append(out, part)
+		}
+	}
+	return out
 }
 
 func parseBlocks(src string) ([]Block, error) {

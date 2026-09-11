@@ -151,3 +151,93 @@ product_id: docker
 		t.Fatalf("rating/product IDs not preserved in graph: %+v", graph.Tutorials)
 	}
 }
+
+func TestInteractiveTutorialAttributesPreserved(t *testing.T) {
+	dir := t.TempDir()
+	body := "---\nid: interactive-terminal\ntype: tutorial\ntitle: Interactive Terminal\n---\n\n" +
+		"{{< step label=\"Run command\" >}}\nRun the command below.\n\n" +
+		"```bash {terminal=true interactive=true browser-ai=true progressive=true file-id=\"docker-step-1\" cmd-id=\"cmd-version\" copy=true}\n" +
+		"docker --version\n```\n{{< /step >}}\n"
+	write(t, filepath.Join(dir, "tutorial.md"), body)
+
+	contents, err := compile(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	b := contents[0].Steps[0].Blocks[1]
+	if !b.Terminal || b.FileID != "docker-step-1" || b.CmdID != "cmd-version" {
+		t.Fatalf("interactive terminal fields not preserved: %+v", b)
+	}
+	if b.Attributes["interactive"] != "true" || b.Attributes["browser-ai"] != "true" || b.Attributes["progressive"] != "true" {
+		t.Fatalf("interactive attributes not preserved: %+v", b.Attributes)
+	}
+}
+
+func TestCodingTutorialCompiles(t *testing.T) {
+	dir := t.TempDir()
+	body := "---\nid: python-greeting\ntype: coding-tutorial\ntitle: Python Greeting\nruntime: python3\nentrypoint: main.py\ndifficulty: beginner\nstatus: published\n---\n\n" +
+		"{{< step id=\"hello\" label=\"Print a greeting\" title=\"Print your first message\" >}}\n" +
+		"Edit the program so it prints the requested greeting.\n\n" +
+		"```python {editor=true file=\"main.py\"}\nprint(\"TODO\")\n```\n\n" +
+		"```hint\nReplace TODO with Hello, Certin!.\n```\n\n" +
+		"```check {required=\"print(|Hello, Certin!\" output=\"Hello, Certin!\"}\n```\n{{< /step >}}\n\n" +
+		"{{< step id=\"uppercase\" label=\"Transform text\" title=\"Print uppercase\" >}}\n" +
+		"Change the print call to use the string upper method.\n\n" +
+		"```check {required=\"message|.upper()|print(\" output=\"HELLO, CERTIN!\"}\n```\n{{< /step >}}\n"
+	write(t, filepath.Join(dir, "coding", "python.md"), body)
+
+	contents, err := compile(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(contents) != 1 {
+		t.Fatalf("expected one content item, got %d", len(contents))
+	}
+	c := contents[0]
+	if c.Type != "coding-tutorial" || c.Runtime != "python3" || c.Entrypoint != "main.py" || c.Difficulty != "beginner" {
+		t.Fatalf("coding tutorial metadata not preserved: %+v", c)
+	}
+	if len(c.Steps) != 2 {
+		t.Fatalf("expected 2 coding steps, got %d", len(c.Steps))
+	}
+	first := c.Steps[0]
+	if first.StarterCode != "print(\"TODO\")" || first.ExpectedOutput != "Hello, Certin!" || first.Hint == "" {
+		t.Fatalf("first coding step not compiled correctly: %+v", first)
+	}
+	if len(first.Required) != 2 || first.Required[0] != "print(" || first.Required[1] != "Hello, Certin!" {
+		t.Fatalf("required tokens not compiled: %+v", first.Required)
+	}
+	if len(first.Blocks) != 0 {
+		t.Fatalf("coding tutorial blocks should be flattened for the frontend: %+v", first.Blocks)
+	}
+	graph, err := graphFrom(contents)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(graph.CodingTutorials) != 1 || graph.Stats.CodingTutorials != 1 {
+		t.Fatalf("coding tutorial missing from graph: %+v", graph.Stats)
+	}
+}
+
+func TestCodingTutorialDefaultEntrypoints(t *testing.T) {
+	cases := []struct {
+		runtime string
+		want    string
+	}{
+		{"python3", "main.py"},
+		{"go", "main.go"},
+		{"nodejs", "index.js"},
+	}
+	for _, tc := range cases {
+		t.Run(tc.runtime, func(t *testing.T) {
+			src := "---\nid: test-" + tc.runtime + "\ntype: coding-tutorial\ntitle: Test\nruntime: " + tc.runtime + "\n---\n\n{{< step label=\"One\" >}}\nDo it.\n\n```" + tc.runtime + " {editor=true}\ncode\n```\n```check {output=\"ok\"}\n```\n{{< /step >}}\n"
+			c, err := Parse(src, "test.md")
+			if err != nil {
+				t.Fatal(err)
+			}
+			if c.Entrypoint != tc.want {
+				t.Fatalf("runtime %s default entrypoint = %q, want %q", tc.runtime, c.Entrypoint, tc.want)
+			}
+		})
+	}
+}
