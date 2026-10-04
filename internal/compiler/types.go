@@ -116,5 +116,6 @@ type Challenge struct {
 	Hint         string            `json:"hint,omitempty"`
 	Success      string            `json:"success,omitempty"`
 	Command      string            `json:"command,omitempty"`
+	Socratic     string            `json:"socratic,omitempty"`
 	Attributes   map[string]string `json:"attributes,omitempty"`
 }

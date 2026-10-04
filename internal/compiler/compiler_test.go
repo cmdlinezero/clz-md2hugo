@@ -79,7 +79,7 @@ func write(t *testing.T, path, body string) {
 func TestFlashcardAndChallengeModalities(t *testing.T) {
 	dir := t.TempDir()
 	write(t, filepath.Join(dir, "flashcards", "docker.md"), "---\nid: docker-flashcards\ntype: flashcard-deck\ntitle: Docker Flashcards\n---\n\n```flashcard {id=\"image\" front=\"What is a Docker image?\" hint=\"Think template.\" explanation=\"A read-only template used to create containers.\"}\nA read-only template used to create containers.\n```\n")
-	write(t, filepath.Join(dir, "labs", "docker.md"), "---\nid: docker-lab\ntype: challenge-lab\ntitle: Docker Lab\n---\n\n```challenge {id=\"run\" title=\"Run NGINX\" objective=\"Create a running nginx container.\" command=\"docker run -d --name web nginx:latest\"}\nRun the command and verify it with docker ps.\n```\n")
+	write(t, filepath.Join(dir, "labs", "docker.md"), "---\nid: docker-lab\ntype: challenge-lab\ntitle: Docker Lab\n---\n\n```challenge {id=\"run\" title=\"Run NGINX\" objective=\"Create a running nginx container.\" command=\"docker run -d --name web nginx:latest\" socratic=\"Confirm the learner understands what docker ps proves and what it does not prove.\"}\nRun the command and verify it with docker ps.\n```\n")
 	contents, err := compile(dir)
 	if err != nil {
 		t.Fatal(err)
@@ -94,8 +94,15 @@ func TestFlashcardAndChallengeModalities(t *testing.T) {
 	if len(graph.ChallengeLabs) != 1 || len(graph.ChallengeLabs[0].Challenges) != 1 {
 		t.Fatalf("unexpected challenge graph: %+v", graph.Stats)
 	}
-	if graph.ChallengeLabs[0].Challenges[0].Command != "docker run -d --name web nginx:latest" {
+	challenge := graph.ChallengeLabs[0].Challenges[0]
+	if challenge.Command != "docker run -d --name web nginx:latest" {
 		t.Fatal("challenge command not preserved")
+	}
+	if challenge.Socratic != "Confirm the learner understands what docker ps proves and what it does not prove." {
+		t.Fatalf("challenge socratic checkpoint not preserved: %q", challenge.Socratic)
+	}
+	if challenge.Attributes["socratic"] != challenge.Socratic {
+		t.Fatal("socratic attribute not preserved in challenge attributes")
 	}
 }
 

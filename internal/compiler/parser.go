@@ -104,7 +104,7 @@ func Parse(src, path string) (Content, error) {
 				if b.Type != "challenge" {
 					continue
 				}
-				c.Challenges = append(c.Challenges, Challenge{ID: b.Attributes["id"], Title: b.Attributes["title"], Objective: b.Attributes["objective"], Instructions: b.Content, Hint: b.Attributes["hint"], Success: b.Attributes["success"], Command: b.Attributes["command"], Attributes: b.Attributes})
+				c.Challenges = append(c.Challenges, Challenge{ID: b.Attributes["id"], Title: b.Attributes["title"], Objective: b.Attributes["objective"], Instructions: b.Content, Hint: b.Attributes["hint"], Success: b.Attributes["success"], Command: b.Attributes["command"], Socratic: b.Attributes["socratic"], Attributes: b.Attributes})
 			}
 		}
 	}
