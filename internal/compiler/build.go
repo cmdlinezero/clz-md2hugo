@@ -10,6 +10,8 @@ import (
 	"time"
 )
 
+var allowedAccessTiers = map[string]bool{"public": true, "member": true, "pro": true}
+
 var allowedTypes = map[string]bool{
 	"collection":      true,
 	"learning-path":   true,
@@ -88,6 +90,7 @@ func compile(input string) ([]Content, error) {
 	if err := validateRelationships(contents); err != nil {
 		return nil, err
 	}
+	contents = resolveAccess(contents)
 	return contents, nil
 }
 
@@ -97,6 +100,9 @@ func validateContent(c Content, file string) error {
 	}
 	if strings.TrimSpace(c.Title) == "" {
 		return fmt.Errorf("%s: missing title", file)
+	}
+	if !allowedAccessTiers[c.Access.Tier] {
+		return fmt.Errorf("%s: invalid access tier %q (want public, member, or pro)", file, c.Access.Tier)
 	}
 	if !allowedTypes[c.Type] {
 		return fmt.Errorf("%s: unsupported type %q", file, c.Type)
@@ -181,8 +187,75 @@ func validateRelationships(contents []Content) error {
 	return nil
 }
 
+var accessRank = map[string]int{"public": 0, "member": 1, "pro": 2}
+
+// resolveAccess computes effective access without changing explicit declarations.
+// Explicit child access wins. Otherwise a child inherits the most restrictive
+// tier from all containment parents. Collection membership is containment;
+// children and activities are forward containment references. Certification
+// alignment is an association and does not propagate access. A certification
+// can itself be contained by a collection via collections, or contain another
+// node (including a collection) via children.
+func resolveAccess(contents []Content) []Content {
+	index := make(map[string]int, len(contents))
+	for i := range contents {
+		index[contents[i].ID] = i
+	}
+
+	parents := make(map[string][]string)
+	for _, c := range contents {
+		for _, child := range c.Children {
+			parents[child] = append(parents[child], c.ID)
+		}
+		for _, activity := range c.Activities {
+			parents[activity] = append(parents[activity], c.ID)
+		}
+		for _, collection := range c.Collections {
+			parents[c.ID] = append(parents[c.ID], collection)
+		}
+	}
+
+	memo := make(map[string]string, len(contents))
+	visiting := make(map[string]bool, len(contents))
+	var effective func(string) string
+	effective = func(id string) string {
+		if tier, ok := memo[id]; ok {
+			return tier
+		}
+		i, ok := index[id]
+		if !ok {
+			return "public"
+		}
+		c := contents[i]
+		if c.AccessDeclared {
+			memo[id] = c.Access.Tier
+			return c.Access.Tier
+		}
+		if visiting[id] { // relationship validation is not a cycle check; fail safe to current default.
+			return c.Access.Tier
+		}
+		visiting[id] = true
+		tier := "public"
+		for _, parent := range parents[id] {
+			candidate := effective(parent)
+			if accessRank[candidate] > accessRank[tier] {
+				tier = candidate
+			}
+		}
+		visiting[id] = false
+		memo[id] = tier
+		return tier
+	}
+
+	result := append([]Content(nil), contents...)
+	for i := range result {
+		result[i].Access.Tier = effective(result[i].ID)
+	}
+	return result
+}
+
 func graphFrom(contents []Content) (ContentGraph, error) {
-	graph := ContentGraph{Version: 2, Generated: time.Now().UTC().Format(time.RFC3339)}
+	graph := ContentGraph{Version: 3, Generated: time.Now().UTC().Format(time.RFC3339)}
 	for _, c := range contents {
 		graph.Stats.Documents++
 		graph.Stats.Steps += len(c.Steps)
