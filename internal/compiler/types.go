@@ -1,5 +1,9 @@
 package compiler
 
+type Access struct {
+	Tier string `json:"tier"`
+}
+
 type Content struct {
 	ID             string      `json:"id"`
 	Source         string      `json:"source,omitempty"`
@@ -14,6 +18,8 @@ type Content struct {
 	Provider       string      `json:"provider,omitempty"`
 	RatingID       string      `json:"rating_id,omitempty"`
 	ProductID      string      `json:"product_id,omitempty"`
+	Access         Access      `json:"access"`
+	AccessDeclared bool        `json:"-"`
 	Runtime        string      `json:"runtime,omitempty"`
 	Entrypoint     string      `json:"entrypoint,omitempty"`
 	Difficulty     string      `json:"difficulty,omitempty"`
@@ -26,7 +32,7 @@ type Content struct {
 	Children       []string    `json:"children,omitempty"`
 	Activities     []string    `json:"activities,omitempty"`
 	Options        []string    `json:"options,omitempty"`
-	Answer         int         `json:"answer,omitempty"`
+	Answer         int         `json:"answer"`
 	Explanation    string      `json:"explanation,omitempty"`
 	Duration       string      `json:"duration,omitempty"`
 	HeroTitle      string      `json:"hero_title,omitempty"`

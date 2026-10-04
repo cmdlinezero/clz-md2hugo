@@ -47,9 +47,14 @@ func Parse(src, path string) (Content, error) {
 		HeroImage: stringValue(meta["hero_image"]), Issue: intValue(meta["issue"]),
 		Kind: stringValue(meta["kind"]), Provider: stringValue(meta["provider"]),
 		RatingID: stringValue(meta["rating_id"]), ProductID: stringValue(meta["product_id"]),
+		Access:  Access{Tier: stringValue(meta["access.tier"])},
 		Runtime: stringValue(meta["runtime"]), Entrypoint: stringValue(meta["entrypoint"]), Difficulty: stringValue(meta["difficulty"]),
 		Options: stringSlice(meta["options"]), Answer: intValue(meta["answer"]), Explanation: stringValue(meta["explanation"]),
 		Volume: intValue(meta["volume"]), Special: boolValue(meta["special_edition"]),
+	}
+	c.AccessDeclared = c.Access.Tier != ""
+	if c.Access.Tier == "" {
+		c.Access.Tier = "public"
 	}
 	c.Draft = boolValue(meta["draft"])
 	c.Status = stringValue(meta["status"])
@@ -130,18 +135,33 @@ func splitFrontmatter(src string) (string, string, error) {
 func parseFrontmatter(src string) (map[string]any, error) {
 	out := map[string]any{}
 	sc := bufio.NewScanner(strings.NewReader(src))
+	parent := ""
 	for sc.Scan() {
-		line := strings.TrimSpace(sc.Text())
+		raw := sc.Text()
+		line := strings.TrimSpace(raw)
 		if line == "" || strings.HasPrefix(line, "#") {
 			continue
 		}
+		indent := len(raw) - len(strings.TrimLeft(raw, " \t"))
 		parts := strings.SplitN(line, ":", 2)
 		if len(parts) != 2 {
 			return nil, fmt.Errorf("invalid frontmatter line %q", line)
 		}
 		key := strings.TrimSpace(parts[0])
 		val := strings.TrimSpace(parts[1])
-		out[key] = parseScalar(val)
+		if indent == 0 {
+			parent = ""
+			if val == "" {
+				parent = key
+				continue
+			}
+			out[key] = parseScalar(val)
+			continue
+		}
+		if parent == "" {
+			return nil, fmt.Errorf("nested frontmatter key %q has no parent", key)
+		}
+		out[parent+"."+key] = parseScalar(val)
 	}
 	return out, sc.Err()
 }

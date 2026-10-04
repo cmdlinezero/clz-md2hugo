@@ -323,3 +323,122 @@ func TestParseRequiredRegexPatterns(t *testing.T) {
 		}
 	}
 }
+
+func TestAccessDefaultsToPublic(t *testing.T) {
+	c, err := Parse("---\nid: free\ntype: tutorial\ntitle: Free\n---\n", "free.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if c.Access.Tier != "public" || c.AccessDeclared {
+		t.Fatalf("unexpected default access: %+v", c.Access)
+	}
+}
+
+func TestAccessNestedFrontmatter(t *testing.T) {
+	c, err := Parse("---\nid: pro\ntype: tutorial\ntitle: Pro\naccess:\n  tier: pro\n---\n", "pro.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if c.Access.Tier != "pro" || !c.AccessDeclared {
+		t.Fatalf("access not parsed: %+v", c.Access)
+	}
+}
+
+func TestInvalidAccessTierFails(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "bad.md"), "---\nid: bad\ntype: tutorial\ntitle: Bad\naccess:\n  tier: premium\n---\n")
+	if err := Validate(dir); err == nil {
+		t.Fatal("expected invalid access tier error")
+	}
+}
+
+func TestAccessInheritanceAndExplicitOverride(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "collection.md"), "---\nid: paid\ntype: collection\ntitle: Paid\naccess:\n  tier: pro\n---\n")
+	write(t, filepath.Join(dir, "inherited.md"), "---\nid: inherited\ntype: tutorial\ntitle: Inherited\ncollections: [paid]\n---\n")
+	write(t, filepath.Join(dir, "override.md"), "---\nid: override\ntype: tutorial\ntitle: Override\ncollections: [paid]\naccess:\n  tier: public\n---\n")
+	contents, err := compile(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	byID := map[string]Content{}
+	for _, c := range contents {
+		byID[c.ID] = c
+	}
+	if byID["inherited"].Access.Tier != "pro" {
+		t.Fatalf("expected inherited pro, got %q", byID["inherited"].Access.Tier)
+	}
+	if byID["override"].Access.Tier != "public" {
+		t.Fatalf("expected explicit public override, got %q", byID["override"].Access.Tier)
+	}
+}
+
+func TestQuizQuestionsInheritAccess(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "quiz.md"), "---\nid: qz\ntype: quiz\ntitle: Quiz\nactivities: [q1]\naccess:\n  tier: pro\n---\n")
+	write(t, filepath.Join(dir, "question.md"), "---\nid: q1\ntype: question\ntitle: Question\noptions: [one, two]\nanswer: 0\n---\n")
+	contents, err := compile(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, c := range contents {
+		if c.ID == "q1" && c.Access.Tier != "pro" {
+			t.Fatalf("question access = %q, want pro", c.Access.Tier)
+		}
+	}
+}
+
+func TestGraphVersionThree(t *testing.T) {
+	graph, err := graphFrom([]Content{{ID: "x", Type: "tutorial", Title: "X", Access: Access{Tier: "public"}}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if graph.Version != 3 {
+		t.Fatalf("graph version = %d, want 3", graph.Version)
+	}
+}
+
+func TestCertificationAlignmentDoesNotPropagateAccess(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "cert.md"), "---\nid: cert\ntype: certification\ntitle: Certification\naccess:\n  tier: pro\n---\n")
+	write(t, filepath.Join(dir, "tutorial.md"), "---\nid: tutorial\ntype: tutorial\ntitle: Tutorial\ncertifications: [cert]\n---\n")
+	contents, err := compile(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, c := range contents {
+		if c.ID == "tutorial" && c.Access.Tier != "public" {
+			t.Fatalf("aligned tutorial access = %q, want public", c.Access.Tier)
+		}
+	}
+}
+
+func TestCollectionCanContainCertification(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "collection.md"), "---\nid: collection\ntype: collection\ntitle: Collection\naccess:\n  tier: pro\n---\n")
+	write(t, filepath.Join(dir, "cert.md"), "---\nid: cert\ntype: certification\ntitle: Certification\ncollections: [collection]\n---\n")
+	contents, err := compile(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, c := range contents {
+		if c.ID == "cert" && c.Access.Tier != "pro" {
+			t.Fatalf("contained certification access = %q, want pro", c.Access.Tier)
+		}
+	}
+}
+
+func TestCertificationCanContainCollection(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "cert.md"), "---\nid: cert\ntype: certification\ntitle: Certification\nchildren: [nested]\naccess:\n  tier: pro\n---\n")
+	write(t, filepath.Join(dir, "collection.md"), "---\nid: nested\ntype: collection\ntitle: Nested Collection\n---\n")
+	contents, err := compile(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, c := range contents {
+		if c.ID == "nested" && c.Access.Tier != "pro" {
+			t.Fatalf("contained collection access = %q, want pro", c.Access.Tier)
+		}
+	}
+}

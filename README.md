@@ -133,3 +133,16 @@ Contributions are welcome! If you'd like to help improve `clz-md2hugo`:
 ## 📄 License
 
 Distributed under the GNU License. See `LICENSE` for more information.
+
+## Access tiers (content graph v3)
+
+Content can declare an access tier in frontmatter. If omitted, the tier defaults to `public`.
+
+```yaml
+access:
+  tier: pro
+```
+
+Supported tiers are `public`, `member`, and `pro`. Access is resolved by `md2hugo`, not by Hugo. An item without an explicit tier inherits the most restrictive tier from its containment parents (`public < member < pro`); an explicit child tier overrides inherited access. Collection membership, `children`, and quiz `activities` are containment relationships and participate in inheritance. `certifications` is an alignment/association relationship and does not propagate access. Certifications may themselves be contained by collections through `collections`, and may contain other nodes (including collections) through `children`.
+
+The generated canonical graph remains complete and now reports `"version": 3`. Public/protected projections are intentionally outside this milestone.
