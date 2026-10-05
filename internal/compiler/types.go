@@ -32,7 +32,7 @@ type Content struct {
 	Children       []string    `json:"children,omitempty"`
 	Activities     []string    `json:"activities,omitempty"`
 	Options        []string    `json:"options,omitempty"`
-	Answer         int         `json:"answer"`
+	Answer         *int        `json:"answer,omitempty"`
 	Explanation    string      `json:"explanation,omitempty"`
 	Duration       string      `json:"duration,omitempty"`
 	HeroTitle      string      `json:"hero_title,omitempty"`
@@ -124,4 +124,52 @@ type Challenge struct {
 	Command      string            `json:"command,omitempty"`
 	Socratic     string            `json:"socratic,omitempty"`
 	Attributes   map[string]string `json:"attributes,omitempty"`
+}
+
+// CatalogueItem is the public-safe discovery representation of a content node.
+// It deliberately excludes instructional/assessment payload such as steps,
+// blocks, question options/answers, flashcard backs, and lab challenges.
+type CatalogueItem struct {
+	ID             string   `json:"id"`
+	Type           string   `json:"type"`
+	Title          string   `json:"title"`
+	Description    string   `json:"description,omitempty"`
+	Slug           string   `json:"slug"`
+	Kind           string   `json:"kind,omitempty"`
+	Provider       string   `json:"provider,omitempty"`
+	RatingID       string   `json:"rating_id,omitempty"`
+	ProductID      string   `json:"product_id,omitempty"`
+	Access         Access   `json:"access"`
+	Runtime        string   `json:"runtime,omitempty"`
+	Difficulty     string   `json:"difficulty,omitempty"`
+	Categories     []string `json:"categories,omitempty"`
+	Tags           []string `json:"tags,omitempty"`
+	Topics         []string `json:"topics,omitempty"`
+	Collections    []string `json:"collections,omitempty"`
+	Certifications []string `json:"certifications,omitempty"`
+	Prerequisites  []string `json:"prerequisites,omitempty"`
+	Children       []string `json:"children,omitempty"`
+	Activities     []string `json:"activities,omitempty"`
+	Duration       string   `json:"duration,omitempty"`
+	HeroTitle      string   `json:"hero_title,omitempty"`
+	HeroImage      string   `json:"hero_image,omitempty"`
+	Issue          int      `json:"issue,omitempty"`
+	Volume         int      `json:"volume,omitempty"`
+	Special        bool     `json:"special_edition,omitempty"`
+	StepCount      int      `json:"step_count,omitempty"`
+	CardCount      int      `json:"card_count,omitempty"`
+	ChallengeCount int      `json:"challenge_count,omitempty"`
+}
+
+type Catalogue struct {
+	Version   int             `json:"version"`
+	Generated string          `json:"generated"`
+	Items     []CatalogueItem `json:"items"`
+}
+
+type PayloadProjection struct {
+	Version   int       `json:"version"`
+	Generated string    `json:"generated"`
+	Tier      string    `json:"tier"`
+	Items     []Content `json:"items"`
 }

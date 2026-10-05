@@ -1,8 +1,10 @@
 package compiler
 
 import (
+	"encoding/json"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -440,5 +442,99 @@ func TestCertificationCanContainCollection(t *testing.T) {
 		if c.ID == "nested" && c.Access.Tier != "pro" {
 			t.Fatalf("contained collection access = %q, want pro", c.Access.Tier)
 		}
+	}
+}
+
+func TestCatalogueExcludesPayloadFields(t *testing.T) {
+	contents := []Content{{
+		ID: "paid-question", Type: "question", Title: "Paid question", Slug: "paid-question",
+		Status: "published", Access: Access{Tier: "pro"}, Topics: []string{"docker"},
+		Options: []string{"secret-a", "secret-b"}, Answer: intPtr(0), Explanation: "secret explanation",
+	}}
+	catalogue := catalogueFrom(contents, "2026-10-04T00:00:00Z")
+	data, err := json.Marshal(catalogue)
+	if err != nil {
+		t.Fatal(err)
+	}
+	got := string(data)
+	for _, forbidden := range []string{"secret-a", "secret-b", "secret explanation", `"answer"`, `"options"`, `"explanation"`} {
+		if strings.Contains(got, forbidden) {
+			t.Fatalf("catalogue leaked payload field/value %q: %s", forbidden, got)
+		}
+	}
+	if !strings.Contains(got, `"tier":"pro"`) {
+		t.Fatalf("catalogue must expose effective access tier: %s", got)
+	}
+}
+
+func TestCatalogueExcludesTutorialFlashcardAndLabPayload(t *testing.T) {
+	contents := []Content{
+		{ID: "tutorial", Type: "tutorial", Title: "Tutorial", Access: Access{Tier: "pro"}, Steps: []Step{{ID: "s1", Label: "One", Instructions: "secret instructions", Blocks: []Block{{Type: "markdown", Content: "secret block"}}}}},
+		{ID: "cards", Type: "flashcard-deck", Title: "Cards", Access: Access{Tier: "member"}, Cards: []Flashcard{{ID: "c1", Front: "front", Back: "secret back"}}},
+		{ID: "lab", Type: "challenge-lab", Title: "Lab", Access: Access{Tier: "pro"}, Challenges: []Challenge{{ID: "c1", Command: "secret command"}}},
+	}
+	catalogue := catalogueFrom(contents, "2026-10-04T00:00:00Z")
+	data, err := json.Marshal(catalogue)
+	if err != nil {
+		t.Fatal(err)
+	}
+	got := string(data)
+	for _, forbidden := range []string{"secret instructions", "secret block", "secret back", "secret command", `"steps"`, `"cards"`, `"challenges"`} {
+		if strings.Contains(got, forbidden) {
+			t.Fatalf("catalogue leaked protected payload %q: %s", forbidden, got)
+		}
+	}
+	for _, expected := range []string{`"step_count":1`, `"card_count":1`, `"challenge_count":1`} {
+		if !strings.Contains(got, expected) {
+			t.Fatalf("catalogue missing safe count %s: %s", expected, got)
+		}
+	}
+}
+
+func TestPayloadProjectionPartitionsByEffectiveTier(t *testing.T) {
+	contents := []Content{
+		{ID: "free", Type: "tutorial", Title: "Free", Access: Access{Tier: "public"}},
+		{ID: "member", Type: "tutorial", Title: "Member", Access: Access{Tier: "member"}},
+		{ID: "pro", Type: "tutorial", Title: "Pro", Access: Access{Tier: "pro"}},
+	}
+	for _, tc := range []struct {
+		tier string
+		want string
+	}{{"public", "free"}, {"member", "member"}, {"pro", "pro"}} {
+		projection := payloadProjectionFrom(contents, tc.tier, "2026-10-04T00:00:00Z")
+		if len(projection.Items) != 1 || projection.Items[0].ID != tc.want {
+			t.Fatalf("%s projection = %+v, want only %s", tc.tier, projection.Items, tc.want)
+		}
+	}
+}
+
+func intPtr(v int) *int { return &v }
+
+func TestQuestionAnswerZeroIsSerialized(t *testing.T) {
+	c := Content{ID: "q", Type: "question", Title: "Q", Answer: intPtr(0)}
+	data, err := json.Marshal(c)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(data), `"answer":0`) {
+		t.Fatalf("answer index zero was omitted: %s", data)
+	}
+}
+
+func TestNonQuestionOmitsAnswer(t *testing.T) {
+	c := Content{ID: "tutorial", Type: "tutorial", Title: "Tutorial"}
+	data, err := json.Marshal(c)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(string(data), `"answer"`) {
+		t.Fatalf("non-question unexpectedly serialized answer: %s", data)
+	}
+}
+
+func TestQuestionRequiresAnswer(t *testing.T) {
+	c := Content{ID: "q", Type: "question", Title: "Q", Access: Access{Tier: "public"}, Status: "published", Options: []string{"one", "two"}}
+	if err := validateContent(c, "question.md"); err == nil || !strings.Contains(err.Error(), "requires answer") {
+		t.Fatalf("validateContent error = %v, want missing answer error", err)
 	}
 }
