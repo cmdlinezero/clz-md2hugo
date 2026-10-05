@@ -1,30 +1,40 @@
 with import <nixpkgs> {};
 
 let
-  # External Script: This reads './dev.kdl' and puts it into a binary named 'dev-zellij'
-  scriptZellijLayout = pkgs.writeText "dev.kdl" (builtins.readFile ./dev.kdl);
-  zellijLayout = pkgs.writeShellScriptBin "dev-zellij" ''
-    ${pkgs.zellij}/bin/zellij --layout ${scriptZellijLayout}
+  scriptZellijLayout =
+    pkgs.writeText "dev.kdl" (builtins.readFile ./dev.kdl);
+
+  zellijConfig = pkgs.writeText "config.kdl" ''
+    default_mode "normal"
   '';
-in
-pkgs.mkShell {
+
+  zellijLayout = pkgs.writeShellScriptBin "dev-zellij" ''
+    ${pkgs.zellij}/bin/zellij \
+      --config ${zellijConfig} \
+      --layout ${scriptZellijLayout}
+  '';
+
+in pkgs.mkShell {
   name = "go-dev";
 
   nativeBuildInputs = with pkgs; [
-    go 
+    go
     tree
-    zellij                         # zellij support
-    zellijLayout                   # zellij layout definition
+    zsh
+    zellij
+    zellijLayout
+    oh-my-zsh
   ];
 
-  LANGUAGE     = "Go";
-  VERSION      = "go version";
+  LANGUAGE = "Go";
+  VERSION = "go version";
 
   shellHook = ''
-    # Optional: Script environment start up 
     echo "Welcome to $LANGUAGE Development Environment"
     $VERSION
-    # Set a layout using Zellij
+
+    export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
+
     exec dev-zellij
   '';
 }
