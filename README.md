@@ -146,3 +146,25 @@ access:
 Supported tiers are `public`, `member`, and `pro`. Access is resolved by `md2hugo`, not by Hugo. An item without an explicit tier inherits the most restrictive tier from its containment parents (`public < member < pro`); an explicit child tier overrides inherited access. Collection membership, `children`, and quiz `activities` are containment relationships and participate in inheritance. `certifications` is an alignment/association relationship and does not propagate access. Certifications may themselves be contained by collections through `collections`, and may contain other nodes (including collections) through `children`.
 
 The generated canonical graph remains complete and now reports `"version": 3`. Public/protected projections are intentionally outside this milestone.
+
+## Public catalogue and protected payload projections
+
+The canonical `content.json` graph is an internal build artifact. Do not publish it directly: it contains full tutorial, assessment, flashcard, and lab payloads regardless of access tier.
+
+Use `project` to build a public-safe catalogue separately from full payloads:
+
+```bash
+certin-content project \
+  --input examples/content \
+  --catalogue dist/catalogue.json \
+  --payload-dir private/payloads
+```
+
+This produces:
+
+- `dist/catalogue.json` — safe discovery metadata for public, member, and pro content. It includes effective `access.tier` and relationship IDs, but excludes tutorial steps/blocks, question options/answers/explanations, flashcard card payloads, and challenge payloads.
+- `private/payloads/public.json` — full payload for content whose effective tier is `public`.
+- `private/payloads/member.json` — full payload for content whose effective tier is `member`.
+- `private/payloads/pro.json` — full payload for content whose effective tier is `pro`.
+
+`member.json` and `pro.json` are backend/private artifacts. Their directory must not be copied into Hugo's `static`, `public`, or other web-served output. Authentication/entitlement enforcement remains the responsibility of the serving backend; md2hugo only compiles the effective access classification and artifact boundary.

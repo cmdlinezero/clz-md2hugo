@@ -49,7 +49,7 @@ func Parse(src, path string) (Content, error) {
 		RatingID: stringValue(meta["rating_id"]), ProductID: stringValue(meta["product_id"]),
 		Access:  Access{Tier: stringValue(meta["access.tier"])},
 		Runtime: stringValue(meta["runtime"]), Entrypoint: stringValue(meta["entrypoint"]), Difficulty: stringValue(meta["difficulty"]),
-		Options: stringSlice(meta["options"]), Answer: intValue(meta["answer"]), Explanation: stringValue(meta["explanation"]),
+		Options: stringSlice(meta["options"]), Answer: optionalIntValue(meta["answer"]), Explanation: stringValue(meta["explanation"]),
 		Volume: intValue(meta["volume"]), Special: boolValue(meta["special_edition"]),
 	}
 	c.AccessDeclared = c.Access.Tier != ""
@@ -532,6 +532,13 @@ func stringValue(v any) string {
 func boolValue(v any) bool     { b, _ := v.(bool); return b }
 func boolString(v string) bool { return strings.EqualFold(v, "true") }
 func intValue(v any) int       { i, _ := v.(int); return i }
+func optionalIntValue(v any) *int {
+	i, ok := v.(int)
+	if !ok {
+		return nil
+	}
+	return &i
+}
 func stringSlice(v any) []string {
 	if s, ok := v.([]string); ok {
 		return s

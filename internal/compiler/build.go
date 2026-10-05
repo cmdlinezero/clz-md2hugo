@@ -114,8 +114,11 @@ func validateContent(c Content, file string) error {
 		if len(c.Options) < 2 {
 			return fmt.Errorf("%s: question requires at least 2 options", file)
 		}
-		if c.Answer < 0 || c.Answer >= len(c.Options) {
-			return fmt.Errorf("%s: answer index %d is outside options range", file, c.Answer)
+		if c.Answer == nil {
+			return fmt.Errorf("%s: question requires answer", file)
+		}
+		if *c.Answer < 0 || *c.Answer >= len(c.Options) {
+			return fmt.Errorf("%s: answer index %d is outside options range", file, *c.Answer)
 		}
 	}
 	if c.Type == "flashcard-deck" {
