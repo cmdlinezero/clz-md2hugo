@@ -52,6 +52,10 @@ func Parse(src, path string) (Content, error) {
 		Options: stringSlice(meta["options"]), Answer: optionalIntValue(meta["answer"]), Explanation: stringValue(meta["explanation"]),
 		Volume: intValue(meta["volume"]), Special: boolValue(meta["special_edition"]),
 	}
+	if err := applyLabContract(&c, meta); err != nil {
+		return Content{}, fmt.Errorf("%s: %w", path, err)
+	}
+
 	c.AccessDeclared = c.Access.Tier != ""
 	if c.Access.Tier == "" {
 		c.Access.Tier = "public"
@@ -114,6 +118,46 @@ func Parse(src, path string) (Content, error) {
 		}
 	}
 	return c, nil
+}
+
+func applyLabContract(c *Content, meta map[string]any) error {
+	learningMode := strings.ToLower(strings.TrimSpace(stringValue(meta["learning_mode"])))
+	modes := stringSlice(meta["lab_modes"])
+	defaultMode := strings.ToLower(strings.TrimSpace(stringValue(meta["default_lab_mode"])))
+
+	declared := learningMode == "lab" || len(modes) > 0 || defaultMode != ""
+	if !declared {
+		return nil
+	}
+	if learningMode != "lab" {
+		return errors.New("lab_modes/default_lab_mode require learning_mode: lab")
+	}
+	if len(modes) == 0 {
+		return errors.New("learning_mode: lab requires at least one lab_modes entry")
+	}
+
+	supported := map[string]bool{"codelab": true, "terminal": true}
+	seen := map[string]bool{}
+	normalized := make([]string, 0, len(modes))
+	for _, mode := range modes {
+		mode = strings.ToLower(strings.TrimSpace(mode))
+		if !supported[mode] {
+			return fmt.Errorf("unsupported lab mode %q (supported: codelab, terminal)", mode)
+		}
+		if seen[mode] {
+			return fmt.Errorf("duplicate lab mode %q", mode)
+		}
+		seen[mode] = true
+		normalized = append(normalized, mode)
+	}
+	if defaultMode == "" {
+		return errors.New("learning_mode: lab requires default_lab_mode")
+	}
+	if !seen[defaultMode] {
+		return fmt.Errorf("default_lab_mode %q must be present in lab_modes", defaultMode)
+	}
+	c.Lab = &LabContract{Enabled: true, Modes: normalized, DefaultMode: defaultMode}
+	return nil
 }
 
 func splitFrontmatter(src string) (string, string, error) {
@@ -348,6 +392,10 @@ func parseBlocks(src string) ([]Block, error) {
 	var blocks []Block
 	var text []string
 	flushText := func() {
+		// Markdown blocks are a portable source contract. Preserve authored Markdown
+		// syntax verbatim inside the block; only trim boundary whitespace introduced
+		// by structural separation from semantic fenced blocks. Rendering belongs to
+		// downstream consumers such as Hugo/Goldmark.
 		t := strings.TrimSpace(strings.Join(text, "\n"))
 		if t != "" {
 			blocks = append(blocks, Block{Type: "markdown", Content: t})

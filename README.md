@@ -4,16 +4,18 @@
 [![License](https://img.shields.io/github/license/cmdlinezero/clz-md2hugo)](LICENSE)
 [![GitHub release](https://img.shields.io/github/v/release/cmdlinezero/clz-md2hugo?include_prereleases)](https://github.com/cmdlinezero/clz-md2hugo/releases)
 
-`clz-md2hugo` is a lightweight CLI tool written in Go that converts standard Markdown files into Hugo-compatible content files with front matter generation.
+`clz-md2hugo` is a Go content compiler for Certin-authored Markdown. It parses source metadata and tutorial structure into a portable JSON content contract that can be consumed by Hugo/Certin Portal and other renderers. The compiler owns content structure and portable semantics; downstream renderers own presentation.
 
 ---
 
 ## 🚀 Features
 
-- **Automated Front Matter Injection:** Automatically formats titles, dates, tags, and categories for Hugo content folders.
+- **Portable Content Compilation:** Converts authored Markdown and front matter into a renderer-independent JSON content graph.
+- **Lossless Markdown Blocks:** Preserves ordinary Markdown syntax inside `markdown` blocks; presentation is deferred to the downstream renderer.
+- **Structured Semantic Blocks:** Extracts semantic fences such as checks, code, hints, callouts, and diagrams into typed blocks.
+- **Explicit Lab Capabilities:** Normalizes declared lab modalities into a portable `lab` contract without inferring modality from content.
+- **Catalogue & Payload Projection:** Produces discovery metadata and tiered payload artifacts while preserving access boundaries.
 - **Fast & Lightweight:** Built in Go with minimal external dependencies.
-- **Batch Processing:** Convert single Markdown files or process entire directories recursively.
-- **Customizable Front Matter:** Supports YAML/TOML metadata formatting.
 
 ---
 
@@ -116,24 +118,15 @@ golangci-lint run
 
 ```
 
----
+## Build a Catalogue
 
-## 🤝 Contributing
+Create a catalogue based on the folder containing the content to be generated.
 
-Contributions are welcome! If you'd like to help improve `clz-md2hugo`:
-
-1. Fork the Repository
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-Distributed under the GNU License. See `LICENSE` for more information.
-
+```bash
+ ./clz-md2hugo build \
+   -i examples/certin-site \
+   -o examples/generated/certin-site.json
+```
 ## Access tiers (content graph v3)
 
 Content can declare an access tier in frontmatter. If omitted, the tier defaults to `public`.
@@ -168,3 +161,62 @@ This produces:
 - `private/payloads/pro.json` — full payload for content whose effective tier is `pro`.
 
 `member.json` and `pro.json` are backend/private artifacts. Their directory must not be copied into Hugo's `static`, `public`, or other web-served output. Authentication/entitlement enforcement remains the responsibility of the serving backend; md2hugo only compiles the effective access classification and artifact boundary.
+
+
+
+## Portable lab contract
+
+Tutorials that explicitly declare `learning_mode: lab` compile their modality metadata into a normalized, renderer-independent `lab` object. For example, a Codelab-only tutorial emits:
+
+```json
+{
+  "lab": {
+    "enabled": true,
+    "modes": ["codelab"],
+    "default_mode": "codelab"
+  }
+}
+```
+
+The source mapping is:
+
+- `learning_mode: lab` → `lab.enabled`
+- `lab_modes` → `lab.modes`
+- `default_lab_mode` → `lab.default_mode`
+
+`default_mode` must be one of the declared modes, and a lab must declare at least one supported mode. Current supported modes are `codelab` and `terminal`. Non-lab tutorials omit the `lab` object.
+
+Lab modality is **explicit metadata**. The compiler never infers Codelab support from `check` blocks and never infers Terminal support from code or terminal blocks. Content features and runtime modality are separate concerns. Catalogue projection carries the same normalized `lab` contract so discovery metadata and full content payloads agree on runtime capabilities.
+
+## Portable Markdown blocks
+
+Tutorial Markdown remains Markdown in the compiled content contract. `clz-md2hugo` determines structure but does not determine presentation. Ordinary authored Markdown is preserved inside blocks such as:
+
+```json
+{
+  "type": "markdown",
+  "content": "## The nine step method\n\n1. **Classify the workload:** determine the activity."
+}
+```
+
+Semantic fenced blocks are extracted separately into typed structures such as `check`, `code`, `hint`, `callout`, and `diagram`. This extraction does not authorize the compiler to strip presentation syntax from surrounding ordinary Markdown.
+
+Downstream consumers such as Certin Portal/Hugo own Markdown-to-HTML presentation. In other words: **md2hugo determines structure; Hugo determines presentation.** See `MARKDOWN-CONTRACT.md` for the detailed boundary and regression expectations.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! If you'd like to help improve `clz-md2hugo`:
+
+1. Fork the Repository
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+Distributed under the GNU License. See `LICENSE` for more information.

@@ -7,8 +7,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+const CompilerVersion = "portable-markdown-v3"
+
 func Execute() {
-	root := &cobra.Command{Use: "certin-content", Short: "Compile Certin Markdown content into JSON"}
+	root := &cobra.Command{Use: "certin-content", Short: "Compile Certin Markdown content into JSON", Version: CompilerVersion}
 	build := &cobra.Command{Use: "build", Short: "Validate and compile Markdown content", RunE: func(cmd *cobra.Command, args []string) error {
 		input, _ := cmd.Flags().GetString("input")
 		output, _ := cmd.Flags().GetString("output")

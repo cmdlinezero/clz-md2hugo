@@ -538,3 +538,161 @@ func TestQuestionRequiresAnswer(t *testing.T) {
 		t.Fatalf("validateContent error = %v, want missing answer error", err)
 	}
 }
+
+func TestTutorialMarkdownBlocksPreserveAuthoredFormatting(t *testing.T) {
+	src := `---
+id: markdown-contract
+type: tutorial
+title: Markdown Contract
+learning_mode: lab
+lab_modes: [codelab]
+default_lab_mode: codelab
+---
+
+{{< step label="Formatting" duration="2:00" >}}
+## Nine step method
+
+1. **Classify the workload:** determine the activity.
+2. *Extract constraints:* identify the hard requirements.
+
+- Preserve an unordered item.
+- Preserve [a link](https://example.com) and ` + "`inline code`" + `.
+
+> Preserve a blockquote.
+
+` + "```check {id=\"understand\" message=\"Explain it.\"}\n```" + `
+{{< /step >}}
+`
+	c, err := Parse(src, "markdown-contract.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(c.Steps) != 1 || len(c.Steps[0].Blocks) != 2 {
+		t.Fatalf("expected markdown + check blocks, got %+v", c.Steps)
+	}
+	got := c.Steps[0].Blocks[0].Content
+	want := "## Nine step method\n\n1. **Classify the workload:** determine the activity.\n2. *Extract constraints:* identify the hard requirements.\n\n- Preserve an unordered item.\n- Preserve [a link](https://example.com) and `inline code`.\n\n> Preserve a blockquote."
+	if got != want {
+		t.Fatalf("markdown was rewritten\nwant:\n%s\n\ngot:\n%s", want, got)
+	}
+}
+
+func TestNormalizedLabContract(t *testing.T) {
+	src := `---
+id: unified-lab
+type: tutorial
+title: Unified Lab
+learning_mode: lab
+lab_modes: [codelab, terminal]
+default_lab_mode: codelab
+---
+
+{{< step label="One" >}}
+Text.
+{{< /step >}}
+`
+	c, err := Parse(src, "unified-lab.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if c.Lab == nil || !c.Lab.Enabled || c.Lab.DefaultMode != "codelab" || len(c.Lab.Modes) != 2 || c.Lab.Modes[0] != "codelab" || c.Lab.Modes[1] != "terminal" {
+		t.Fatalf("unexpected lab contract: %+v", c.Lab)
+	}
+}
+
+func TestNonLabTutorialOmitsLabContract(t *testing.T) {
+	src := `---
+id: ordinary
+type: tutorial
+title: Ordinary
+---
+
+{{< step label="One" >}}
+Text.
+{{< /step >}}
+`
+	c, err := Parse(src, "ordinary.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if c.Lab != nil {
+		t.Fatalf("ordinary tutorial unexpectedly has lab contract: %+v", c.Lab)
+	}
+}
+
+func TestInvalidLabContracts(t *testing.T) {
+	cases := []struct {
+		name string
+		meta string
+	}{
+		{"missing modes", "learning_mode: lab\ndefault_lab_mode: codelab"},
+		{"missing default", "learning_mode: lab\nlab_modes: [codelab]"},
+		{"unsupported", "learning_mode: lab\nlab_modes: [codelab, spaceship]\ndefault_lab_mode: codelab"},
+		{"duplicate", "learning_mode: lab\nlab_modes: [codelab, codelab]\ndefault_lab_mode: codelab"},
+		{"default outside modes", "learning_mode: lab\nlab_modes: [terminal]\ndefault_lab_mode: codelab"},
+	}
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			src := "---\nid: invalid\ntype: tutorial\ntitle: Invalid\n" + tc.meta + "\n---\n\n{{< step label=\"One\" >}}\nText.\n{{< /step >}}\n"
+			if _, err := Parse(src, tc.name+".md"); err == nil {
+				t.Fatal("expected invalid lab contract to fail")
+			}
+		})
+	}
+}
+
+
+func TestPDECodelabContractSurvivesParseAndJSONSerialization(t *testing.T) {
+	src := `---
+id: tut-cert-pde-001
+title: 001 Professional Data Engineer
+description: Exam reasoning system.
+type: tutorial
+layout: codelab
+learning_mode: lab
+lab_modes: [codelab]
+default_lab_mode: codelab
+mode: interactive
+category: testing
+difficulty: beginner
+duration: "6 min"
+status: published
+rating_id: tut-cert-pde-001
+product_id: gcp
+---
+
+{{< step label="Nine step method" duration="2:00" >}}
+The strongest recurring pattern is that the decisive clue is usually a requirement or constraint.
+
+1.  **Classify the workload what type of activity is being performed:** file movement, event ingestion, batch processing, streaming processing, database CDC, orchestration, analytics, operational lookup, governance, or ML.
+
+` + "```check {id=\"understand-nine-step\" message=\"Explain the nine step method.\"}\n```" + `
+{{< /step >}}
+`
+	c, err := Parse(src, "tutorials/pde-001/pde-001.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if c.Lab == nil || !c.Lab.Enabled || len(c.Lab.Modes) != 1 || c.Lab.Modes[0] != "codelab" || c.Lab.DefaultMode != "codelab" {
+		t.Fatalf("normalized lab contract lost after parse: %+v", c.Lab)
+	}
+	if len(c.Steps) != 1 || len(c.Steps[0].Blocks) != 2 {
+		t.Fatalf("unexpected step blocks: %+v", c.Steps)
+	}
+	const strong = "1.  **Classify the workload what type of activity is being performed:**"
+	if !strings.Contains(c.Steps[0].Blocks[0].Content, strong) {
+		t.Fatalf("strong Markdown lost after parse: %q", c.Steps[0].Blocks[0].Content)
+	}
+
+	data, err := json.Marshal(c)
+	if err != nil {
+		t.Fatal(err)
+	}
+	out := string(data)
+	if !strings.Contains(out, `"lab":{"enabled":true,"modes":["codelab"],"default_mode":"codelab"}`) {
+		t.Fatalf("normalized lab contract lost after JSON serialization: %s", out)
+	}
+	if !strings.Contains(out, `**Classify the workload what type of activity is being performed:**`) {
+		t.Fatalf("strong Markdown lost after JSON serialization: %s", out)
+	}
+}
