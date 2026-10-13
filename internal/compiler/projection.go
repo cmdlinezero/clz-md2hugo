@@ -47,7 +47,7 @@ func catalogueFrom(contents []Content, generated string) Catalogue {
 		items = append(items, CatalogueItem{
 			ID: c.ID, Type: c.Type, Title: c.Title, Description: c.Description,
 			Slug: c.Slug, Kind: c.Kind, Provider: c.Provider, RatingID: c.RatingID,
-			ProductID: c.ProductID, Access: c.Access, Runtime: c.Runtime,
+			ProductID: c.ProductID, Lab: c.Lab, Access: c.Access, Runtime: c.Runtime,
 			Difficulty: c.Difficulty, Categories: c.Categories, Tags: c.Tags,
 			Topics: c.Topics, Collections: c.Collections, Certifications: c.Certifications,
 			Prerequisites: c.Prerequisites, Children: c.Children, Activities: c.Activities,
