@@ -205,6 +205,17 @@ Downstream consumers such as Certin Portal/Hugo own Markdown-to-HTML presentatio
 
 ---
 
+## Go coding tutorial smoke test
+
+Coding tutorials may declare `runtime: go` with an entrypoint such as `main.go`.
+The canonical Go/WASM smoke-test source is
+`examples/test-content/coding-tutorials/go-first-program.md`.
+
+Coding-step check fences use `output="..."`; the compiler projects this to the
+portable `expected_output` field consumed by the Portal runtime. The smoke test
+checks both basic `fmt.Println` execution and standard-library
+`strings.ToUpper` execution.
+
 ## 🤝 Contributing
 
 Contributions are welcome! If you'd like to help improve `clz-md2hugo`:

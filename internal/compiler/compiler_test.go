@@ -228,6 +228,44 @@ func TestCodingTutorialCompiles(t *testing.T) {
 	}
 }
 
+func TestGoCodingTutorialSmokeTestCompiles(t *testing.T) {
+	dir := t.TempDir()
+	body := "---\nid: go-first-program\ntype: coding-tutorial\ntitle: Go WASM Smoke Test\nruntime: go\nentrypoint: main.go\ndifficulty: beginner\nstatus: published\n---\n\n" +
+		"{{< step id=\"hello\" label=\"Print a greeting\" >}}\n" +
+		"Edit main.go so it prints the greeting.\n\n" +
+		"```go {editor=true file=\"main.go\"}\npackage main\n\nimport \"fmt\"\n\nfunc main() { fmt.Println(\"TODO\") }\n```\n\n" +
+		"```check {required=\"package main|fmt.Println(\" output=\"Hello, Certin!\"}\n```\n{{< /step >}}\n"
+
+	write(t, filepath.Join(dir, "coding", "go.md"), body)
+	contents, err := compile(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(contents) != 1 {
+		t.Fatalf("expected one content item, got %d", len(contents))
+	}
+	c := contents[0]
+	if c.Runtime != "go" || c.Entrypoint != "main.go" {
+		t.Fatalf("Go coding tutorial metadata not preserved: %+v", c)
+	}
+	if len(c.Steps) != 1 {
+		t.Fatalf("expected one Go coding step, got %d", len(c.Steps))
+	}
+	step := c.Steps[0]
+	if step.ExpectedOutput != "Hello, Certin!" {
+		t.Fatalf("expected output = %q", step.ExpectedOutput)
+	}
+	wantRequired := []string{"package main", "fmt.Println("}
+	if len(step.Required) != len(wantRequired) {
+		t.Fatalf("required literals = %#v, want %#v", step.Required, wantRequired)
+	}
+	for i := range wantRequired {
+		if step.Required[i] != wantRequired[i] {
+			t.Fatalf("required literal %d = %q, want %q", i, step.Required[i], wantRequired[i])
+		}
+	}
+}
+
 func TestCodingTutorialDefaultEntrypoints(t *testing.T) {
 	cases := []struct {
 		runtime string
@@ -640,7 +678,6 @@ func TestInvalidLabContracts(t *testing.T) {
 		})
 	}
 }
-
 
 func TestPDECodelabContractSurvivesParseAndJSONSerialization(t *testing.T) {
 	src := `---
