@@ -13,13 +13,15 @@ func TestBuildMultiTypeGraph(t *testing.T) {
 	write(t, filepath.Join(dir, "collections", "docker.md"), `---
 id: docker-tutorials
 type: collection
+kind: collection
 title: Docker Tutorials
 ---
 # Docker Tutorials
 `)
 	write(t, filepath.Join(dir, "certifications", "cka.md"), `---
 id: cka
-type: certification
+type: collection
+kind: certification
 title: CKA
 ---
 # CKA
@@ -45,7 +47,7 @@ Run Docker.
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(graph.Collections) != 1 || len(graph.Certifications) != 1 || len(graph.Tutorials) != 1 {
+	if len(graph.Collections) != 2 || len(graph.Tutorials) != 1 {
 		t.Fatalf("unexpected graph counts: %+v", graph.Stats)
 	}
 	if graph.Tutorials[0].Collections[0] != "docker-tutorials" {
@@ -394,7 +396,7 @@ func TestInvalidAccessTierFails(t *testing.T) {
 
 func TestAccessInheritanceAndExplicitOverride(t *testing.T) {
 	dir := t.TempDir()
-	write(t, filepath.Join(dir, "collection.md"), "---\nid: paid\ntype: collection\ntitle: Paid\naccess:\n  tier: pro\n---\n")
+	write(t, filepath.Join(dir, "collection.md"), "---\nid: paid\ntype: collection\nkind: collection\ntitle: Paid\naccess:\n  tier: pro\n---\n")
 	write(t, filepath.Join(dir, "inherited.md"), "---\nid: inherited\ntype: tutorial\ntitle: Inherited\ncollections: [paid]\n---\n")
 	write(t, filepath.Join(dir, "override.md"), "---\nid: override\ntype: tutorial\ntitle: Override\ncollections: [paid]\naccess:\n  tier: public\n---\n")
 	contents, err := compile(dir)
@@ -440,7 +442,7 @@ func TestGraphVersionThree(t *testing.T) {
 
 func TestCertificationAlignmentDoesNotPropagateAccess(t *testing.T) {
 	dir := t.TempDir()
-	write(t, filepath.Join(dir, "cert.md"), "---\nid: cert\ntype: certification\ntitle: Certification\naccess:\n  tier: pro\n---\n")
+	write(t, filepath.Join(dir, "cert.md"), "---\nid: cert\ntype: collection\nkind: certification\ntitle: Certification\naccess:\n  tier: pro\n---\n")
 	write(t, filepath.Join(dir, "tutorial.md"), "---\nid: tutorial\ntype: tutorial\ntitle: Tutorial\ncertifications: [cert]\n---\n")
 	contents, err := compile(dir)
 	if err != nil {
@@ -455,8 +457,8 @@ func TestCertificationAlignmentDoesNotPropagateAccess(t *testing.T) {
 
 func TestCollectionCanContainCertification(t *testing.T) {
 	dir := t.TempDir()
-	write(t, filepath.Join(dir, "collection.md"), "---\nid: collection\ntype: collection\ntitle: Collection\naccess:\n  tier: pro\n---\n")
-	write(t, filepath.Join(dir, "cert.md"), "---\nid: cert\ntype: certification\ntitle: Certification\ncollections: [collection]\n---\n")
+	write(t, filepath.Join(dir, "collection.md"), "---\nid: collection\ntype: collection\nkind: collection\ntitle: Collection\naccess:\n  tier: pro\n---\n")
+	write(t, filepath.Join(dir, "cert.md"), "---\nid: cert\ntype: collection\nkind: certification\ntitle: Certification\ncollections: [collection]\n---\n")
 	contents, err := compile(dir)
 	if err != nil {
 		t.Fatal(err)
@@ -470,8 +472,8 @@ func TestCollectionCanContainCertification(t *testing.T) {
 
 func TestCertificationCanContainCollection(t *testing.T) {
 	dir := t.TempDir()
-	write(t, filepath.Join(dir, "cert.md"), "---\nid: cert\ntype: certification\ntitle: Certification\nchildren: [nested]\naccess:\n  tier: pro\n---\n")
-	write(t, filepath.Join(dir, "collection.md"), "---\nid: nested\ntype: collection\ntitle: Nested Collection\n---\n")
+	write(t, filepath.Join(dir, "cert.md"), "---\nid: cert\ntype: collection\nkind: certification\ntitle: Certification\nchildren: [nested]\naccess:\n  tier: pro\n---\n")
+	write(t, filepath.Join(dir, "collection.md"), "---\nid: nested\ntype: collection\nkind: collection\ntitle: Nested Collection\n---\n")
 	contents, err := compile(dir)
 	if err != nil {
 		t.Fatal(err)
@@ -480,6 +482,46 @@ func TestCertificationCanContainCollection(t *testing.T) {
 		if c.ID == "nested" && c.Access.Tier != "pro" {
 			t.Fatalf("contained collection access = %q, want pro", c.Access.Tier)
 		}
+	}
+}
+
+func TestLegacyCertificationTypeRejectedWithMigrationHint(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "cert.md"), "---\nid: cert\ntype: certification\ntitle: Certification\n---\n")
+	err := Validate(dir)
+	if err == nil || !strings.Contains(err.Error(), "use type: collection with kind: certification") {
+		t.Fatalf("expected certification migration hint, got %v", err)
+	}
+}
+
+func TestCollectionRequiresKind(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "collection.md"), "---\nid: unlabeled\ntype: collection\ntitle: Unlabeled\n---\n")
+	err := Validate(dir)
+	if err == nil || !strings.Contains(err.Error(), "collection requires kind") {
+		t.Fatalf("expected missing collection kind validation error, got %v", err)
+	}
+}
+
+func TestCollectionKindIsExtensible(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "collection.md"), "---\nid: path\ntype: collection\nkind: learning-path-v2\ntitle: Path\n---\n")
+	contents, err := compile(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := contents[0].Kind; got != "learning-path-v2" {
+		t.Fatalf("kind = %q, want learning-path-v2", got)
+	}
+}
+
+func TestCertificationReferenceRequiresCertificationCollection(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "ordinary.md"), "---\nid: ordinary\ntype: collection\nkind: collection\ntitle: Ordinary\n---\n")
+	write(t, filepath.Join(dir, "tutorial.md"), "---\nid: tutorial\ntype: tutorial\ntitle: Tutorial\ncertifications: [ordinary]\n---\n")
+	err := Validate(dir)
+	if err == nil || !strings.Contains(err.Error(), "kind: certification") {
+		t.Fatalf("expected certification target validation error, got %v", err)
 	}
 }
 
