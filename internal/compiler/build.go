@@ -15,7 +15,6 @@ var allowedAccessTiers = map[string]bool{"public": true, "member": true, "pro": 
 var allowedTypes = map[string]bool{
 	"collection":      true,
 	"learning-path":   true,
-	"certification":   true,
 	"tutorial":        true,
 	"coding-tutorial": true,
 	"quiz":            true,
@@ -104,8 +103,14 @@ func validateContent(c Content, file string) error {
 	if !allowedAccessTiers[c.Access.Tier] {
 		return fmt.Errorf("%s: invalid access tier %q (want public, member, or pro)", file, c.Access.Tier)
 	}
+	if c.Type == "certification" {
+		return fmt.Errorf("%s: type %q is no longer supported; use type: collection with kind: certification", file, c.Type)
+	}
 	if !allowedTypes[c.Type] {
 		return fmt.Errorf("%s: unsupported type %q", file, c.Type)
+	}
+	if c.Type == "collection" && strings.TrimSpace(c.Kind) == "" {
+		return fmt.Errorf("%s: collection requires kind; use kind: collection for a general-purpose collection or another descriptive kind", file)
 	}
 	if c.Status != "draft" && c.Status != "review" && c.Status != "published" && c.Status != "archived" {
 		return fmt.Errorf("%s: invalid status %q", file, c.Status)
@@ -181,8 +186,12 @@ func validateRelationships(contents []Content) error {
 		}
 		for _, ref := range refs {
 			for _, id := range ref.values {
-				if _, ok := ids[id]; !ok {
+				target, ok := ids[id]
+				if !ok {
 					return fmt.Errorf("%s %q references missing %s %q", c.Type, c.ID, ref.field, id)
+				}
+				if ref.field == "certifications" && (target.Type != "collection" || target.Kind != "certification") {
+					return fmt.Errorf("%s %q references %s %q, but certification references must target a collection with kind: certification", c.Type, c.ID, ref.field, id)
 				}
 			}
 		}
@@ -196,9 +205,8 @@ var accessRank = map[string]int{"public": 0, "member": 1, "pro": 2}
 // Explicit child access wins. Otherwise a child inherits the most restrictive
 // tier from all containment parents. Collection membership is containment;
 // children and activities are forward containment references. Certification
-// alignment is an association and does not propagate access. A certification
-// can itself be contained by a collection via collections, or contain another
-// node (including a collection) via children.
+// alignment through the certifications field is an association and does not
+// propagate access. Certification concepts are collections with kind=certification.
 func resolveAccess(contents []Content) []Content {
 	index := make(map[string]int, len(contents))
 	for i := range contents {
@@ -272,9 +280,6 @@ func graphFrom(contents []Content) (ContentGraph, error) {
 		case "learning-path":
 			graph.LearningPaths = append(graph.LearningPaths, c)
 			graph.Stats.LearningPaths++
-		case "certification":
-			graph.Certifications = append(graph.Certifications, c)
-			graph.Stats.Certifications++
 		case "tutorial":
 			graph.Tutorials = append(graph.Tutorials, c)
 			graph.Stats.Tutorials++

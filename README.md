@@ -136,7 +136,25 @@ access:
   tier: pro
 ```
 
-Supported tiers are `public`, `member`, and `pro`. Access is resolved by `md2hugo`, not by Hugo. An item without an explicit tier inherits the most restrictive tier from its containment parents (`public < member < pro`); an explicit child tier overrides inherited access. Collection membership, `children`, and quiz `activities` are containment relationships and participate in inheritance. `certifications` is an alignment/association relationship and does not propagate access. Certifications may themselves be contained by collections through `collections`, and may contain other nodes (including collections) through `children`.
+Supported tiers are `public`, `member`, and `pro`. Access is resolved by `md2hugo`, not by Hugo. An item without an explicit tier inherits the most restrictive tier from its containment parents (`public < member < pro`); an explicit child tier overrides inherited access. Collection membership, `children`, and quiz `activities` are containment relationships and participate in inheritance. `certifications` is an alignment/association relationship and does not propagate access; its targets must be `type: collection` with `kind: certification`. Certification is not a standalone content type.
+
+### Collection kinds
+
+Every `type: collection` must declare a non-empty `kind`. `kind` describes the semantic role of the collection while `type: collection` defines its structural role in the content graph. Use `kind: collection` for a general-purpose grouping collection, and use a more descriptive value when the collection has a specific purpose.
+
+```yaml
+type: collection
+kind: collection
+```
+
+```yaml
+type: collection
+kind: certification
+```
+
+The `kind` namespace is intentionally extensible and is **not** a closed enum. New kinds such as `study-guide`, `learning-path`, `domain`, or future author-defined roles can be introduced without changing the compiler. When adding a new kind, choose a stable, descriptive kebab-case value and document its intended semantics for authors and downstream consumers. A new `kind` must not implicitly change collection hierarchy or access behavior: `children` and other relationship fields continue to define structure.
+
+This keeps layered hierarchies explicit. For example, a general `kind: collection` can contain several `kind: certification` collections, which can in turn contain study guides, domains, or other collection kinds.
 
 The generated canonical graph remains complete and now reports `"version": 3`. Public/protected projections are intentionally outside this milestone.
 

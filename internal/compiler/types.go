@@ -84,7 +84,6 @@ type ContentGraph struct {
 	Generated       string     `json:"generated"`
 	Collections     []Content  `json:"collections,omitempty"`
 	LearningPaths   []Content  `json:"learningPaths,omitempty"`
-	Certifications  []Content  `json:"certifications,omitempty"`
 	Tutorials       []Content  `json:"tutorials,omitempty"`
 	CodingTutorials []Content  `json:"codingTutorials,omitempty"`
 	Quizzes         []Content  `json:"quizzes,omitempty"`
@@ -100,7 +99,6 @@ type BuildStats struct {
 	Documents       int `json:"documents"`
 	Collections     int `json:"collections"`
 	LearningPaths   int `json:"learningPaths"`
-	Certifications  int `json:"certifications"`
 	Tutorials       int `json:"tutorials"`
 	CodingTutorials int `json:"codingTutorials"`
 	Quizzes         int `json:"quizzes"`
