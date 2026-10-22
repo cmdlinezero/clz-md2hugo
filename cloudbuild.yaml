@@ -11,7 +11,7 @@ steps:
       - |
         # go mod tidy
         go build -o ${_APP_NAME}-linux-${SHORT_SHA}
-    dir: lab-factory
+  #  dir: lab-factory
 
   # Step 2: Build for darwin/amd64
   - name: 'golang:1.26'
@@ -25,7 +25,7 @@ steps:
       - |
         # go mod tidy
         go build -o ${_APP_NAME}-darwin-${SHORT_SHA}
-    dir: lab-factory
+  #  dir: lab-factory
 
   # Step 3: Build for Windows/amd64
   - name: 'golang:1.26'
@@ -39,7 +39,7 @@ steps:
       - |
         # go mod tidy
         go build -o ${_APP_NAME}-windows-${SHORT_SHA}
-    dir: lab-factory
+  #  dir: lab-factory
 
 
   # Step 3: Zip the binaries
@@ -57,7 +57,7 @@ steps:
         zip /workspace/${_APP_NAME}-linux-${_TAG_NAME}.zip ${_APP_NAME}-linux-${SHORT_SHA}
         zip /workspace/${_APP_NAME}-darwin-${_TAG_NAME}.zip ${_APP_NAME}-darwin-${SHORT_SHA}
         zip /workspace/${_APP_NAME}-windows-${_TAG_NAME}.zip ${_APP_NAME}-windows-${SHORT_SHA}
-    dir: lab-factory
+  #  dir: lab-factory
 
   # Step 4: Upload to GCS
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
