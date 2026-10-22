@@ -559,9 +559,24 @@ func TestCatalogueExcludesTutorialFlashcardAndLabPayload(t *testing.T) {
 		t.Fatal(err)
 	}
 	got := string(data)
-	for _, forbidden := range []string{"secret instructions", "secret block", "secret back", "secret command", `"steps"`, `"cards"`, `"challenges"`} {
+	for _, forbidden := range []string{"secret instructions", "secret block", "secret back", "secret command"} {
 		if strings.Contains(got, forbidden) {
 			t.Fatalf("catalogue leaked protected payload %q: %s", forbidden, got)
+		}
+	}
+	for _, item := range catalogue.Items {
+		itemData, err := json.Marshal(item)
+		if err != nil {
+			t.Fatal(err)
+		}
+		var fields map[string]json.RawMessage
+		if err := json.Unmarshal(itemData, &fields); err != nil {
+			t.Fatal(err)
+		}
+		for _, forbidden := range []string{"steps", "cards", "challenges"} {
+			if _, ok := fields[forbidden]; ok {
+				t.Fatalf("catalogue item %q leaked protected payload field %q: %s", item.ID, forbidden, itemData)
+			}
 		}
 	}
 	for _, expected := range []string{`"step_count":1`, `"card_count":1`, `"challenge_count":1`} {
