@@ -190,8 +190,24 @@ func validateRelationships(contents []Content) error {
 				if !ok {
 					return fmt.Errorf("%s %q references missing %s %q", c.Type, c.ID, ref.field, id)
 				}
+				if ref.field == "collections" && target.Type != "collection" {
+					return fmt.Errorf("%s %q references collections %q, but collections references must target type: collection", c.Type, c.ID, id)
+				}
 				if ref.field == "certifications" && (target.Type != "collection" || target.Kind != "certification") {
 					return fmt.Errorf("%s %q references %s %q, but certification references must target a collection with kind: certification", c.Type, c.ID, ref.field, id)
+				}
+				if ref.field == "children" {
+					if err := validateChildRelationship(c, target); err != nil {
+						return err
+					}
+				}
+				if ref.field == "activities" {
+					if c.Type != "quiz" {
+						return fmt.Errorf("%s %q uses activities, but activities is reserved for quiz questions; use children for structural relationships", c.Type, c.ID)
+					}
+					if target.Type != "question" {
+						return fmt.Errorf("quiz %q references activities %q of type %q; quiz activities must be questions", c.ID, id, target.Type)
+					}
 				}
 			}
 		}
@@ -199,12 +215,45 @@ func validateRelationships(contents []Content) error {
 	return nil
 }
 
+func validateChildRelationship(parent, child Content) error {
+	switch parent.Type {
+	case "collection":
+		if !isLearningOffering(child.Type) {
+			return fmt.Errorf("collection %q has child %q of type %q; collections may contain collections or learning offerings", parent.ID, child.ID, child.Type)
+		}
+	case "learning-path":
+		if child.Type != "topic" {
+			return fmt.Errorf("learning-path %q has child %q of type %q; learning paths may contain only topics", parent.ID, child.ID, child.Type)
+		}
+	case "topic":
+		if child.Type != "topic" {
+			return fmt.Errorf("topic %q has child %q of type %q; topics may contain only topics", parent.ID, child.ID, child.Type)
+		}
+	default:
+		return fmt.Errorf("%s %q uses children, but children is structural only for collections, learning paths, and topics", parent.Type, parent.ID)
+	}
+	return nil
+}
+
+func isLearningOffering(contentType string) bool {
+	return contentType == "collection" || contentType == "learning-path" || isLearningActivity(contentType)
+}
+
+func isLearningActivity(contentType string) bool {
+	switch contentType {
+	case "tutorial", "coding-tutorial", "quiz", "flashcard-deck", "challenge-lab":
+		return true
+	default:
+		return false
+	}
+}
+
 var accessRank = map[string]int{"public": 0, "member": 1, "pro": 2}
 
 // resolveAccess computes effective access without changing explicit declarations.
 // Explicit child access wins. Otherwise a child inherits the most restrictive
 // tier from all containment parents. Collection membership is containment;
-// children and activities are forward containment references. Certification
+// validated children relationships and quiz activities are forward containment references. Certification
 // alignment through the certifications field is an association and does not
 // propagate access. Certification concepts are collections with kind=certification.
 func resolveAccess(contents []Content) []Content {
