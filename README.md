@@ -127,6 +127,32 @@ Create a catalogue based on the folder containing the content to be generated.
    -i examples/certin-site \
    -o examples/generated/certin-site.json
 ```
+## Content structure
+
+`md2hugo` separates catalogue structure, learning structure, taxonomy, and learning activities:
+
+- **Collections organise learning offerings.** A collection uses `children` to contain nested collections, learning paths, or independent learning activities.
+- **Learning Paths organise Topics.** A learning path uses `children` and every child must be `type: topic`.
+- **Topics recursively organise Topics.** A topic uses `children` only for other `type: topic` records. A leaf topic has no children.
+- **Tutorials remain independent learning activities.** Tutorials are not children of learning paths or topics; collections may curate them directly.
+- **`topics` remains taxonomy metadata.** It classifies content using taxonomy strings; those values are not structural references to `type: topic` records and must not be resolved or validated as Topic hierarchy nodes.
+
+The structural relationship is always `children`. The compiler validates the allowed child types for collections, learning paths, and topics. `activities` is reserved for quiz-to-question containment. This keeps structure unambiguous while allowing the `kind` namespace on collections to remain extensible.
+
+Example:
+
+```text
+Google Cloud Certifications          collection (kind: collection)
+└── Professional Data Engineer       collection (kind: certification)
+    ├── PDE Learning Path             learning-path
+    │   ├── Data Processing           topic
+    │   │   ├── Batch Processing      topic
+    │   │   └── Streaming Processing  topic
+    │   └── Storage                   topic
+    ├── Streaming Lab                 challenge-lab
+    └── Storage Tutorial              tutorial
+```
+
 ## Access tiers (content graph v3)
 
 Content can declare an access tier in frontmatter. If omitted, the tier defaults to `public`.
@@ -136,7 +162,7 @@ access:
   tier: pro
 ```
 
-Supported tiers are `public`, `member`, and `pro`. Access is resolved by `md2hugo`, not by Hugo. An item without an explicit tier inherits the most restrictive tier from its containment parents (`public < member < pro`); an explicit child tier overrides inherited access. Collection membership, `children`, and quiz `activities` are containment relationships and participate in inheritance. `certifications` is an alignment/association relationship and does not propagate access; its targets must be `type: collection` with `kind: certification`. Certification is not a standalone content type.
+Supported tiers are `public`, `member`, and `pro`. Access is resolved by `md2hugo`, not by Hugo. An item without an explicit tier inherits the most restrictive tier from its containment parents (`public < member < pro`); an explicit child tier overrides inherited access. Collection membership and valid `children` relationships are containment relationships and participate in inheritance. Quiz `activities` contain questions and also participate in inheritance. `certifications` is an alignment/association relationship and does not propagate access; its targets must be `type: collection` with `kind: certification`. Certification is not a standalone content type.
 
 ### Collection kinds
 

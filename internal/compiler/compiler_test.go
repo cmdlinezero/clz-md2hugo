@@ -775,3 +775,64 @@ The strongest recurring pattern is that the decisive clue is usually a requireme
 		t.Fatalf("strong Markdown lost after JSON serialization: %s", out)
 	}
 }
+
+func TestCollectionChildrenAreLearningOfferings(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "collection.md"), "---\nid: catalogue\ntype: collection\nkind: collection\ntitle: Catalogue\nchildren: [nested, path, tutorial]\n---\n")
+	write(t, filepath.Join(dir, "nested.md"), "---\nid: nested\ntype: collection\nkind: collection\ntitle: Nested\n---\n")
+	write(t, filepath.Join(dir, "path.md"), "---\nid: path\ntype: learning-path\ntitle: Path\nchildren: [topic]\n---\n")
+	write(t, filepath.Join(dir, "topic.md"), "---\nid: topic\ntype: topic\ntitle: Topic\n---\n")
+	write(t, filepath.Join(dir, "tutorial.md"), "---\nid: tutorial\ntype: tutorial\ntitle: Tutorial\n---\n")
+	if err := Validate(dir); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestLearningPathChildrenMustBeTopics(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "path.md"), "---\nid: path\ntype: learning-path\ntitle: Path\nchildren: [tutorial]\n---\n")
+	write(t, filepath.Join(dir, "tutorial.md"), "---\nid: tutorial\ntype: tutorial\ntitle: Tutorial\n---\n")
+	err := Validate(dir)
+	if err == nil || !strings.Contains(err.Error(), "learning paths may contain only topics") {
+		t.Fatalf("expected learning-path child validation error, got %v", err)
+	}
+}
+
+func TestTopicChildrenMayRecurse(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "parent.md"), "---\nid: parent\ntype: topic\ntitle: Parent\nchildren: [child]\n---\n")
+	write(t, filepath.Join(dir, "child.md"), "---\nid: child\ntype: topic\ntitle: Child\n---\n")
+	if err := Validate(dir); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestTopicChildrenMustBeTopics(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "topic.md"), "---\nid: topic\ntype: topic\ntitle: Topic\nchildren: [tutorial]\n---\n")
+	write(t, filepath.Join(dir, "tutorial.md"), "---\nid: tutorial\ntype: tutorial\ntitle: Tutorial\n---\n")
+	err := Validate(dir)
+	if err == nil || !strings.Contains(err.Error(), "topics may contain only topics") {
+		t.Fatalf("expected topic child validation error, got %v", err)
+	}
+}
+
+func TestLearningPathActivitiesRejectedWithMigrationHint(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "path.md"), "---\nid: path\ntype: learning-path\ntitle: Path\nactivities: [tutorial]\n---\n")
+	write(t, filepath.Join(dir, "tutorial.md"), "---\nid: tutorial\ntype: tutorial\ntitle: Tutorial\n---\n")
+	err := Validate(dir)
+	if err == nil || !strings.Contains(err.Error(), "activities is reserved for quiz questions; use children") {
+		t.Fatalf("expected activities migration hint, got %v", err)
+	}
+}
+
+func TestQuizActivitiesMustBeQuestions(t *testing.T) {
+	dir := t.TempDir()
+	write(t, filepath.Join(dir, "quiz.md"), "---\nid: quiz\ntype: quiz\ntitle: Quiz\nactivities: [tutorial]\n---\n")
+	write(t, filepath.Join(dir, "tutorial.md"), "---\nid: tutorial\ntype: tutorial\ntitle: Tutorial\n---\n")
+	err := Validate(dir)
+	if err == nil || !strings.Contains(err.Error(), "quiz activities must be questions") {
+		t.Fatalf("expected quiz activity validation error, got %v", err)
+	}
+}
