@@ -275,3 +275,20 @@ Contributions are welcome! If you'd like to help improve `clz-md2hugo`:
 ## 📄 License
 
 Distributed under the GNU License. See `LICENSE` for more information.
+
+## Deterministic Hugo content generation
+
+From v0.4.0, `clz-md2hugo` also provides a generic deterministic content generator for Hugo sites:
+
+```bash
+clz-md2hugo generate
+clz-md2hugo generate --check
+```
+
+Sites own their structured JSON data, Go templates, and output mapping. The tool owns deterministic generation, generated-file markers, safe stale-file cleanup, atomic writes, and CI check mode. It has no built-in knowledge of site-specific concepts such as projects, products, courses, Work, Mobile, or Practice.
+
+See [`docs/GENERATOR.md`](docs/GENERATOR.md) for the configuration and template contract.
+
+## v0.4.0 release scope
+
+v0.4.0 adds deterministic Hugo content generation without changing the existing Markdown compiler, validation, or projection contracts. Existing `build`, `project`, and `validate` commands remain available; `generate` is additive.
