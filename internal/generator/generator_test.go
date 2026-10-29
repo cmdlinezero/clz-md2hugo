@@ -24,8 +24,9 @@ func TestRunGenerateCheckAndCleanup(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.HasPrefix(string(alpha), generatedMarker+"\n") {
-		t.Fatalf("missing generated marker: %s", alpha)
+	wantPrefix := "---\ntitle: \"Alpha\"\n---\n\n" + generatedMarker + "\n"
+	if !strings.HasPrefix(string(alpha), wantPrefix) {
+		t.Fatalf("front matter or generated marker misplaced: %s", alpha)
 	}
 
 	result, err = Run(Options{ConfigPath: filepath.Join(root, "config.json"), Check: true})
@@ -141,5 +142,55 @@ func TestRunMergeRejectsAliasCollision(t *testing.T) {
 	_, err := Run(Options{ConfigPath: filepath.Join(root, "config.json")})
 	if err == nil || !strings.Contains(err.Error(), "collides") {
 		t.Fatalf("err=%v, want alias collision error", err)
+	}
+}
+
+func TestGeneratedMarkerPlacementAndDetection(t *testing.T) {
+	tests := []struct {
+		name     string
+		rendered string
+		prefix   string
+	}{
+		{
+			name:     "yaml front matter",
+			rendered: "---\ntitle: Example\n---\n\nBody\n",
+			prefix:   "---\ntitle: Example\n---\n\n" + generatedMarker + "\n",
+		},
+		{
+			name:     "toml front matter",
+			rendered: "+++\ntitle = \"Example\"\n+++\n\nBody\n",
+			prefix:   "+++\ntitle = \"Example\"\n+++\n\n" + generatedMarker + "\n",
+		},
+		{
+			name:     "no front matter",
+			rendered: "Body\n",
+			prefix:   generatedMarker + "\nBody\n",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			content := addGeneratedMarker(tt.rendered)
+			if !strings.HasPrefix(string(content), tt.prefix) {
+				t.Fatalf("content=%q, want prefix %q", content, tt.prefix)
+			}
+			if !hasGeneratedMarker(content) {
+				t.Fatal("generated content was not recognised as owned")
+			}
+		})
+	}
+}
+
+func TestGeneratedMarkerDetectionSupportsLegacyFiles(t *testing.T) {
+	legacy := []byte(generatedMarker + "\n---\ntitle: Legacy\n---\n")
+	if !hasGeneratedMarker(legacy) {
+		t.Fatal("legacy prefix marker was not recognised")
+	}
+}
+
+func TestGeneratedMarkerDetectionRejectsHumanOwnedFrontMatter(t *testing.T) {
+	human := []byte("---\ntitle: Human\n---\n\nBody\n")
+	if hasGeneratedMarker(human) {
+		t.Fatal("human-owned file was recognised as generated")
 	}
 }

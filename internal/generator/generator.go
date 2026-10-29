@@ -92,7 +92,7 @@ func runJob(base string, job Job, check bool) ([]string, error) {
 		if err := bodyTemplate.Execute(&body, item); err != nil {
 			return nil, fmt.Errorf("render %s: %w", rel, err)
 		}
-		content := []byte(generatedMarker + "\n" + strings.TrimLeft(body.String(), "\n"))
+		content := addGeneratedMarker(body.String())
 		if len(content) == 0 || content[len(content)-1] != '\n' {
 			content = append(content, '\n')
 		}
@@ -303,7 +303,7 @@ func generatedFiles(root string) ([]string, error) {
 		if err != nil {
 			return err
 		}
-		if bytes.HasPrefix(data, []byte(generatedMarker+"\n")) {
+		if hasGeneratedMarker(data) {
 			files = append(files, path)
 		}
 		return nil
@@ -312,4 +312,59 @@ func generatedFiles(root string) ([]string, error) {
 		return files, nil
 	}
 	return files, err
+}
+
+func addGeneratedMarker(rendered string) []byte {
+	body := strings.TrimLeft(rendered, "\n")
+	if end, ok := frontMatterEnd(body); ok {
+		return []byte(body[:end] + "\n" + generatedMarker + "\n" + strings.TrimLeft(body[end:], "\n"))
+	}
+	return []byte(generatedMarker + "\n" + body)
+}
+
+func hasGeneratedMarker(data []byte) bool {
+	if bytes.HasPrefix(data, []byte(generatedMarker+"\n")) {
+		return true
+	}
+	body := string(data)
+	end, ok := frontMatterEnd(body)
+	if !ok {
+		return false
+	}
+	remainder := strings.TrimLeft(body[end:], "\n")
+	return strings.HasPrefix(remainder, generatedMarker+"\n") || remainder == generatedMarker
+}
+
+func frontMatterEnd(body string) (int, bool) {
+	var delimiter string
+	switch {
+	case strings.HasPrefix(body, "---\n"):
+		delimiter = "---"
+	case strings.HasPrefix(body, "+++\n"):
+		delimiter = "+++"
+	default:
+		return 0, false
+	}
+
+	offset := len(delimiter) + 1
+	for offset <= len(body) {
+		next := strings.IndexByte(body[offset:], '\n')
+		var line string
+		var lineEnd int
+		if next < 0 {
+			line = body[offset:]
+			lineEnd = len(body)
+		} else {
+			line = body[offset : offset+next]
+			lineEnd = offset + next + 1
+		}
+		if strings.TrimSuffix(line, "\r") == delimiter {
+			return lineEnd, true
+		}
+		if next < 0 {
+			break
+		}
+		offset = lineEnd
+	}
+	return 0, false
 }

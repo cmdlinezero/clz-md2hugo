@@ -42,6 +42,8 @@ steps:
       - |
         set -euo pipefail
 
+        # Build Version
+
         gcloud artifacts generic upload \
           --project="${PROJECT_ID}" \
           --location="${_LOCATION}" \
@@ -49,6 +51,8 @@ steps:
           --package="${_APP_NAME}" \
           --version="${_VERSION}" \
           --source="/workspace/dist/${_APP_NAME}"
+
+
 
 options:
   substitution_option: 'ALLOW_LOOSE'
@@ -58,4 +62,4 @@ substitutions:
   _LOCATION: 'us-central1'
   _REPOSITORY: 'cmdlinezero-binaries'
   _APP_NAME: 'clz-md2hugo'
-  _VERSION: '0.0.5'
+  _VERSION: '0.0.6'
