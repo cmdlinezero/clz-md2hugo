@@ -5,6 +5,8 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+
+	"github.com/cmdlinezero/clz-md2hugo/internal/generator"
 )
 
 const CompilerVersion = "portable-markdown-v3"
@@ -48,7 +50,7 @@ func Execute() {
 		return nil
 	}}
 	validate.Flags().StringP("input", "i", "examples", "Markdown content directory")
-	root.AddCommand(build, project, validate)
+	root.AddCommand(build, project, validate, generator.Command())
 	if err := root.Execute(); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
