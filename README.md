@@ -287,7 +287,7 @@ clz-md2hugo generate --check
 
 Sites own their structured JSON data, Go templates, and output mapping. The tool owns deterministic generation, generated-file markers, safe stale-file cleanup, atomic writes, and CI check mode. It has no built-in knowledge of site-specific concepts such as projects, products, courses, Work, Mobile, or Practice.
 
-See [`docs/GENERATOR.md`](docs/GENERATOR.md) for the configuration and template contract.
+See [`docs/GENERATOR.md`](docs/GENERATOR.md) for the configuration and template contract. Generator jobs can also compose primary records with secondary JSON sources through explicit deterministic joins, keeping independently owned data separate until build time.
 
 ## v0.4.0 release scope
 

@@ -28,6 +28,33 @@ Paths are resolved relative to the configuration file. `items` selects a top-lev
 
 The content template is also a Go `text/template`. It receives each JSON record as its dot value. The built-in template functions are `json`, `lower`, and `upper`. `json` is useful for safely emitting scalar or array values into YAML-compatible front matter.
 
+## Deterministic source composition
+
+A job can enrich its primary records from one or more secondary JSON sources without moving site-specific semantics into `clz-md2hugo`. Each merge is an explicit required join and is exposed beneath an alias, so editorial and factual namespaces remain distinct:
+
+```json
+{
+  "name": "projects",
+  "source": "data/projects.json",
+  "items": "projects",
+  "template": "templates/project.md.tmpl",
+  "output": "content/projects",
+  "path": "{{ .slug }}.md",
+  "merge": [
+    {
+      "source": "data/repository-facts.json",
+      "localKey": "repo",
+      "foreignKey": "name",
+      "as": "repository"
+    }
+  ]
+}
+```
+
+The template can then use both the primary record and the joined record, for example `{{ .title }}` and `{{ .repository.language }}`. Primary records are never overwritten by merged fields. The alias must not already exist on the primary record.
+
+Merge sources may be JSON arrays, a top-level array selected with `items`, or JSON objects whose values are records. Object-backed sources are traversed in sorted key order. Join keys must be scalar values, foreign keys must be unique, and every primary record must have exactly one match. Missing or duplicate matches fail generation rather than producing partial content.
+
 ## Commands
 
 Generate content:

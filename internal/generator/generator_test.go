@@ -79,3 +79,67 @@ func mustWrite(t *testing.T, path, content string) {
 		t.Fatal(err)
 	}
 }
+
+func TestRunMergesSecondaryDataUnderAlias(t *testing.T) {
+	root := t.TempDir()
+	mustWrite(t, filepath.Join(root, "projects.json"), `{"projects":[{"repo":"alpha","slug":"alpha","title":"Editorial Alpha"}]}`)
+	mustWrite(t, filepath.Join(root, "facts.json"), `{"alpha":{"name":"alpha","language":"Go","archived":false}}`)
+	mustWrite(t, filepath.Join(root, "page.md.tmpl"), "---\ntitle: {{ json .title }}\nlanguage: {{ json .github.language }}\n---\n")
+	mustWrite(t, filepath.Join(root, "config.json"), `{"version":1,"jobs":[{"name":"projects","source":"projects.json","template":"page.md.tmpl","output":"content","items":"projects","path":"{{ .slug }}.md","merge":[{"source":"facts.json","localKey":"repo","foreignKey":"name","as":"github"}]}]}`)
+
+	result, err := Run(Options{ConfigPath: filepath.Join(root, "config.json")})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(result.Changed) != 1 {
+		t.Fatalf("changed=%d, want 1", len(result.Changed))
+	}
+	page, err := os.ReadFile(filepath.Join(root, "content", "alpha.md"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(page), `language: "Go"`) {
+		t.Fatalf("merged data missing from output: %s", page)
+	}
+}
+
+func TestRunMergeRejectsMissingAndDuplicateMatches(t *testing.T) {
+	t.Run("missing", func(t *testing.T) {
+		root := t.TempDir()
+		mustWrite(t, filepath.Join(root, "projects.json"), `[{"repo":"alpha","slug":"alpha"}]`)
+		mustWrite(t, filepath.Join(root, "facts.json"), `[{"name":"beta"}]`)
+		mustWrite(t, filepath.Join(root, "page.md.tmpl"), "{{ .slug }}\n")
+		mustWrite(t, filepath.Join(root, "config.json"), `{"version":1,"jobs":[{"name":"projects","source":"projects.json","template":"page.md.tmpl","output":"content","path":"{{ .slug }}.md","merge":[{"source":"facts.json","localKey":"repo","foreignKey":"name","as":"facts"}]}]}`)
+
+		_, err := Run(Options{ConfigPath: filepath.Join(root, "config.json")})
+		if err == nil || !strings.Contains(err.Error(), "found no match") {
+			t.Fatalf("err=%v, want missing match error", err)
+		}
+	})
+
+	t.Run("duplicate", func(t *testing.T) {
+		root := t.TempDir()
+		mustWrite(t, filepath.Join(root, "projects.json"), `[{"repo":"alpha","slug":"alpha"}]`)
+		mustWrite(t, filepath.Join(root, "facts.json"), `[{"name":"alpha","value":1},{"name":"alpha","value":2}]`)
+		mustWrite(t, filepath.Join(root, "page.md.tmpl"), "{{ .slug }}\n")
+		mustWrite(t, filepath.Join(root, "config.json"), `{"version":1,"jobs":[{"name":"projects","source":"projects.json","template":"page.md.tmpl","output":"content","path":"{{ .slug }}.md","merge":[{"source":"facts.json","localKey":"repo","foreignKey":"name","as":"facts"}]}]}`)
+
+		_, err := Run(Options{ConfigPath: filepath.Join(root, "config.json")})
+		if err == nil || !strings.Contains(err.Error(), "duplicate foreign key") {
+			t.Fatalf("err=%v, want duplicate key error", err)
+		}
+	})
+}
+
+func TestRunMergeRejectsAliasCollision(t *testing.T) {
+	root := t.TempDir()
+	mustWrite(t, filepath.Join(root, "projects.json"), `[{"repo":"alpha","slug":"alpha","github":{"manual":true}}]`)
+	mustWrite(t, filepath.Join(root, "facts.json"), `[{"name":"alpha"}]`)
+	mustWrite(t, filepath.Join(root, "page.md.tmpl"), "{{ .slug }}\n")
+	mustWrite(t, filepath.Join(root, "config.json"), `{"version":1,"jobs":[{"name":"projects","source":"projects.json","template":"page.md.tmpl","output":"content","path":"{{ .slug }}.md","merge":[{"source":"facts.json","localKey":"repo","foreignKey":"name","as":"github"}]}]}`)
+
+	_, err := Run(Options{ConfigPath: filepath.Join(root, "config.json")})
+	if err == nil || !strings.Contains(err.Error(), "collides") {
+		t.Fatalf("err=%v, want alias collision error", err)
+	}
+}

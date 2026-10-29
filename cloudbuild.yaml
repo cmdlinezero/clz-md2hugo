@@ -58,4 +58,4 @@ substitutions:
   _LOCATION: 'us-central1'
   _REPOSITORY: 'cmdlinezero-binaries'
   _APP_NAME: 'clz-md2hugo'
-  _VERSION: '0.0.4'
+  _VERSION: '0.0.5'
