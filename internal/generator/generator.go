@@ -55,6 +55,10 @@ func runJob(base string, job Job, check bool) ([]string, error) {
 	if err != nil {
 		return nil, err
 	}
+	items, err = mergeItems(base, items, job.Merge)
+	if err != nil {
+		return nil, err
+	}
 
 	templateBytes, err := os.ReadFile(templatePath)
 	if err != nil {
@@ -130,6 +134,113 @@ func runJob(base string, job Job, check bool) ([]string, error) {
 	}
 	sort.Strings(changed)
 	return changed, nil
+}
+
+func mergeItems(base string, items []any, merges []Merge) ([]any, error) {
+	if len(merges) == 0 {
+		return items, nil
+	}
+
+	merged := make([]any, len(items))
+	for i, item := range items {
+		record, ok := item.(map[string]any)
+		if !ok {
+			return nil, fmt.Errorf("merge requires primary item %d to be a JSON object", i+1)
+		}
+		copyRecord := make(map[string]any, len(record)+len(merges))
+		for key, value := range record {
+			copyRecord[key] = value
+		}
+		merged[i] = copyRecord
+	}
+
+	for mergeIndex, spec := range merges {
+		data, err := os.ReadFile(resolve(base, spec.Source))
+		if err != nil {
+			return nil, fmt.Errorf("merge %d read source: %w", mergeIndex+1, err)
+		}
+		var source any
+		if err := json.Unmarshal(data, &source); err != nil {
+			return nil, fmt.Errorf("merge %d parse source JSON: %w", mergeIndex+1, err)
+		}
+		records, err := selectMergeItems(source, spec.Items)
+		if err != nil {
+			return nil, fmt.Errorf("merge %d: %w", mergeIndex+1, err)
+		}
+		index := map[string]map[string]any{}
+		for i, item := range records {
+			record, ok := item.(map[string]any)
+			if !ok {
+				return nil, fmt.Errorf("merge %d item %d must be a JSON object", mergeIndex+1, i+1)
+			}
+			key, err := joinKey(record, spec.ForeignKey)
+			if err != nil {
+				return nil, fmt.Errorf("merge %d item %d: %w", mergeIndex+1, i+1, err)
+			}
+			if _, exists := index[key]; exists {
+				return nil, fmt.Errorf("merge %d has duplicate foreign key %q", mergeIndex+1, key)
+			}
+			index[key] = record
+		}
+
+		for i := range merged {
+			record := merged[i].(map[string]any)
+			if _, exists := record[spec.As]; exists {
+				return nil, fmt.Errorf("merge %d alias %q collides with primary item %d", mergeIndex+1, spec.As, i+1)
+			}
+			key, err := joinKey(record, spec.LocalKey)
+			if err != nil {
+				return nil, fmt.Errorf("primary item %d: %w", i+1, err)
+			}
+			foreign, exists := index[key]
+			if !exists {
+				return nil, fmt.Errorf("merge %d found no match for %s=%q", mergeIndex+1, spec.LocalKey, key)
+			}
+			record[spec.As] = foreign
+		}
+	}
+	return merged, nil
+}
+
+func selectMergeItems(source any, key string) ([]any, error) {
+	if key != "" {
+		return selectItems(source, key)
+	}
+	if items, ok := source.([]any); ok {
+		return items, nil
+	}
+	object, ok := source.(map[string]any)
+	if !ok {
+		return nil, fmt.Errorf("merge source must be a JSON array or object")
+	}
+	keys := make([]string, 0, len(object))
+	for key := range object {
+		keys = append(keys, key)
+	}
+	sort.Strings(keys)
+	items := make([]any, 0, len(keys))
+	for _, key := range keys {
+		items = append(items, object[key])
+	}
+	return items, nil
+}
+
+func joinKey(record map[string]any, key string) (string, error) {
+	value, exists := record[key]
+	if !exists {
+		return "", fmt.Errorf("join key %q not found", key)
+	}
+	switch value := value.(type) {
+	case string:
+		if value == "" {
+			return "", fmt.Errorf("join key %q is empty", key)
+		}
+		return value, nil
+	case float64, bool:
+		return fmt.Sprint(value), nil
+	default:
+		return "", fmt.Errorf("join key %q must be a scalar", key)
+	}
 }
 
 func selectItems(source any, key string) ([]any, error) {
