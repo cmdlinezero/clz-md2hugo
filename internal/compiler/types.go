@@ -71,6 +71,9 @@ type Block struct {
 	Language   string            `json:"language,omitempty"`
 	Content    string            `json:"content,omitempty"`
 	Title      string            `json:"title,omitempty"`
+	Provider   string            `json:"provider,omitempty"`
+	ID         string            `json:"id,omitempty"`
+	Overview   string            `json:"overview,omitempty"`
 	Level      string            `json:"level,omitempty"`
 	Attributes map[string]string `json:"attributes,omitempty"`
 	Copy       bool              `json:"copy,omitempty"`
