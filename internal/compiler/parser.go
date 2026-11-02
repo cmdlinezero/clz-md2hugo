@@ -451,6 +451,22 @@ func parseBlocks(src string) ([]Block, error) {
 		if language == "mermaid" {
 			b.Type = "diagram"
 		}
+		if language == "video" {
+			provider := strings.TrimSpace(attrs["provider"])
+			id := strings.TrimSpace(attrs["id"])
+			title := strings.TrimSpace(attrs["title"])
+			if provider == "" || id == "" || title == "" {
+				return nil, errors.New("video block requires provider, id, and title attributes")
+			}
+			b.Type = "video"
+			b.Language = ""
+			b.Provider = provider
+			b.ID = id
+			b.Title = title
+			b.Overview = b.Content
+			b.Content = ""
+			b.Attributes = nil
+		}
 		if language == "flashcard" {
 			b.Type = "flashcard"
 		}

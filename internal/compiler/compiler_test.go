@@ -851,3 +851,82 @@ func TestQuizActivitiesMustBeQuestions(t *testing.T) {
 		t.Fatalf("expected quiz activity validation error, got %v", err)
 	}
 }
+
+func TestVideoBlockV1NormalizesPortableContract(t *testing.T) {
+	src := `---
+id: video-contract
+type: tutorial
+title: Video Contract
+learning_mode: lab
+lab_modes: [codelab]
+default_lab_mode: codelab
+---
+
+{{< step label="Watch" >}}
+` + "```video {provider=\"youtube\" id=\"abc123\" title=\"ADK agent architecture\"}\nThis video explains the main components of an ADK agent.\n\nThe overview remains semantic Markdown.\n```" + `
+{{< /step >}}
+`
+	c, err := Parse(src, "video-contract.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(c.Steps) != 1 || len(c.Steps[0].Blocks) != 1 {
+		t.Fatalf("expected one video block, got %+v", c.Steps)
+	}
+	b := c.Steps[0].Blocks[0]
+	if b.Type != "video" || b.Provider != "youtube" || b.ID != "abc123" || b.Title != "ADK agent architecture" {
+		t.Fatalf("video contract not normalized: %+v", b)
+	}
+	wantOverview := "This video explains the main components of an ADK agent.\n\nThe overview remains semantic Markdown."
+	if b.Overview != wantOverview {
+		t.Fatalf("video overview changed\nwant:\n%s\n\ngot:\n%s", wantOverview, b.Overview)
+	}
+	if b.Language != "" || b.Content != "" || b.Attributes != nil {
+		t.Fatalf("video block leaked source/rendering representation: %+v", b)
+	}
+
+	data, err := json.Marshal(b)
+	if err != nil {
+		t.Fatal(err)
+	}
+	out := string(data)
+	for _, want := range []string{`"type":"video"`, `"provider":"youtube"`, `"id":"abc123"`, `"title":"ADK agent architecture"`, `"overview":"This video explains`} {
+		if !strings.Contains(out, want) {
+			t.Fatalf("normalized video JSON missing %s: %s", want, out)
+		}
+	}
+	for _, unwanted := range []string{`"language"`, `"content"`, `"attributes"`} {
+		if strings.Contains(out, unwanted) {
+			t.Fatalf("normalized video JSON contains source-only field %s: %s", unwanted, out)
+		}
+	}
+}
+
+func TestVideoBlockV1RequiresContractFields(t *testing.T) {
+	for _, tc := range []struct {
+		name string
+		head string
+	}{
+		{name: "provider", head: `id="abc123" title="Video"`},
+		{name: "id", head: `provider="youtube" title="Video"`},
+		{name: "title", head: `provider="youtube" id="abc123"`},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			src := "```video {" + tc.head + "}\noverview\n```"
+			_, err := parseBlocks(src)
+			if err == nil || !strings.Contains(err.Error(), "video block requires provider, id, and title attributes") {
+				t.Fatalf("parseBlocks error = %v, want video contract validation", err)
+			}
+		})
+	}
+}
+
+func TestVideoBlockV1PreservesUnknownProvider(t *testing.T) {
+	blocks, err := parseBlocks("```video {provider=\"future-provider\" id=\"asset-1\" title=\"Future video\"}\noverview\n```")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(blocks) != 1 || blocks[0].Type != "video" || blocks[0].Provider != "future-provider" {
+		t.Fatalf("unknown provider should remain portable for downstream fallback: %+v", blocks)
+	}
+}
