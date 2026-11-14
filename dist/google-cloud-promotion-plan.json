@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "dry_run": true,
+  "taxonomy_id": "google-cloud",
+  "taxonomy_version": "0.1.0-draft",
+  "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+  "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+  "license": "CC-BY-4.0",
+  "add": [],
+  "aliases": [],
+  "parents": [],
+  "warnings": [],
+  "notice": "Review-only projection; authoritative taxonomy, quiz data and domain mappings remain unchanged. Source categories are not exam domains."
+}

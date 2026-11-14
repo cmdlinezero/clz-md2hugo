@@ -1,0 +1,2487 @@
+{
+  "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+  "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+  "license": "CC-BY-4.0",
+  "existing": 21,
+  "candidates": 312,
+  "matched": [
+    {
+      "source_label": "BigQuery",
+      "canonical_id": "bigquery",
+      "canonical_label": "BigQuery",
+      "categories": [
+        "Data Analytics"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 79
+    },
+    {
+      "source_label": "Cloud Bigtable",
+      "canonical_id": "bigtable",
+      "canonical_label": "Bigtable",
+      "categories": [
+        "Database"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 69
+    },
+    {
+      "source_label": "Cloud Logging",
+      "canonical_id": "cloud-logging",
+      "canonical_label": "Cloud Logging",
+      "categories": [
+        "Operations \u0026 Monitoring"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 215
+    },
+    {
+      "source_label": "Cloud Monitoring",
+      "canonical_id": "cloud-monitoring",
+      "canonical_label": "Cloud Monitoring",
+      "categories": [
+        "Operations \u0026 Monitoring"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 216
+    },
+    {
+      "source_label": "Cloud Spanner",
+      "canonical_id": "spanner",
+      "canonical_label": "Spanner",
+      "categories": [
+        "Database"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 72
+    },
+    {
+      "source_label": "Cloud SQL",
+      "canonical_id": "cloud-sql",
+      "canonical_label": "Cloud SQL",
+      "categories": [
+        "Database"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 73
+    },
+    {
+      "source_label": "Cloud Storage",
+      "canonical_id": "cloud-storage",
+      "canonical_label": "Cloud Storage",
+      "categories": [
+        "Storage"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 63
+    },
+    {
+      "source_label": "Dataflow",
+      "canonical_id": "dataflow",
+      "canonical_label": "Dataflow",
+      "categories": [
+        "Data Analytics"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 87
+    },
+    {
+      "source_label": "Dataproc",
+      "canonical_id": "dataproc",
+      "canonical_label": "Dataproc",
+      "categories": [
+        "Data Analytics"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 89
+    },
+    {
+      "source_label": "Looker",
+      "canonical_id": "looker",
+      "canonical_label": "Looker",
+      "categories": [
+        "Data Analytics"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 94
+    },
+    {
+      "source_label": "Pub/Sub",
+      "canonical_id": "pub-sub",
+      "canonical_label": "Pub/Sub",
+      "categories": [
+        "Application Integration",
+        "Data Analytics"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 91
+    },
+    {
+      "source_label": "Storage Transfer Service",
+      "canonical_id": "storage-transfer-service",
+      "canonical_label": "Storage Transfer Service",
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 299
+    },
+    {
+      "source_label": "Vertex AI",
+      "canonical_id": "vertex-ai",
+      "canonical_label": "Vertex AI",
+      "categories": [
+        "AI and ML"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 113
+    },
+    {
+      "source_label": "VPC Service Controls",
+      "canonical_id": "vpc-service-controls",
+      "canonical_label": "VPC Service Controls",
+      "categories": [
+        "Identity and Security",
+        "Networking"
+      ],
+      "reason": "existing label or alias",
+      "source_line": 162
+    }
+  ],
+  "proposed": [
+    {
+      "label": "*Cloud Life Sciences",
+      "categories": [
+        "Healthcare"
+      ],
+      "description": "Manage, process, transform biomedical-data",
+      "source_line": 261
+    },
+    {
+      "label": ".NET/C#",
+      "categories": [
+        "Language Specific Documentation"
+      ],
+      "source_line": 468
+    },
+    {
+      "label": "/r/AppEngine",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 428
+    },
+    {
+      "label": "/r/bigquery",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 429
+    },
+    {
+      "label": "/r/dataflow",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 430
+    },
+    {
+      "label": "/r/firebase",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 431
+    },
+    {
+      "label": "/r/GoogleAppsScript",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 432
+    },
+    {
+      "label": "/r/googlecloud",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 427
+    },
+    {
+      "label": "Access Context Manager",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "End-user attribute-based access control",
+      "source_line": 195
+    },
+    {
+      "label": "Access Transparency",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Audit cloud provider access",
+      "source_line": 178
+    },
+    {
+      "label": "Admin SDK",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Manage Google Workspace resources",
+      "source_line": 332
+    },
+    {
+      "label": "AMP for Email",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Dynamic interactive email",
+      "source_line": 333
+    },
+    {
+      "label": "Anthos",
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "Enterprise hybrid/multi-cloud platform",
+      "source_line": 99
+    },
+    {
+      "label": "Anthos clusters",
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "Hybrid/on-premises GKE",
+      "source_line": 100
+    },
+    {
+      "label": "Anthos Config Management",
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "Policy and security automation",
+      "source_line": 101
+    },
+    {
+      "label": "Anthos Service Mesh",
+      "categories": [
+        "Hybrid and multi-cloud",
+        "Networking"
+      ],
+      "description": "Managed service mesh (Istio)",
+      "source_line": 102
+    },
+    {
+      "label": "Apache Beam",
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "Batch/streaming data processing",
+      "source_line": 441
+    },
+    {
+      "label": "API Analytics",
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "API metrics",
+      "source_line": 239
+    },
+    {
+      "label": "API Gateway",
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "Fully managed API Gateway",
+      "source_line": 242
+    },
+    {
+      "label": "API Monetization",
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "Monetize APIs",
+      "source_line": 240
+    },
+    {
+      "label": "Apigee API Management",
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "API management, development, security",
+      "source_line": 108
+    },
+    {
+      "label": "Apigee API Platform",
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "Develop, secure, monitor APIs",
+      "source_line": 241
+    },
+    {
+      "label": "Apigee Blog",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 384
+    },
+    {
+      "label": "Apigee Healthcare APIx",
+      "categories": [
+        "Healthcare"
+      ],
+      "description": "Healthcare system Google Cloud interoperability",
+      "source_line": 259
+    },
+    {
+      "label": "Apigee Hybrid",
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "Manage hybrid/multi-cloud API environments",
+      "source_line": 243
+    },
+    {
+      "label": "Apigee Sense",
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "API protection from attacks",
+      "source_line": 244
+    },
+    {
+      "label": "App Engine",
+      "categories": [
+        "Compute"
+      ],
+      "description": "Managed app platform",
+      "source_line": 49
+    },
+    {
+      "label": "App Engine Plugins",
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "Gradle/Maven App Engine plugin",
+      "source_line": 289
+    },
+    {
+      "label": "Apps Script",
+      "categories": [
+        "Language Specific Documentation",
+        "Workspace Platform"
+      ],
+      "description": "Extend and automate everything",
+      "source_line": 334
+    },
+    {
+      "label": "AppSheet",
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "No-code App creation",
+      "source_line": 248
+    },
+    {
+      "label": "Artifact Registry",
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "description": "Universal package manager",
+      "source_line": 225
+    },
+    {
+      "label": "Assured Workloads",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Workload compliance controls",
+      "source_line": 179
+    },
+    {
+      "label": "AutoML",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Custom low-code models",
+      "source_line": 114
+    },
+    {
+      "label": "Bare Metal Solution",
+      "categories": [
+        "Compute"
+      ],
+      "description": "Hardware for specialized workloads",
+      "source_line": 54
+    },
+    {
+      "label": "BeyondCorp Enterprise",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Zero trust secure access",
+      "source_line": 207
+    },
+    {
+      "label": "Big Data / Data Analytics Product Comparisons",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 433
+    },
+    {
+      "label": "BigQuery BI Engine",
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "In-memory analytics engine",
+      "source_line": 80
+    },
+    {
+      "label": "BigQuery Data Transfer Service",
+      "categories": [
+        "Data Analytics",
+        "Migration to Google Cloud"
+      ],
+      "description": "Automated data ingestion service",
+      "source_line": 83
+    },
+    {
+      "label": "BigQuery GIS",
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "BigQuery geospatial functions/support",
+      "source_line": 82
+    },
+    {
+      "label": "BigQuery ML",
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "BigQuery model training/serving",
+      "source_line": 81
+    },
+    {
+      "label": "Binary Authorization",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Kubernetes deploy-time security",
+      "source_line": 180
+    },
+    {
+      "label": "Calendar API",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Create and manage calendars",
+      "source_line": 335
+    },
+    {
+      "label": "Carbon Footprint",
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Report and reduce carbon emissions",
+      "source_line": 279
+    },
+    {
+      "label": "Carrier Peering",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Peer through a carrier",
+      "source_line": 145
+    },
+    {
+      "label": "Certificate Authority Service",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Managed private CAs",
+      "source_line": 181
+    },
+    {
+      "label": "Chronicle",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Find threats from security telemetry",
+      "source_line": 203
+    },
+    {
+      "label": "Classroom API",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Provision and manage classrooms",
+      "source_line": 336
+    },
+    {
+      "label": "Cloud APIs",
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "APIs for cloud services",
+      "source_line": 272
+    },
+    {
+      "label": "Cloud Asset Inventory",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "All assets, one place",
+      "source_line": 182
+    },
+    {
+      "label": "Cloud Audit Logs",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Audit trails for Google Cloud",
+      "source_line": 183
+    },
+    {
+      "label": "Cloud Billing",
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Billing and cost management tools",
+      "source_line": 274
+    },
+    {
+      "label": "Cloud Billing API",
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Programmatically manage Google Cloud billing",
+      "source_line": 273
+    },
+    {
+      "label": "Cloud Build",
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "description": "Continuous integration/delivery platform",
+      "source_line": 223
+    },
+    {
+      "label": "Cloud CDN",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Content delivery network",
+      "source_line": 150
+    },
+    {
+      "label": "Cloud Code",
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "Cloud native IDE extensions",
+      "source_line": 286
+    },
+    {
+      "label": "Cloud Code for IntelliJ",
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "IntelliJ Google Cloud tools",
+      "source_line": 284
+    },
+    {
+      "label": "Cloud Code for VS Code",
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "VS Code Google Cloud tools",
+      "source_line": 285
+    },
+    {
+      "label": "Cloud Composer",
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Managed workflow orchestration service",
+      "source_line": 85
+    },
+    {
+      "label": "Cloud Console",
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Web-based management console",
+      "source_line": 275
+    },
+    {
+      "label": "Cloud Data Fusion",
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Graphically manage data pipelines",
+      "source_line": 86
+    },
+    {
+      "label": "Cloud Data Loss Prevention (DLP)",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Classify and redact sensitive data",
+      "source_line": 184
+    },
+    {
+      "label": "Cloud Data Transfer",
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Data migration tools/CLI",
+      "source_line": 297
+    },
+    {
+      "label": "Cloud Debugger",
+      "categories": [
+        "Operations \u0026 Monitoring"
+      ],
+      "description": "Live production debugging",
+      "source_line": 213
+    },
+    {
+      "label": "Cloud Deploy",
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "description": "Deployment pipeline for GKE",
+      "source_line": 224
+    },
+    {
+      "label": "Cloud Deployment Manager",
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Templated infrastructure deployment",
+      "source_line": 276
+    },
+    {
+      "label": "Cloud DNS",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Programmable DNS serving",
+      "source_line": 151
+    },
+    {
+      "label": "Cloud Domains",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Register, transfer, manager domains",
+      "source_line": 161
+    },
+    {
+      "label": "Cloud Endpoints",
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "Cloud API gateway",
+      "source_line": 245
+    },
+    {
+      "label": "Cloud External Key Manager (EKM)",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "External keys you control",
+      "source_line": 186
+    },
+    {
+      "label": "Cloud Filestore",
+      "categories": [
+        "Storage"
+      ],
+      "description": "Managed NFS server",
+      "source_line": 62
+    },
+    {
+      "label": "Cloud Firestore",
+      "categories": [
+        "Database",
+        "Mobile (Firebase)"
+      ],
+      "description": "Serverless NoSQL document database",
+      "source_line": 70
+    },
+    {
+      "label": "Cloud Foundation Toolkit",
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Infrastructure as Code templates",
+      "source_line": 304
+    },
+    {
+      "label": "Cloud Functions",
+      "categories": [
+        "Compute"
+      ],
+      "description": "Event-driven serverless functions",
+      "source_line": 48
+    },
+    {
+      "label": "Cloud Functions for Firebase",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Event-driven serverless applications",
+      "source_line": 356
+    },
+    {
+      "label": "Cloud Healthcare API",
+      "categories": [
+        "Healthcare"
+      ],
+      "description": "Healthcare system Google Cloud interoperability",
+      "source_line": 258
+    },
+    {
+      "label": "Cloud HSM",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Hardware security module service",
+      "source_line": 185
+    },
+    {
+      "label": "Cloud IAM",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Resource access control",
+      "source_line": 187
+    },
+    {
+      "label": "Cloud Identity",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Manage users, devices \u0026 apps",
+      "source_line": 188
+    },
+    {
+      "label": "Cloud Identity-Aware Proxy",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Identity-based app access",
+      "source_line": 189
+    },
+    {
+      "label": "Cloud IDS",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Detects network based threats",
+      "source_line": 172
+    },
+    {
+      "label": "Cloud IoT Core",
+      "categories": [
+        "Internet of Things (IoT)"
+      ],
+      "description": "Manage devices, ingest data",
+      "source_line": 252
+    },
+    {
+      "label": "Cloud Key Management Service",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Hosted key management service",
+      "source_line": 190
+    },
+    {
+      "label": "Cloud Load Balancing",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Multi-region load distribution/balancing",
+      "source_line": 152
+    },
+    {
+      "label": "Cloud Memorystore",
+      "categories": [
+        "Database"
+      ],
+      "description": "Managed Redis and Memcached",
+      "source_line": 71
+    },
+    {
+      "label": "Cloud Mobile App",
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "iOS/Android Google Cloud manager app",
+      "source_line": 277
+    },
+    {
+      "label": "Cloud NAT",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Network address translation service",
+      "source_line": 153
+    },
+    {
+      "label": "Cloud Profiler",
+      "categories": [
+        "Operations \u0026 Monitoring"
+      ],
+      "description": "CPU and heap profiling",
+      "source_line": 217
+    },
+    {
+      "label": "Cloud Router",
+      "categories": [
+        "Networking"
+      ],
+      "description": "VPC/on-prem network route exchange (BGP)",
+      "source_line": 154
+    },
+    {
+      "label": "Cloud Run",
+      "categories": [
+        "Compute"
+      ],
+      "description": "Serverless for containerized applications",
+      "source_line": 51
+    },
+    {
+      "label": "Cloud Run for Anthos",
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "Serverless development for Anthos",
+      "source_line": 103
+    },
+    {
+      "label": "Cloud Scheduler",
+      "categories": [
+        "Application Integration"
+      ],
+      "description": "Managed cron job service",
+      "source_line": 232
+    },
+    {
+      "label": "Cloud SDK",
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "CLI for Google Cloud",
+      "source_line": 290
+    },
+    {
+      "label": "Cloud Search",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Unified search for enterprise",
+      "source_line": 337
+    },
+    {
+      "label": "Cloud Security Podcast",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 400
+    },
+    {
+      "label": "Cloud Shell",
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "Browser-based terminal/CLI",
+      "source_line": 291
+    },
+    {
+      "label": "Cloud Source Repositories",
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "description": "Hosted private git repos",
+      "source_line": 226
+    },
+    {
+      "label": "Cloud SQL Insights",
+      "categories": [
+        "Database"
+      ],
+      "description": "SQL Inspector",
+      "source_line": 75
+    },
+    {
+      "label": "Cloud Storage for Firebase",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Object storage and serving",
+      "source_line": 357
+    },
+    {
+      "label": "Cloud Tasks",
+      "categories": [
+        "Application Integration"
+      ],
+      "description": "Asynchronous task execution",
+      "source_line": 233
+    },
+    {
+      "label": "Cloud Tools for Eclipse",
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "Eclipse Google Cloud tools",
+      "source_line": 287
+    },
+    {
+      "label": "Cloud Tools for Visual Studio",
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "Visual Studio Google Cloud tools",
+      "source_line": 288
+    },
+    {
+      "label": "Cloud TPU",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Hardware acceleration for ML",
+      "source_line": 133
+    },
+    {
+      "label": "Cloud Trace",
+      "categories": [
+        "Operations \u0026 Monitoring"
+      ],
+      "description": "App latency insights",
+      "source_line": 218
+    },
+    {
+      "label": "Cloud Translation",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Language detection and translation",
+      "source_line": 134
+    },
+    {
+      "label": "Cloud Video Intelligence API",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Scene-level video annotation",
+      "source_line": 135
+    },
+    {
+      "label": "Cloud Vision",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Image recognition and classification",
+      "source_line": 136
+    },
+    {
+      "label": "Cloud VPN",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Virtual private network connection",
+      "source_line": 155
+    },
+    {
+      "label": "Codelabs Home Page",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 419
+    },
+    {
+      "label": "Compute Engine",
+      "categories": [
+        "Compute"
+      ],
+      "description": "VMs, GPUs, TPUs, Disks",
+      "source_line": 53
+    },
+    {
+      "label": "Compute Product Comparisons",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 434
+    },
+    {
+      "label": "Confidential Computing",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Encrypt data in-use",
+      "source_line": 194
+    },
+    {
+      "label": "Connected Sheets",
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Spreadsheet interface for (big)data",
+      "source_line": 84
+    },
+    {
+      "label": "Contact Center AI",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "AI in your contact center",
+      "source_line": 137
+    },
+    {
+      "label": "Container Registry",
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "description": "Private container registry/storage",
+      "source_line": 227
+    },
+    {
+      "label": "Crashlytics",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Crash reporting and analytics",
+      "source_line": 358
+    },
+    {
+      "label": "Data Catalog",
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Metadata management service",
+      "source_line": 92
+    },
+    {
+      "label": "Database Migration Service",
+      "categories": [
+        "Database"
+      ],
+      "description": "Migrate to Cloud SQL",
+      "source_line": 74
+    },
+    {
+      "label": "Database Product Comparisons",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 435
+    },
+    {
+      "label": "Dataprep by Trifacta",
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Visual data wrangling",
+      "source_line": 88
+    },
+    {
+      "label": "Datastream",
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Change data capture/replication service",
+      "source_line": 90
+    },
+    {
+      "label": "Dedicated Interconnect",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Dedicated private network connection",
+      "source_line": 147
+    },
+    {
+      "label": "Deep Learning Containers",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Preconfigured containers for deep learning",
+      "source_line": 118
+    },
+    {
+      "label": "Deep Learning VM Images",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Preconfigured VMs for deep learning",
+      "source_line": 116
+    },
+    {
+      "label": "Developer Portal",
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "API management portal",
+      "source_line": 246
+    },
+    {
+      "label": "Dialogflow",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Create conversational interfaces",
+      "source_line": 138
+    },
+    {
+      "label": "Direct Peering",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Peer with Google Cloud",
+      "source_line": 146
+    },
+    {
+      "label": "Directions API",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Get directions between locations",
+      "source_line": 310
+    },
+    {
+      "label": "Distance Matrix API",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Multi-origin/destination travel times",
+      "source_line": 311
+    },
+    {
+      "label": "Docs API",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Create and edit documents",
+      "source_line": 338
+    },
+    {
+      "label": "Document AI",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Analyze, classify, search documents",
+      "source_line": 139
+    },
+    {
+      "label": "DORA - Software \u0026 Delivery Research",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 399
+    },
+    {
+      "label": "Drive Activity API",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Retrieve Google Drive activity",
+      "source_line": 339
+    },
+    {
+      "label": "Drive API",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Read and write files",
+      "source_line": 340
+    },
+    {
+      "label": "Drive Picker",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Drive file selection widget",
+      "source_line": 341
+    },
+    {
+      "label": "Email Markup",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Interactive email using schema.org",
+      "source_line": 342
+    },
+    {
+      "label": "Error Reporting",
+      "categories": [
+        "Operations \u0026 Monitoring"
+      ],
+      "description": "App error reporting",
+      "source_line": 214
+    },
+    {
+      "label": "Event Threat Detection",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Scans for suspicious activity",
+      "source_line": 196
+    },
+    {
+      "label": "Eventarc",
+      "categories": [
+        "Application Integration"
+      ],
+      "description": "Event-driven Cloud Run services",
+      "source_line": 231
+    },
+    {
+      "label": "Firebase",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 425
+    },
+    {
+      "label": "Firebase A/B Testing",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Create A/B test experiments",
+      "source_line": 359
+    },
+    {
+      "label": "Firebase App Distribution",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Trusted tester early access",
+      "source_line": 360
+    },
+    {
+      "label": "Firebase Authentication",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Drop-in authentication",
+      "source_line": 361
+    },
+    {
+      "label": "Firebase Blog",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 385
+    },
+    {
+      "label": "Firebase Cloud Messaging",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Send device notifications",
+      "source_line": 362
+    },
+    {
+      "label": "Firebase Dynamic Links",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Link to app content",
+      "source_line": 363
+    },
+    {
+      "label": "Firebase Extensions",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Pre-packaged development solutions",
+      "source_line": 364
+    },
+    {
+      "label": "Firebase Hosting",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Web hosting with CDN/SSL",
+      "source_line": 365
+    },
+    {
+      "label": "Firebase In-App Messaging",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Send in-app contextual messages",
+      "source_line": 366
+    },
+    {
+      "label": "Firebase Performance Monitoring",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "App/web performance monitoring",
+      "source_line": 367
+    },
+    {
+      "label": "Firebase Predictions",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Predict user targeting",
+      "source_line": 368
+    },
+    {
+      "label": "Firebase Realtime Database",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Real-time data synchronization",
+      "source_line": 369
+    },
+    {
+      "label": "Firebase Remote Config",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Remotely configure installed apps",
+      "source_line": 370
+    },
+    {
+      "label": "Firebase Test Lab",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Mobile testing device farm",
+      "source_line": 371
+    },
+    {
+      "label": "Geocoding API",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Convert address to/from coordinates",
+      "source_line": 312
+    },
+    {
+      "label": "Geolocation API",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Derive location without GPS",
+      "source_line": 313
+    },
+    {
+      "label": "Gmail API",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Enhance Gmail",
+      "source_line": 345
+    },
+    {
+      "label": "Go",
+      "categories": [
+        "Google Cloud Foundational Open Source Projects",
+        "Language Specific Documentation"
+      ],
+      "description": "High Concurrency Programming Language",
+      "source_line": 442
+    },
+    {
+      "label": "Google Analytics for Firebase",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Mobile app analytics",
+      "source_line": 372
+    },
+    {
+      "label": "Google Chats API",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Conversational bots in chat",
+      "source_line": 346
+    },
+    {
+      "label": "Google Cloud",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 421
+    },
+    {
+      "label": "Google Cloud Armor",
+      "categories": [
+        "Networking"
+      ],
+      "description": "DDoS protection and WAF",
+      "source_line": 149
+    },
+    {
+      "label": "Google Cloud Blog",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 378
+    },
+    {
+      "label": "Google Cloud Certifications",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 389
+    },
+    {
+      "label": "Google Cloud Game Servers",
+      "categories": [
+        "Gaming"
+      ],
+      "description": "Orchestrate Agones clusters",
+      "source_line": 255
+    },
+    {
+      "label": "Google Cloud Home Page",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 377
+    },
+    {
+      "label": "Google Cloud Marketplace for Anthos",
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "Pre-configured containerized apps",
+      "source_line": 104
+    },
+    {
+      "label": "Google Cloud Medium Publication",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 383
+    },
+    {
+      "label": "Google Cloud Open Source",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 382
+    },
+    {
+      "label": "Google Cloud Platform for AWS Professionals",
+      "categories": [
+        "Platform Comparisons"
+      ],
+      "source_line": 454
+    },
+    {
+      "label": "Google Cloud Platform for Azure Professionals",
+      "categories": [
+        "Platform Comparisons"
+      ],
+      "source_line": 455
+    },
+    {
+      "label": "Google Cloud Platform for Data Center Professionals",
+      "categories": [
+        "Platform Comparisons"
+      ],
+      "source_line": 456
+    },
+    {
+      "label": "Google Cloud Platform for OpenStack Users",
+      "categories": [
+        "Platform Comparisons"
+      ],
+      "source_line": 457
+    },
+    {
+      "label": "Google Cloud Platform Podcast",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 379
+    },
+    {
+      "label": "Google Cloud Pricing",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 416
+    },
+    {
+      "label": "Google Cloud Pricing Calculator",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 417
+    },
+    {
+      "label": "Google Cloud Reader",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 381
+    },
+    {
+      "label": "Google Cloud Sketchnote",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 401
+    },
+    {
+      "label": "Google Cloud Solutions Library",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 413
+    },
+    {
+      "label": "Google Cloud Support Hub",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 415
+    },
+    {
+      "label": "Google Cloud System Status",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 390
+    },
+    {
+      "label": "Google Cloud Technical",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 422
+    },
+    {
+      "label": "Google Cloud Training",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 391
+    },
+    {
+      "label": "Google Cloud's operations suite",
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "Monitoring, logging, troubleshooting",
+      "source_line": 106
+    },
+    {
+      "label": "Google Data Studio",
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Collaborative data exploration/dashboarding",
+      "source_line": 93
+    },
+    {
+      "label": "Google Developer's",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 424
+    },
+    {
+      "label": "Google Developers Blog",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 392
+    },
+    {
+      "label": "Google Kubernetes Engine (GKE)",
+      "categories": [
+        "Compute"
+      ],
+      "description": "Managed Kubernetes/containers",
+      "source_line": 52
+    },
+    {
+      "label": "Google Maps Platform Blog",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 393
+    },
+    {
+      "label": "Google Open Source Blog",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 394
+    },
+    {
+      "label": "Google Security Blog",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 395
+    },
+    {
+      "label": "Google Transfer Appliance",
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Rentable data transport box",
+      "source_line": 298
+    },
+    {
+      "label": "Google Workspace",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 423
+    },
+    {
+      "label": "Google Workspace Add-ons",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Extend Google Workspace apps",
+      "source_line": 343
+    },
+    {
+      "label": "Google Workspace Developers Blog",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 386
+    },
+    {
+      "label": "Google Workspace GitHub",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 387
+    },
+    {
+      "label": "Google Workspace Marketplace",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Storefront for integrated applications",
+      "source_line": 344
+    },
+    {
+      "label": "Google Workspace Solutions Gallery",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 414
+    },
+    {
+      "label": "Google Workspace Twitter",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 388
+    },
+    {
+      "label": "gRPC",
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "RPC framework",
+      "source_line": 443
+    },
+    {
+      "label": "gVisor",
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "Secure container runtime",
+      "source_line": 444
+    },
+    {
+      "label": "Healthcare Natural Language AI",
+      "categories": [
+        "Healthcare"
+      ],
+      "description": "Real-time insights from media-text",
+      "source_line": 260
+    },
+    {
+      "label": "Istio",
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "Connect and secure services",
+      "source_line": 445
+    },
+    {
+      "label": "Java",
+      "categories": [
+        "Language Specific Documentation"
+      ],
+      "source_line": 462
+    },
+    {
+      "label": "Kaggle Home Page",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 396
+    },
+    {
+      "label": "KF",
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Cloud Foundry to Kubernetes",
+      "source_line": 305
+    },
+    {
+      "label": "Knative",
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "Serverless framework for Kubernetes",
+      "source_line": 446
+    },
+    {
+      "label": "Kubeflow",
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "ML toolkit for Kubernetes",
+      "source_line": 447
+    },
+    {
+      "label": "Kubernetes",
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "Management of containerized applications",
+      "source_line": 448
+    },
+    {
+      "label": "Kubernetes Blog",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 397
+    },
+    {
+      "label": "Kubernetes Podcast from Google",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 380
+    },
+    {
+      "label": "Local SSD",
+      "categories": [
+        "Storage"
+      ],
+      "description": "VM locally attached SSDs",
+      "source_line": 65
+    },
+    {
+      "label": "Managed Service for Microsoft Active Directory",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Managed Microsoft Active Directory",
+      "source_line": 197
+    },
+    {
+      "label": "Maps Embed API",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Display iframe embedded maps",
+      "source_line": 314
+    },
+    {
+      "label": "Maps JavaScript API",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Dynamic web maps",
+      "source_line": 315
+    },
+    {
+      "label": "Maps SDK for Android",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Maps for Android apps",
+      "source_line": 316
+    },
+    {
+      "label": "Maps SDK for iOS",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Maps for iOS apps",
+      "source_line": 317
+    },
+    {
+      "label": "Maps SDK for Unity",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Unity SDK for games",
+      "source_line": 319
+    },
+    {
+      "label": "Maps Static API",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Display static map images",
+      "source_line": 318
+    },
+    {
+      "label": "Maps URLs",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "URL scheme for maps",
+      "source_line": 320
+    },
+    {
+      "label": "Marketplace",
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "Partner \u0026 open source marketplace",
+      "source_line": 247
+    },
+    {
+      "label": "Migrate for Anthos and GKE",
+      "categories": [
+        "Hybrid and multi-cloud",
+        "Migration to Google Cloud"
+      ],
+      "description": "Migrate VMs to GKE",
+      "source_line": 105
+    },
+    {
+      "label": "Migrate for Compute Engine",
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Compute Engine migration tools",
+      "source_line": 301
+    },
+    {
+      "label": "Migrate from Amazon Redshift",
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Migrate from Redshift to BigQuery",
+      "source_line": 302
+    },
+    {
+      "label": "Migrate from Teradata",
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Migrate from Teradata to BigQuery",
+      "source_line": 303
+    },
+    {
+      "label": "ML Kit for Firebase",
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "ML APIs for mobile",
+      "source_line": 373
+    },
+    {
+      "label": "Network Connectivity Center",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Connect VPC \u0026 On-prem",
+      "source_line": 169
+    },
+    {
+      "label": "Network Intelligence Center",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Network monitoring and topology",
+      "source_line": 163
+    },
+    {
+      "label": "Network Service Tiers",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Price versus performance tiering",
+      "source_line": 156
+    },
+    {
+      "label": "Network Telemetry",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Network telemetry service",
+      "source_line": 157
+    },
+    {
+      "label": "Networking Product Comparisons",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 436
+    },
+    {
+      "label": "Node.js",
+      "categories": [
+        "Language Specific Documentation"
+      ],
+      "source_line": 463
+    },
+    {
+      "label": "OpenCensus",
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "Cloud native observability framework",
+      "source_line": 449
+    },
+    {
+      "label": "Packet Mirroring",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Monitor/analyze instance traffic",
+      "source_line": 171
+    },
+    {
+      "label": "Partner Interconnect",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Connect on-prem network to VPC",
+      "source_line": 148
+    },
+    {
+      "label": "People API",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Manage user's Contacts",
+      "source_line": 347
+    },
+    {
+      "label": "Persistent Disk",
+      "categories": [
+        "Storage"
+      ],
+      "description": "Block storage for VMs",
+      "source_line": 64
+    },
+    {
+      "label": "PHP",
+      "categories": [
+        "Language Specific Documentation"
+      ],
+      "source_line": 467
+    },
+    {
+      "label": "Places API",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Rest-based Places features",
+      "source_line": 321
+    },
+    {
+      "label": "Places Library, Maps JS API",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Places features for web",
+      "source_line": 322
+    },
+    {
+      "label": "Places SDK for Android",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Places features for Android",
+      "source_line": 323
+    },
+    {
+      "label": "Places SDK for iOS",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Places feature for iOS",
+      "source_line": 324
+    },
+    {
+      "label": "Preemptible VMs",
+      "categories": [
+        "Compute"
+      ],
+      "description": "Short-lived compute instances",
+      "source_line": 55
+    },
+    {
+      "label": "Private Catalog",
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Internal Solutions Catalog",
+      "source_line": 278
+    },
+    {
+      "label": "Private Service Connect",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Privately connect services across VPCs",
+      "source_line": 167
+    },
+    {
+      "label": "Public Datasets",
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Hosted data in BigQuery",
+      "source_line": 95
+    },
+    {
+      "label": "Python",
+      "categories": [
+        "Language Specific Documentation"
+      ],
+      "source_line": 464
+    },
+    {
+      "label": "Qwiklabs Home Page",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 418
+    },
+    {
+      "label": "reCAPTCHA Enterprise",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Protection against bot/spam/abuse",
+      "source_line": 206
+    },
+    {
+      "label": "Recommendations AI",
+      "categories": [
+        "AI and ML",
+        "Retail"
+      ],
+      "description": "Create custom recommendations",
+      "source_line": 140
+    },
+    {
+      "label": "Reddit",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 426
+    },
+    {
+      "label": "Regions and Network Map",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 398
+    },
+    {
+      "label": "Resource Manager",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Cloud project metadata management",
+      "source_line": 191
+    },
+    {
+      "label": "Risk Manager",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Evaluate organization’s security posture",
+      "source_line": 205
+    },
+    {
+      "label": "Roads API",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Convert coordinates to roads",
+      "source_line": 325
+    },
+    {
+      "label": "Ruby",
+      "categories": [
+        "Language Specific Documentation"
+      ],
+      "source_line": 466
+    },
+    {
+      "label": "Secret Manager",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Store and manage secrets",
+      "source_line": 198
+    },
+    {
+      "label": "Security Command Center",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Security management and data risk platform",
+      "source_line": 192
+    },
+    {
+      "label": "Security Key Enforcement",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Two-step key verification",
+      "source_line": 199
+    },
+    {
+      "label": "Service Directory",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Centrally publish/discover/connect services",
+      "source_line": 165
+    },
+    {
+      "label": "Sheets API",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Read and write spreadsheets",
+      "source_line": 348
+    },
+    {
+      "label": "Shielded VMs",
+      "categories": [
+        "Compute",
+        "Identity and Security"
+      ],
+      "description": "Hardened VMs",
+      "source_line": 56
+    },
+    {
+      "label": "Slides API",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Create and edit presentations",
+      "source_line": 349
+    },
+    {
+      "label": "Sole-tenant Nodes",
+      "categories": [
+        "Compute"
+      ],
+      "description": "Dedicated physical servers",
+      "source_line": 57
+    },
+    {
+      "label": "Source for this document",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 412
+    },
+    {
+      "label": "Speech-To-Text",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Convert audio to text",
+      "source_line": 130
+    },
+    {
+      "label": "Storage Product Comparisons",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 437
+    },
+    {
+      "label": "Street View Service",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Street view for JavaScript",
+      "source_line": 327
+    },
+    {
+      "label": "Street View Static API",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Static street view images",
+      "source_line": 326
+    },
+    {
+      "label": "Talent Solutions",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Job search with ML",
+      "source_line": 131
+    },
+    {
+      "label": "Task API",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Search, read \u0026 update Tasks",
+      "source_line": 350
+    },
+    {
+      "label": "TensorFlow",
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "ML framework",
+      "source_line": 450
+    },
+    {
+      "label": "Text-To-Speech",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Convert text to audio",
+      "source_line": 132
+    },
+    {
+      "label": "Time Zone API",
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Convert coordinates to timezone",
+      "source_line": 328
+    },
+    {
+      "label": "Titan Security Key",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Two-factor authentication (2FA) device",
+      "source_line": 201
+    },
+    {
+      "label": "Traffic Director",
+      "categories": [
+        "Hybrid and multi-cloud",
+        "Networking"
+      ],
+      "description": "Service mesh traffic management",
+      "source_line": 107
+    },
+    {
+      "label": "Vault API",
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Manage your organization's eDiscovery",
+      "source_line": 351
+    },
+    {
+      "label": "Vertex AI Data Labeling",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Data labeling by humans",
+      "source_line": 115
+    },
+    {
+      "label": "Vertex AI Edge Manager",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Deploy monitor edge inferences",
+      "source_line": 123
+    },
+    {
+      "label": "Vertex AI Feature Store",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Managed ML feature repository",
+      "source_line": 125
+    },
+    {
+      "label": "Vertex AI Matching Engine",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Vector similarity searches",
+      "source_line": 119
+    },
+    {
+      "label": "Vertex AI Model Monitoring",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Monitor models for skew/drift",
+      "source_line": 127
+    },
+    {
+      "label": "Vertex AI Pipelines",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Hosted ML workflows",
+      "source_line": 120
+    },
+    {
+      "label": "Vertex AI Predictions",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Autoscaled model serving",
+      "source_line": 121
+    },
+    {
+      "label": "Vertex AI Tensorboard",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Managed TensorBoard for ML-experiment Visualization",
+      "source_line": 128
+    },
+    {
+      "label": "Vertex AI Training",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Distributed AI training",
+      "source_line": 122
+    },
+    {
+      "label": "Vertex AI Vizier",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "black-box hyperparameter tuning",
+      "source_line": 129
+    },
+    {
+      "label": "Vertex AI Workbench",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Jupyter-based environment for Data Science",
+      "source_line": 117
+    },
+    {
+      "label": "Vertex Explainable AI",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Understand ML model predictions",
+      "source_line": 124
+    },
+    {
+      "label": "Vertex ML Metadata",
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Artifact, lineage, and execution tracking",
+      "source_line": 126
+    },
+    {
+      "label": "Virtual Private Cloud",
+      "categories": [
+        "Networking"
+      ],
+      "description": "Software defined networking",
+      "source_line": 160
+    },
+    {
+      "label": "VirusTotal",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Research/hunt for malware",
+      "source_line": 204
+    },
+    {
+      "label": "Vision Product Search",
+      "categories": [
+        "AI and ML",
+        "Retail"
+      ],
+      "description": "Visual search for products",
+      "source_line": 141
+    },
+    {
+      "label": "Visual Inspection AI",
+      "categories": [
+        "Retail"
+      ],
+      "description": "Train/deploy models to detect defects",
+      "source_line": 267
+    },
+    {
+      "label": "VM Manager",
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Manage OS VM Fleets",
+      "source_line": 271
+    },
+    {
+      "label": "VMware Engine",
+      "categories": [
+        "Compute"
+      ],
+      "description": "VMware as a service",
+      "source_line": 58
+    },
+    {
+      "label": "Web Security Scanner",
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "App engine security scanner",
+      "source_line": 193
+    },
+    {
+      "label": "Workflows",
+      "categories": [
+        "Application Integration"
+      ],
+      "description": "HTTP services orchestration",
+      "source_line": 234
+    },
+    {
+      "label": "YouTube Channels",
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 420
+    }
+  ],
+  "review": []
+}

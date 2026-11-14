@@ -1,0 +1,4175 @@
+{
+  "schema_version": 1,
+  "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+  "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+  "license": "CC-BY-4.0",
+  "taxonomy_id": "google-cloud",
+  "taxonomy_version": "0.1.0-draft",
+  "matched_count": 14,
+  "items": [
+    {
+      "label": "*Cloud Life Sciences",
+      "suggested_id": "cloud-life-sciences",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Healthcare"
+      ],
+      "description": "Manage, process, transform biomedical-data",
+      "source_line": 261
+    },
+    {
+      "label": ".NET/C#",
+      "suggested_id": "net-c",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Language Specific Documentation"
+      ],
+      "source_line": 468
+    },
+    {
+      "label": "/r/AppEngine",
+      "suggested_id": "r-appengine",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 428
+    },
+    {
+      "label": "/r/bigquery",
+      "suggested_id": "r-bigquery",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 429
+    },
+    {
+      "label": "/r/dataflow",
+      "suggested_id": "r-dataflow",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 430
+    },
+    {
+      "label": "/r/firebase",
+      "suggested_id": "r-firebase",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 431
+    },
+    {
+      "label": "/r/GoogleAppsScript",
+      "suggested_id": "r-googleappsscript",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 432
+    },
+    {
+      "label": "/r/googlecloud",
+      "suggested_id": "r-googlecloud",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 427
+    },
+    {
+      "label": "Access Context Manager",
+      "suggested_id": "access-context-manager",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "End-user attribute-based access control",
+      "source_line": 195
+    },
+    {
+      "label": "Access Transparency",
+      "suggested_id": "access-transparency",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Audit cloud provider access",
+      "source_line": 178
+    },
+    {
+      "label": "Admin SDK",
+      "suggested_id": "admin-sdk",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Manage Google Workspace resources",
+      "source_line": 332
+    },
+    {
+      "label": "AMP for Email",
+      "suggested_id": "amp-for-email",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Dynamic interactive email",
+      "source_line": 333
+    },
+    {
+      "label": "Anthos",
+      "suggested_id": "anthos",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "Enterprise hybrid/multi-cloud platform",
+      "source_line": 99,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Anthos clusters",
+      "suggested_id": "anthos-clusters",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "Hybrid/on-premises GKE",
+      "source_line": 100,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Anthos Config Management",
+      "suggested_id": "anthos-config-management",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "Policy and security automation",
+      "source_line": 101,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Anthos Service Mesh",
+      "suggested_id": "anthos-service-mesh",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "Hybrid and multi-cloud",
+        "Networking"
+      ],
+      "description": "Managed service mesh (Istio)",
+      "source_line": 102,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Apache Beam",
+      "suggested_id": "apache-beam",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "Batch/streaming data processing",
+      "source_line": 441
+    },
+    {
+      "label": "API Analytics",
+      "suggested_id": "api-analytics",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "API metrics",
+      "source_line": 239
+    },
+    {
+      "label": "API Gateway",
+      "suggested_id": "api-gateway",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "Fully managed API Gateway",
+      "source_line": 242
+    },
+    {
+      "label": "API Monetization",
+      "suggested_id": "api-monetization",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "Monetize APIs",
+      "source_line": 240
+    },
+    {
+      "label": "Apigee API Management",
+      "suggested_id": "apigee-api-management",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "API management, development, security",
+      "source_line": 108
+    },
+    {
+      "label": "Apigee API Platform",
+      "suggested_id": "apigee-api-platform",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "Develop, secure, monitor APIs",
+      "source_line": 241
+    },
+    {
+      "label": "Apigee Blog",
+      "suggested_id": "apigee-blog",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 384
+    },
+    {
+      "label": "Apigee Healthcare APIx",
+      "suggested_id": "apigee-healthcare-apix",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Healthcare"
+      ],
+      "description": "Healthcare system Google Cloud interoperability",
+      "source_line": 259
+    },
+    {
+      "label": "Apigee Hybrid",
+      "suggested_id": "apigee-hybrid",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "Manage hybrid/multi-cloud API environments",
+      "source_line": 243
+    },
+    {
+      "label": "Apigee Sense",
+      "suggested_id": "apigee-sense",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "API protection from attacks",
+      "source_line": 244
+    },
+    {
+      "label": "App Engine",
+      "suggested_id": "app-engine",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Compute"
+      ],
+      "description": "Managed app platform",
+      "source_line": 49
+    },
+    {
+      "label": "App Engine Plugins",
+      "suggested_id": "app-engine-plugins",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "Gradle/Maven App Engine plugin",
+      "source_line": 289
+    },
+    {
+      "label": "Apps Script",
+      "suggested_id": "apps-script",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Language Specific Documentation",
+        "Workspace Platform"
+      ],
+      "description": "Extend and automate everything",
+      "source_line": 334
+    },
+    {
+      "label": "AppSheet",
+      "suggested_id": "appsheet",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "No-code App creation",
+      "source_line": 248
+    },
+    {
+      "label": "Artifact Registry",
+      "suggested_id": "artifact-registry",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "description": "Universal package manager",
+      "source_line": 225
+    },
+    {
+      "label": "Assured Workloads",
+      "suggested_id": "assured-workloads",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Workload compliance controls",
+      "source_line": 179
+    },
+    {
+      "label": "AutoML",
+      "suggested_id": "automl",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Custom low-code models",
+      "source_line": 114
+    },
+    {
+      "label": "Bare Metal Solution",
+      "suggested_id": "bare-metal-solution",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Compute"
+      ],
+      "description": "Hardware for specialized workloads",
+      "source_line": 54
+    },
+    {
+      "label": "BeyondCorp Enterprise",
+      "suggested_id": "beyondcorp-enterprise",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Zero trust secure access",
+      "source_line": 207
+    },
+    {
+      "label": "Big Data / Data Analytics Product Comparisons",
+      "suggested_id": "big-data-data-analytics-product-comparisons",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 433
+    },
+    {
+      "label": "BigQuery BI Engine",
+      "suggested_id": "bigquery-bi-engine",
+      "kind": "feature",
+      "decision": "review_parent",
+      "reasons": [
+        "possible subservice or feature; review parent relationship"
+      ],
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "In-memory analytics engine",
+      "source_line": 80,
+      "parent_id": "bigquery"
+    },
+    {
+      "label": "BigQuery Data Transfer Service",
+      "suggested_id": "bigquery-data-transfer-service",
+      "kind": "feature",
+      "decision": "review_parent",
+      "reasons": [
+        "possible subservice or feature; review parent relationship"
+      ],
+      "categories": [
+        "Data Analytics",
+        "Migration to Google Cloud"
+      ],
+      "description": "Automated data ingestion service",
+      "source_line": 83,
+      "parent_id": "bigquery"
+    },
+    {
+      "label": "BigQuery GIS",
+      "suggested_id": "bigquery-gis",
+      "kind": "feature",
+      "decision": "review_parent",
+      "reasons": [
+        "possible subservice or feature; review parent relationship"
+      ],
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "BigQuery geospatial functions/support",
+      "source_line": 82,
+      "parent_id": "bigquery"
+    },
+    {
+      "label": "BigQuery ML",
+      "suggested_id": "bigquery-ml",
+      "kind": "feature",
+      "decision": "review_parent",
+      "reasons": [
+        "possible subservice or feature; review parent relationship"
+      ],
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "BigQuery model training/serving",
+      "source_line": 81,
+      "parent_id": "bigquery"
+    },
+    {
+      "label": "Binary Authorization",
+      "suggested_id": "binary-authorization",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Kubernetes deploy-time security",
+      "source_line": 180
+    },
+    {
+      "label": "Calendar API",
+      "suggested_id": "calendar-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Create and manage calendars",
+      "source_line": 335
+    },
+    {
+      "label": "Carbon Footprint",
+      "suggested_id": "carbon-footprint",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Report and reduce carbon emissions",
+      "source_line": 279
+    },
+    {
+      "label": "Carrier Peering",
+      "suggested_id": "carrier-peering",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Peer through a carrier",
+      "source_line": 145
+    },
+    {
+      "label": "Certificate Authority Service",
+      "suggested_id": "certificate-authority-service",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Managed private CAs",
+      "source_line": 181
+    },
+    {
+      "label": "Chronicle",
+      "suggested_id": "chronicle",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Find threats from security telemetry",
+      "source_line": 203
+    },
+    {
+      "label": "Classroom API",
+      "suggested_id": "classroom-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Provision and manage classrooms",
+      "source_line": 336
+    },
+    {
+      "label": "Cloud APIs",
+      "suggested_id": "cloud-apis",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "APIs for cloud services",
+      "source_line": 272
+    },
+    {
+      "label": "Cloud Asset Inventory",
+      "suggested_id": "cloud-asset-inventory",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "All assets, one place",
+      "source_line": 182
+    },
+    {
+      "label": "Cloud Audit Logs",
+      "suggested_id": "cloud-audit-logs",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Audit trails for Google Cloud",
+      "source_line": 183
+    },
+    {
+      "label": "Cloud Billing",
+      "suggested_id": "cloud-billing",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Billing and cost management tools",
+      "source_line": 274
+    },
+    {
+      "label": "Cloud Billing API",
+      "suggested_id": "cloud-billing-api",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Programmatically manage Google Cloud billing",
+      "source_line": 273
+    },
+    {
+      "label": "Cloud Build",
+      "suggested_id": "cloud-build",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "description": "Continuous integration/delivery platform",
+      "source_line": 223
+    },
+    {
+      "label": "Cloud CDN",
+      "suggested_id": "cloud-cdn",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Content delivery network",
+      "source_line": 150
+    },
+    {
+      "label": "Cloud Code",
+      "suggested_id": "cloud-code",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "Cloud native IDE extensions",
+      "source_line": 286
+    },
+    {
+      "label": "Cloud Code for IntelliJ",
+      "suggested_id": "cloud-code-for-intellij",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "IntelliJ Google Cloud tools",
+      "source_line": 284
+    },
+    {
+      "label": "Cloud Code for VS Code",
+      "suggested_id": "cloud-code-for-vs-code",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "VS Code Google Cloud tools",
+      "source_line": 285
+    },
+    {
+      "label": "Cloud Composer",
+      "suggested_id": "cloud-composer",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Managed workflow orchestration service",
+      "source_line": 85
+    },
+    {
+      "label": "Cloud Console",
+      "suggested_id": "cloud-console",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Web-based management console",
+      "source_line": 275
+    },
+    {
+      "label": "Cloud Data Fusion",
+      "suggested_id": "cloud-data-fusion",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Graphically manage data pipelines",
+      "source_line": 86
+    },
+    {
+      "label": "Cloud Data Loss Prevention (DLP)",
+      "suggested_id": "cloud-data-loss-prevention-dlp",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Classify and redact sensitive data",
+      "source_line": 184
+    },
+    {
+      "label": "Cloud Data Transfer",
+      "suggested_id": "cloud-data-transfer",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Data migration tools/CLI",
+      "source_line": 297
+    },
+    {
+      "label": "Cloud Debugger",
+      "suggested_id": "cloud-debugger",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Operations \u0026 Monitoring"
+      ],
+      "description": "Live production debugging",
+      "source_line": 213
+    },
+    {
+      "label": "Cloud Deploy",
+      "suggested_id": "cloud-deploy",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "description": "Deployment pipeline for GKE",
+      "source_line": 224
+    },
+    {
+      "label": "Cloud Deployment Manager",
+      "suggested_id": "cloud-deployment-manager",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Templated infrastructure deployment",
+      "source_line": 276,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Cloud DNS",
+      "suggested_id": "cloud-dns",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Programmable DNS serving",
+      "source_line": 151
+    },
+    {
+      "label": "Cloud Domains",
+      "suggested_id": "cloud-domains",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Register, transfer, manager domains",
+      "source_line": 161
+    },
+    {
+      "label": "Cloud Endpoints",
+      "suggested_id": "cloud-endpoints",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "Cloud API gateway",
+      "source_line": 245
+    },
+    {
+      "label": "Cloud External Key Manager (EKM)",
+      "suggested_id": "cloud-external-key-manager-ekm",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "External keys you control",
+      "source_line": 186
+    },
+    {
+      "label": "Cloud Filestore",
+      "suggested_id": "cloud-filestore",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Storage"
+      ],
+      "description": "Managed NFS server",
+      "source_line": 62
+    },
+    {
+      "label": "Cloud Firestore",
+      "suggested_id": "cloud-firestore",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Database",
+        "Mobile (Firebase)"
+      ],
+      "description": "Serverless NoSQL document database",
+      "source_line": 70
+    },
+    {
+      "label": "Cloud Foundation Toolkit",
+      "suggested_id": "cloud-foundation-toolkit",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Infrastructure as Code templates",
+      "source_line": 304
+    },
+    {
+      "label": "Cloud Functions",
+      "suggested_id": "cloud-functions",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "Compute"
+      ],
+      "description": "Event-driven serverless functions",
+      "source_line": 48,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Cloud Functions for Firebase",
+      "suggested_id": "cloud-functions-for-firebase",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Event-driven serverless applications",
+      "source_line": 356
+    },
+    {
+      "label": "Cloud Healthcare API",
+      "suggested_id": "cloud-healthcare-api",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Healthcare"
+      ],
+      "description": "Healthcare system Google Cloud interoperability",
+      "source_line": 258
+    },
+    {
+      "label": "Cloud HSM",
+      "suggested_id": "cloud-hsm",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Hardware security module service",
+      "source_line": 185
+    },
+    {
+      "label": "Cloud IAM",
+      "suggested_id": "cloud-iam",
+      "kind": "technology",
+      "decision": "review_alias",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "possible alias of existing stable ID; confirm before accepting"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Resource access control",
+      "source_line": 187,
+      "alias_of": "iam"
+    },
+    {
+      "label": "Cloud Identity",
+      "suggested_id": "cloud-identity",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Manage users, devices \u0026 apps",
+      "source_line": 188
+    },
+    {
+      "label": "Cloud Identity-Aware Proxy",
+      "suggested_id": "cloud-identity-aware-proxy",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Identity-based app access",
+      "source_line": 189
+    },
+    {
+      "label": "Cloud IDS",
+      "suggested_id": "cloud-ids",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Detects network based threats",
+      "source_line": 172
+    },
+    {
+      "label": "Cloud IoT Core",
+      "suggested_id": "cloud-iot-core",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "Internet of Things (IoT)"
+      ],
+      "description": "Manage devices, ingest data",
+      "source_line": 252,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Cloud Key Management Service",
+      "suggested_id": "cloud-key-management-service",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Hosted key management service",
+      "source_line": 190
+    },
+    {
+      "label": "Cloud Load Balancing",
+      "suggested_id": "cloud-load-balancing",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Multi-region load distribution/balancing",
+      "source_line": 152
+    },
+    {
+      "label": "Cloud Memorystore",
+      "suggested_id": "cloud-memorystore",
+      "kind": "technology",
+      "decision": "review_alias",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "possible alias of existing stable ID; confirm before accepting"
+      ],
+      "categories": [
+        "Database"
+      ],
+      "description": "Managed Redis and Memcached",
+      "source_line": 71,
+      "alias_of": "memorystore"
+    },
+    {
+      "label": "Cloud Mobile App",
+      "suggested_id": "cloud-mobile-app",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "iOS/Android Google Cloud manager app",
+      "source_line": 277
+    },
+    {
+      "label": "Cloud NAT",
+      "suggested_id": "cloud-nat",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Network address translation service",
+      "source_line": 153
+    },
+    {
+      "label": "Cloud Profiler",
+      "suggested_id": "cloud-profiler",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Operations \u0026 Monitoring"
+      ],
+      "description": "CPU and heap profiling",
+      "source_line": 217
+    },
+    {
+      "label": "Cloud Router",
+      "suggested_id": "cloud-router",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "VPC/on-prem network route exchange (BGP)",
+      "source_line": 154
+    },
+    {
+      "label": "Cloud Run",
+      "suggested_id": "cloud-run",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Compute"
+      ],
+      "description": "Serverless for containerized applications",
+      "source_line": 51
+    },
+    {
+      "label": "Cloud Run for Anthos",
+      "suggested_id": "cloud-run-for-anthos",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "Serverless development for Anthos",
+      "source_line": 103
+    },
+    {
+      "label": "Cloud Scheduler",
+      "suggested_id": "cloud-scheduler",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Application Integration"
+      ],
+      "description": "Managed cron job service",
+      "source_line": 232
+    },
+    {
+      "label": "Cloud SDK",
+      "suggested_id": "cloud-sdk",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "CLI for Google Cloud",
+      "source_line": 290
+    },
+    {
+      "label": "Cloud Search",
+      "suggested_id": "cloud-search",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Unified search for enterprise",
+      "source_line": 337
+    },
+    {
+      "label": "Cloud Security Podcast",
+      "suggested_id": "cloud-security-podcast",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 400
+    },
+    {
+      "label": "Cloud Shell",
+      "suggested_id": "cloud-shell",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "Browser-based terminal/CLI",
+      "source_line": 291
+    },
+    {
+      "label": "Cloud Source Repositories",
+      "suggested_id": "cloud-source-repositories",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "description": "Hosted private git repos",
+      "source_line": 226,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Cloud SQL Insights",
+      "suggested_id": "cloud-sql-insights",
+      "kind": "feature",
+      "decision": "review_parent",
+      "reasons": [
+        "possible subservice or feature; review parent relationship"
+      ],
+      "categories": [
+        "Database"
+      ],
+      "description": "SQL Inspector",
+      "source_line": 75,
+      "parent_id": "cloud-sql"
+    },
+    {
+      "label": "Cloud Storage for Firebase",
+      "suggested_id": "cloud-storage-for-firebase",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Object storage and serving",
+      "source_line": 357
+    },
+    {
+      "label": "Cloud Tasks",
+      "suggested_id": "cloud-tasks",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Application Integration"
+      ],
+      "description": "Asynchronous task execution",
+      "source_line": 233
+    },
+    {
+      "label": "Cloud Tools for Eclipse",
+      "suggested_id": "cloud-tools-for-eclipse",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "Eclipse Google Cloud tools",
+      "source_line": 287
+    },
+    {
+      "label": "Cloud Tools for Visual Studio",
+      "suggested_id": "cloud-tools-for-visual-studio",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Developer Tools"
+      ],
+      "description": "Visual Studio Google Cloud tools",
+      "source_line": 288
+    },
+    {
+      "label": "Cloud TPU",
+      "suggested_id": "cloud-tpu",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Hardware acceleration for ML",
+      "source_line": 133
+    },
+    {
+      "label": "Cloud Trace",
+      "suggested_id": "cloud-trace",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Operations \u0026 Monitoring"
+      ],
+      "description": "App latency insights",
+      "source_line": 218
+    },
+    {
+      "label": "Cloud Translation",
+      "suggested_id": "cloud-translation",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Language detection and translation",
+      "source_line": 134
+    },
+    {
+      "label": "Cloud Video Intelligence API",
+      "suggested_id": "cloud-video-intelligence-api",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Scene-level video annotation",
+      "source_line": 135
+    },
+    {
+      "label": "Cloud Vision",
+      "suggested_id": "cloud-vision",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Image recognition and classification",
+      "source_line": 136
+    },
+    {
+      "label": "Cloud VPN",
+      "suggested_id": "cloud-vpn",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Virtual private network connection",
+      "source_line": 155
+    },
+    {
+      "label": "Codelabs Home Page",
+      "suggested_id": "codelabs-home-page",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 419
+    },
+    {
+      "label": "Compute Engine",
+      "suggested_id": "compute-engine",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Compute"
+      ],
+      "description": "VMs, GPUs, TPUs, Disks",
+      "source_line": 53
+    },
+    {
+      "label": "Compute Product Comparisons",
+      "suggested_id": "compute-product-comparisons",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 434
+    },
+    {
+      "label": "Confidential Computing",
+      "suggested_id": "confidential-computing",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Encrypt data in-use",
+      "source_line": 194
+    },
+    {
+      "label": "Connected Sheets",
+      "suggested_id": "connected-sheets",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Spreadsheet interface for (big)data",
+      "source_line": 84
+    },
+    {
+      "label": "Contact Center AI",
+      "suggested_id": "contact-center-ai",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "AI in your contact center",
+      "source_line": 137
+    },
+    {
+      "label": "Container Registry",
+      "suggested_id": "container-registry",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "description": "Private container registry/storage",
+      "source_line": 227,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Crashlytics",
+      "suggested_id": "crashlytics",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Crash reporting and analytics",
+      "source_line": 358
+    },
+    {
+      "label": "Data Catalog",
+      "suggested_id": "data-catalog",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Metadata management service",
+      "source_line": 92
+    },
+    {
+      "label": "Database Migration Service",
+      "suggested_id": "database-migration-service",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Database"
+      ],
+      "description": "Migrate to Cloud SQL",
+      "source_line": 74
+    },
+    {
+      "label": "Database Product Comparisons",
+      "suggested_id": "database-product-comparisons",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 435
+    },
+    {
+      "label": "Dataprep by Trifacta",
+      "suggested_id": "dataprep-by-trifacta",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Visual data wrangling",
+      "source_line": 88,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Datastream",
+      "suggested_id": "datastream",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Change data capture/replication service",
+      "source_line": 90
+    },
+    {
+      "label": "Dedicated Interconnect",
+      "suggested_id": "dedicated-interconnect",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Dedicated private network connection",
+      "source_line": 147
+    },
+    {
+      "label": "Deep Learning Containers",
+      "suggested_id": "deep-learning-containers",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Preconfigured containers for deep learning",
+      "source_line": 118
+    },
+    {
+      "label": "Deep Learning VM Images",
+      "suggested_id": "deep-learning-vm-images",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Preconfigured VMs for deep learning",
+      "source_line": 116
+    },
+    {
+      "label": "Developer Portal",
+      "suggested_id": "developer-portal",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "API management portal",
+      "source_line": 246
+    },
+    {
+      "label": "Dialogflow",
+      "suggested_id": "dialogflow",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Create conversational interfaces",
+      "source_line": 138
+    },
+    {
+      "label": "Direct Peering",
+      "suggested_id": "direct-peering",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Peer with Google Cloud",
+      "source_line": 146
+    },
+    {
+      "label": "Directions API",
+      "suggested_id": "directions-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Get directions between locations",
+      "source_line": 310
+    },
+    {
+      "label": "Distance Matrix API",
+      "suggested_id": "distance-matrix-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Multi-origin/destination travel times",
+      "source_line": 311
+    },
+    {
+      "label": "Docs API",
+      "suggested_id": "docs-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Create and edit documents",
+      "source_line": 338
+    },
+    {
+      "label": "Document AI",
+      "suggested_id": "document-ai",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Analyze, classify, search documents",
+      "source_line": 139
+    },
+    {
+      "label": "DORA - Software \u0026 Delivery Research",
+      "suggested_id": "dora-software-delivery-research",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 399
+    },
+    {
+      "label": "Drive Activity API",
+      "suggested_id": "drive-activity-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Retrieve Google Drive activity",
+      "source_line": 339
+    },
+    {
+      "label": "Drive API",
+      "suggested_id": "drive-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Read and write files",
+      "source_line": 340
+    },
+    {
+      "label": "Drive Picker",
+      "suggested_id": "drive-picker",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Drive file selection widget",
+      "source_line": 341
+    },
+    {
+      "label": "Email Markup",
+      "suggested_id": "email-markup",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Interactive email using schema.org",
+      "source_line": 342
+    },
+    {
+      "label": "Error Reporting",
+      "suggested_id": "error-reporting",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Operations \u0026 Monitoring"
+      ],
+      "description": "App error reporting",
+      "source_line": 214
+    },
+    {
+      "label": "Event Threat Detection",
+      "suggested_id": "event-threat-detection",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Scans for suspicious activity",
+      "source_line": 196
+    },
+    {
+      "label": "Eventarc",
+      "suggested_id": "eventarc",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Application Integration"
+      ],
+      "description": "Event-driven Cloud Run services",
+      "source_line": 231
+    },
+    {
+      "label": "Firebase",
+      "suggested_id": "firebase",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 425
+    },
+    {
+      "label": "Firebase A/B Testing",
+      "suggested_id": "firebase-a-b-testing",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Create A/B test experiments",
+      "source_line": 359
+    },
+    {
+      "label": "Firebase App Distribution",
+      "suggested_id": "firebase-app-distribution",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Trusted tester early access",
+      "source_line": 360
+    },
+    {
+      "label": "Firebase Authentication",
+      "suggested_id": "firebase-authentication",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Drop-in authentication",
+      "source_line": 361
+    },
+    {
+      "label": "Firebase Blog",
+      "suggested_id": "firebase-blog",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 385
+    },
+    {
+      "label": "Firebase Cloud Messaging",
+      "suggested_id": "firebase-cloud-messaging",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Send device notifications",
+      "source_line": 362
+    },
+    {
+      "label": "Firebase Dynamic Links",
+      "suggested_id": "firebase-dynamic-links",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Link to app content",
+      "source_line": 363,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Firebase Extensions",
+      "suggested_id": "firebase-extensions",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Pre-packaged development solutions",
+      "source_line": 364
+    },
+    {
+      "label": "Firebase Hosting",
+      "suggested_id": "firebase-hosting",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Web hosting with CDN/SSL",
+      "source_line": 365
+    },
+    {
+      "label": "Firebase In-App Messaging",
+      "suggested_id": "firebase-in-app-messaging",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Send in-app contextual messages",
+      "source_line": 366
+    },
+    {
+      "label": "Firebase Performance Monitoring",
+      "suggested_id": "firebase-performance-monitoring",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "App/web performance monitoring",
+      "source_line": 367
+    },
+    {
+      "label": "Firebase Predictions",
+      "suggested_id": "firebase-predictions",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Predict user targeting",
+      "source_line": 368,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Firebase Realtime Database",
+      "suggested_id": "firebase-realtime-database",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Real-time data synchronization",
+      "source_line": 369
+    },
+    {
+      "label": "Firebase Remote Config",
+      "suggested_id": "firebase-remote-config",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Remotely configure installed apps",
+      "source_line": 370
+    },
+    {
+      "label": "Firebase Test Lab",
+      "suggested_id": "firebase-test-lab",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Mobile testing device farm",
+      "source_line": 371
+    },
+    {
+      "label": "Geocoding API",
+      "suggested_id": "geocoding-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Convert address to/from coordinates",
+      "source_line": 312
+    },
+    {
+      "label": "Geolocation API",
+      "suggested_id": "geolocation-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Derive location without GPS",
+      "source_line": 313
+    },
+    {
+      "label": "Gmail API",
+      "suggested_id": "gmail-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Enhance Gmail",
+      "source_line": 345
+    },
+    {
+      "label": "Go",
+      "suggested_id": "go",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Cloud Foundational Open Source Projects",
+        "Language Specific Documentation"
+      ],
+      "description": "High Concurrency Programming Language",
+      "source_line": 442
+    },
+    {
+      "label": "Google Analytics for Firebase",
+      "suggested_id": "google-analytics-for-firebase",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "Mobile app analytics",
+      "source_line": 372
+    },
+    {
+      "label": "Google Chats API",
+      "suggested_id": "google-chats-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Conversational bots in chat",
+      "source_line": 346
+    },
+    {
+      "label": "Google Cloud",
+      "suggested_id": "google-cloud",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 421
+    },
+    {
+      "label": "Google Cloud Armor",
+      "suggested_id": "google-cloud-armor",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "DDoS protection and WAF",
+      "source_line": 149
+    },
+    {
+      "label": "Google Cloud Blog",
+      "suggested_id": "google-cloud-blog",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 378
+    },
+    {
+      "label": "Google Cloud Certifications",
+      "suggested_id": "google-cloud-certifications",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 389
+    },
+    {
+      "label": "Google Cloud Game Servers",
+      "suggested_id": "google-cloud-game-servers",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Gaming"
+      ],
+      "description": "Orchestrate Agones clusters",
+      "source_line": 255
+    },
+    {
+      "label": "Google Cloud Home Page",
+      "suggested_id": "google-cloud-home-page",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 377
+    },
+    {
+      "label": "Google Cloud Marketplace for Anthos",
+      "suggested_id": "google-cloud-marketplace-for-anthos",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "Pre-configured containerized apps",
+      "source_line": 104
+    },
+    {
+      "label": "Google Cloud Medium Publication",
+      "suggested_id": "google-cloud-medium-publication",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 383
+    },
+    {
+      "label": "Google Cloud Open Source",
+      "suggested_id": "google-cloud-open-source",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 382
+    },
+    {
+      "label": "Google Cloud Platform for AWS Professionals",
+      "suggested_id": "google-cloud-platform-for-aws-professionals",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Platform Comparisons"
+      ],
+      "source_line": 454
+    },
+    {
+      "label": "Google Cloud Platform for Azure Professionals",
+      "suggested_id": "google-cloud-platform-for-azure-professionals",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Platform Comparisons"
+      ],
+      "source_line": 455
+    },
+    {
+      "label": "Google Cloud Platform for Data Center Professionals",
+      "suggested_id": "google-cloud-platform-for-data-center-professionals",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Platform Comparisons"
+      ],
+      "source_line": 456
+    },
+    {
+      "label": "Google Cloud Platform for OpenStack Users",
+      "suggested_id": "google-cloud-platform-for-openstack-users",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Platform Comparisons"
+      ],
+      "source_line": 457
+    },
+    {
+      "label": "Google Cloud Platform Podcast",
+      "suggested_id": "google-cloud-platform-podcast",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 379
+    },
+    {
+      "label": "Google Cloud Pricing",
+      "suggested_id": "google-cloud-pricing",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 416
+    },
+    {
+      "label": "Google Cloud Pricing Calculator",
+      "suggested_id": "google-cloud-pricing-calculator",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 417
+    },
+    {
+      "label": "Google Cloud Reader",
+      "suggested_id": "google-cloud-reader",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 381
+    },
+    {
+      "label": "Google Cloud Sketchnote",
+      "suggested_id": "google-cloud-sketchnote",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 401
+    },
+    {
+      "label": "Google Cloud Solutions Library",
+      "suggested_id": "google-cloud-solutions-library",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 413
+    },
+    {
+      "label": "Google Cloud Support Hub",
+      "suggested_id": "google-cloud-support-hub",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 415
+    },
+    {
+      "label": "Google Cloud System Status",
+      "suggested_id": "google-cloud-system-status",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 390
+    },
+    {
+      "label": "Google Cloud Technical",
+      "suggested_id": "google-cloud-technical",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 422
+    },
+    {
+      "label": "Google Cloud Training",
+      "suggested_id": "google-cloud-training",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 391
+    },
+    {
+      "label": "Google Cloud's operations suite",
+      "suggested_id": "google-cloud-s-operations-suite",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Hybrid and multi-cloud"
+      ],
+      "description": "Monitoring, logging, troubleshooting",
+      "source_line": 106
+    },
+    {
+      "label": "Google Data Studio",
+      "suggested_id": "google-data-studio",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required",
+        "historical or renamed product candidate; verify current lifecycle"
+      ],
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Collaborative data exploration/dashboarding",
+      "source_line": 93,
+      "lifecycle_review": true
+    },
+    {
+      "label": "Google Developer's",
+      "suggested_id": "google-developer-s",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 424
+    },
+    {
+      "label": "Google Developers Blog",
+      "suggested_id": "google-developers-blog",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 392
+    },
+    {
+      "label": "Google Kubernetes Engine (GKE)",
+      "suggested_id": "google-kubernetes-engine-gke",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Compute"
+      ],
+      "description": "Managed Kubernetes/containers",
+      "source_line": 52
+    },
+    {
+      "label": "Google Maps Platform Blog",
+      "suggested_id": "google-maps-platform-blog",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 393
+    },
+    {
+      "label": "Google Open Source Blog",
+      "suggested_id": "google-open-source-blog",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 394
+    },
+    {
+      "label": "Google Security Blog",
+      "suggested_id": "google-security-blog",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 395
+    },
+    {
+      "label": "Google Transfer Appliance",
+      "suggested_id": "google-transfer-appliance",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Rentable data transport box",
+      "source_line": 298
+    },
+    {
+      "label": "Google Workspace",
+      "suggested_id": "google-workspace",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 423
+    },
+    {
+      "label": "Google Workspace Add-ons",
+      "suggested_id": "google-workspace-add-ons",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Extend Google Workspace apps",
+      "source_line": 343
+    },
+    {
+      "label": "Google Workspace Developers Blog",
+      "suggested_id": "google-workspace-developers-blog",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 386
+    },
+    {
+      "label": "Google Workspace GitHub",
+      "suggested_id": "google-workspace-github",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 387
+    },
+    {
+      "label": "Google Workspace Marketplace",
+      "suggested_id": "google-workspace-marketplace",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Storefront for integrated applications",
+      "source_line": 344
+    },
+    {
+      "label": "Google Workspace Solutions Gallery",
+      "suggested_id": "google-workspace-solutions-gallery",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 414
+    },
+    {
+      "label": "Google Workspace Twitter",
+      "suggested_id": "google-workspace-twitter",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 388
+    },
+    {
+      "label": "gRPC",
+      "suggested_id": "grpc",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "RPC framework",
+      "source_line": 443
+    },
+    {
+      "label": "gVisor",
+      "suggested_id": "gvisor",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "Secure container runtime",
+      "source_line": 444
+    },
+    {
+      "label": "Healthcare Natural Language AI",
+      "suggested_id": "healthcare-natural-language-ai",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Healthcare"
+      ],
+      "description": "Real-time insights from media-text",
+      "source_line": 260
+    },
+    {
+      "label": "Istio",
+      "suggested_id": "istio",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "Connect and secure services",
+      "source_line": 445
+    },
+    {
+      "label": "Java",
+      "suggested_id": "java",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Language Specific Documentation"
+      ],
+      "source_line": 462
+    },
+    {
+      "label": "Kaggle Home Page",
+      "suggested_id": "kaggle-home-page",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 396
+    },
+    {
+      "label": "KF",
+      "suggested_id": "kf",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Cloud Foundry to Kubernetes",
+      "source_line": 305
+    },
+    {
+      "label": "Knative",
+      "suggested_id": "knative",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "Serverless framework for Kubernetes",
+      "source_line": 446
+    },
+    {
+      "label": "Kubeflow",
+      "suggested_id": "kubeflow",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "ML toolkit for Kubernetes",
+      "source_line": 447
+    },
+    {
+      "label": "Kubernetes",
+      "suggested_id": "kubernetes",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "Management of containerized applications",
+      "source_line": 448
+    },
+    {
+      "label": "Kubernetes Blog",
+      "suggested_id": "kubernetes-blog",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 397
+    },
+    {
+      "label": "Kubernetes Podcast from Google",
+      "suggested_id": "kubernetes-podcast-from-google",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 380
+    },
+    {
+      "label": "Local SSD",
+      "suggested_id": "local-ssd",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Storage"
+      ],
+      "description": "VM locally attached SSDs",
+      "source_line": 65
+    },
+    {
+      "label": "Managed Service for Microsoft Active Directory",
+      "suggested_id": "managed-service-for-microsoft-active-directory",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Managed Microsoft Active Directory",
+      "source_line": 197
+    },
+    {
+      "label": "Maps Embed API",
+      "suggested_id": "maps-embed-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Display iframe embedded maps",
+      "source_line": 314
+    },
+    {
+      "label": "Maps JavaScript API",
+      "suggested_id": "maps-javascript-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Dynamic web maps",
+      "source_line": 315
+    },
+    {
+      "label": "Maps SDK for Android",
+      "suggested_id": "maps-sdk-for-android",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Maps for Android apps",
+      "source_line": 316
+    },
+    {
+      "label": "Maps SDK for iOS",
+      "suggested_id": "maps-sdk-for-ios",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Maps for iOS apps",
+      "source_line": 317
+    },
+    {
+      "label": "Maps SDK for Unity",
+      "suggested_id": "maps-sdk-for-unity",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Unity SDK for games",
+      "source_line": 319
+    },
+    {
+      "label": "Maps Static API",
+      "suggested_id": "maps-static-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Display static map images",
+      "source_line": 318
+    },
+    {
+      "label": "Maps URLs",
+      "suggested_id": "maps-urls",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "URL scheme for maps",
+      "source_line": 320
+    },
+    {
+      "label": "Marketplace",
+      "suggested_id": "marketplace",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "description": "Partner \u0026 open source marketplace",
+      "source_line": 247
+    },
+    {
+      "label": "Migrate for Anthos and GKE",
+      "suggested_id": "migrate-for-anthos-and-gke",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Hybrid and multi-cloud",
+        "Migration to Google Cloud"
+      ],
+      "description": "Migrate VMs to GKE",
+      "source_line": 105
+    },
+    {
+      "label": "Migrate for Compute Engine",
+      "suggested_id": "migrate-for-compute-engine",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Compute Engine migration tools",
+      "source_line": 301
+    },
+    {
+      "label": "Migrate from Amazon Redshift",
+      "suggested_id": "migrate-from-amazon-redshift",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Migrate from Redshift to BigQuery",
+      "source_line": 302
+    },
+    {
+      "label": "Migrate from Teradata",
+      "suggested_id": "migrate-from-teradata",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Migration to Google Cloud"
+      ],
+      "description": "Migrate from Teradata to BigQuery",
+      "source_line": 303
+    },
+    {
+      "label": "ML Kit for Firebase",
+      "suggested_id": "ml-kit-for-firebase",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Mobile (Firebase)"
+      ],
+      "description": "ML APIs for mobile",
+      "source_line": 373
+    },
+    {
+      "label": "Network Connectivity Center",
+      "suggested_id": "network-connectivity-center",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Connect VPC \u0026 On-prem",
+      "source_line": 169
+    },
+    {
+      "label": "Network Intelligence Center",
+      "suggested_id": "network-intelligence-center",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Network monitoring and topology",
+      "source_line": 163
+    },
+    {
+      "label": "Network Service Tiers",
+      "suggested_id": "network-service-tiers",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Price versus performance tiering",
+      "source_line": 156
+    },
+    {
+      "label": "Network Telemetry",
+      "suggested_id": "network-telemetry",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Network telemetry service",
+      "source_line": 157
+    },
+    {
+      "label": "Networking Product Comparisons",
+      "suggested_id": "networking-product-comparisons",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 436
+    },
+    {
+      "label": "Node.js",
+      "suggested_id": "node-js",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Language Specific Documentation"
+      ],
+      "source_line": 463
+    },
+    {
+      "label": "OpenCensus",
+      "suggested_id": "opencensus",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "Cloud native observability framework",
+      "source_line": 449
+    },
+    {
+      "label": "Packet Mirroring",
+      "suggested_id": "packet-mirroring",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Monitor/analyze instance traffic",
+      "source_line": 171
+    },
+    {
+      "label": "Partner Interconnect",
+      "suggested_id": "partner-interconnect",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Connect on-prem network to VPC",
+      "source_line": 148
+    },
+    {
+      "label": "People API",
+      "suggested_id": "people-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Manage user's Contacts",
+      "source_line": 347
+    },
+    {
+      "label": "Persistent Disk",
+      "suggested_id": "persistent-disk",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Storage"
+      ],
+      "description": "Block storage for VMs",
+      "source_line": 64
+    },
+    {
+      "label": "PHP",
+      "suggested_id": "php",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Language Specific Documentation"
+      ],
+      "source_line": 467
+    },
+    {
+      "label": "Places API",
+      "suggested_id": "places-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Rest-based Places features",
+      "source_line": 321
+    },
+    {
+      "label": "Places Library, Maps JS API",
+      "suggested_id": "places-library-maps-js-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Places features for web",
+      "source_line": 322
+    },
+    {
+      "label": "Places SDK for Android",
+      "suggested_id": "places-sdk-for-android",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Places features for Android",
+      "source_line": 323
+    },
+    {
+      "label": "Places SDK for iOS",
+      "suggested_id": "places-sdk-for-ios",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Places feature for iOS",
+      "source_line": 324
+    },
+    {
+      "label": "Preemptible VMs",
+      "suggested_id": "preemptible-vms",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Compute"
+      ],
+      "description": "Short-lived compute instances",
+      "source_line": 55
+    },
+    {
+      "label": "Private Catalog",
+      "suggested_id": "private-catalog",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Internal Solutions Catalog",
+      "source_line": 278
+    },
+    {
+      "label": "Private Service Connect",
+      "suggested_id": "private-service-connect",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Privately connect services across VPCs",
+      "source_line": 167
+    },
+    {
+      "label": "Public Datasets",
+      "suggested_id": "public-datasets",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Data Analytics"
+      ],
+      "description": "Hosted data in BigQuery",
+      "source_line": 95
+    },
+    {
+      "label": "Python",
+      "suggested_id": "python",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Language Specific Documentation"
+      ],
+      "source_line": 464
+    },
+    {
+      "label": "Qwiklabs Home Page",
+      "suggested_id": "qwiklabs-home-page",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 418
+    },
+    {
+      "label": "reCAPTCHA Enterprise",
+      "suggested_id": "recaptcha-enterprise",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Protection against bot/spam/abuse",
+      "source_line": 206
+    },
+    {
+      "label": "Recommendations AI",
+      "suggested_id": "recommendations-ai",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML",
+        "Retail"
+      ],
+      "description": "Create custom recommendations",
+      "source_line": 140
+    },
+    {
+      "label": "Reddit",
+      "suggested_id": "reddit",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 426
+    },
+    {
+      "label": "Regions and Network Map",
+      "suggested_id": "regions-and-network-map",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 398
+    },
+    {
+      "label": "Resource Manager",
+      "suggested_id": "resource-manager",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Cloud project metadata management",
+      "source_line": 191
+    },
+    {
+      "label": "Risk Manager",
+      "suggested_id": "risk-manager",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Evaluate organization’s security posture",
+      "source_line": 205
+    },
+    {
+      "label": "Roads API",
+      "suggested_id": "roads-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Convert coordinates to roads",
+      "source_line": 325
+    },
+    {
+      "label": "Ruby",
+      "suggested_id": "ruby",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Language Specific Documentation"
+      ],
+      "source_line": 466
+    },
+    {
+      "label": "Secret Manager",
+      "suggested_id": "secret-manager",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Store and manage secrets",
+      "source_line": 198
+    },
+    {
+      "label": "Security Command Center",
+      "suggested_id": "security-command-center",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Security management and data risk platform",
+      "source_line": 192
+    },
+    {
+      "label": "Security Key Enforcement",
+      "suggested_id": "security-key-enforcement",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Two-step key verification",
+      "source_line": 199
+    },
+    {
+      "label": "Service Directory",
+      "suggested_id": "service-directory",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Centrally publish/discover/connect services",
+      "source_line": 165
+    },
+    {
+      "label": "Sheets API",
+      "suggested_id": "sheets-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Read and write spreadsheets",
+      "source_line": 348
+    },
+    {
+      "label": "Shielded VMs",
+      "suggested_id": "shielded-vms",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Compute",
+        "Identity and Security"
+      ],
+      "description": "Hardened VMs",
+      "source_line": 56
+    },
+    {
+      "label": "Slides API",
+      "suggested_id": "slides-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Create and edit presentations",
+      "source_line": 349
+    },
+    {
+      "label": "Sole-tenant Nodes",
+      "suggested_id": "sole-tenant-nodes",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Compute"
+      ],
+      "description": "Dedicated physical servers",
+      "source_line": 57
+    },
+    {
+      "label": "Source for this document",
+      "suggested_id": "source-for-this-document",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 412
+    },
+    {
+      "label": "Speech-To-Text",
+      "suggested_id": "speech-to-text",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Convert audio to text",
+      "source_line": 130
+    },
+    {
+      "label": "Storage Product Comparisons",
+      "suggested_id": "storage-product-comparisons",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 437
+    },
+    {
+      "label": "Street View Service",
+      "suggested_id": "street-view-service",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Street view for JavaScript",
+      "source_line": 327
+    },
+    {
+      "label": "Street View Static API",
+      "suggested_id": "street-view-static-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Static street view images",
+      "source_line": 326
+    },
+    {
+      "label": "Talent Solutions",
+      "suggested_id": "talent-solutions",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Job search with ML",
+      "source_line": 131
+    },
+    {
+      "label": "Task API",
+      "suggested_id": "task-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Search, read \u0026 update Tasks",
+      "source_line": 350
+    },
+    {
+      "label": "TensorFlow",
+      "suggested_id": "tensorflow",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Cloud Foundational Open Source Projects"
+      ],
+      "description": "ML framework",
+      "source_line": 450
+    },
+    {
+      "label": "Text-To-Speech",
+      "suggested_id": "text-to-speech",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Convert text to audio",
+      "source_line": 132
+    },
+    {
+      "label": "Time Zone API",
+      "suggested_id": "time-zone-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Google Maps Platform"
+      ],
+      "description": "Convert coordinates to timezone",
+      "source_line": 328
+    },
+    {
+      "label": "Titan Security Key",
+      "suggested_id": "titan-security-key",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Two-factor authentication (2FA) device",
+      "source_line": 201
+    },
+    {
+      "label": "Traffic Director",
+      "suggested_id": "traffic-director",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Hybrid and multi-cloud",
+        "Networking"
+      ],
+      "description": "Service mesh traffic management",
+      "source_line": 107
+    },
+    {
+      "label": "Vault API",
+      "suggested_id": "vault-api",
+      "kind": "ecosystem",
+      "decision": "review_scope",
+      "reasons": [
+        "outside core Google Cloud product scope; review provider/technology ownership"
+      ],
+      "categories": [
+        "Workspace Platform"
+      ],
+      "description": "Manage your organization's eDiscovery",
+      "source_line": 351
+    },
+    {
+      "label": "Vertex AI Data Labeling",
+      "suggested_id": "vertex-ai-data-labeling",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Data labeling by humans",
+      "source_line": 115
+    },
+    {
+      "label": "Vertex AI Edge Manager",
+      "suggested_id": "vertex-ai-edge-manager",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Deploy monitor edge inferences",
+      "source_line": 123
+    },
+    {
+      "label": "Vertex AI Feature Store",
+      "suggested_id": "vertex-ai-feature-store",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Managed ML feature repository",
+      "source_line": 125
+    },
+    {
+      "label": "Vertex AI Matching Engine",
+      "suggested_id": "vertex-ai-matching-engine",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Vector similarity searches",
+      "source_line": 119
+    },
+    {
+      "label": "Vertex AI Model Monitoring",
+      "suggested_id": "vertex-ai-model-monitoring",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Monitor models for skew/drift",
+      "source_line": 127
+    },
+    {
+      "label": "Vertex AI Pipelines",
+      "suggested_id": "vertex-ai-pipelines",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Hosted ML workflows",
+      "source_line": 120
+    },
+    {
+      "label": "Vertex AI Predictions",
+      "suggested_id": "vertex-ai-predictions",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Autoscaled model serving",
+      "source_line": 121
+    },
+    {
+      "label": "Vertex AI Tensorboard",
+      "suggested_id": "vertex-ai-tensorboard",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Managed TensorBoard for ML-experiment Visualization",
+      "source_line": 128
+    },
+    {
+      "label": "Vertex AI Training",
+      "suggested_id": "vertex-ai-training",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Distributed AI training",
+      "source_line": 122
+    },
+    {
+      "label": "Vertex AI Vizier",
+      "suggested_id": "vertex-ai-vizier",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "black-box hyperparameter tuning",
+      "source_line": 129
+    },
+    {
+      "label": "Vertex AI Workbench",
+      "suggested_id": "vertex-ai-workbench",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Jupyter-based environment for Data Science",
+      "source_line": 117
+    },
+    {
+      "label": "Vertex Explainable AI",
+      "suggested_id": "vertex-explainable-ai",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Understand ML model predictions",
+      "source_line": 124
+    },
+    {
+      "label": "Vertex ML Metadata",
+      "suggested_id": "vertex-ml-metadata",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML"
+      ],
+      "description": "Artifact, lineage, and execution tracking",
+      "source_line": 126
+    },
+    {
+      "label": "Virtual Private Cloud",
+      "suggested_id": "virtual-private-cloud",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Networking"
+      ],
+      "description": "Software defined networking",
+      "source_line": 160
+    },
+    {
+      "label": "VirusTotal",
+      "suggested_id": "virustotal",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "Research/hunt for malware",
+      "source_line": 204
+    },
+    {
+      "label": "Vision Product Search",
+      "suggested_id": "vision-product-search",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "AI and ML",
+        "Retail"
+      ],
+      "description": "Visual search for products",
+      "source_line": 141
+    },
+    {
+      "label": "Visual Inspection AI",
+      "suggested_id": "visual-inspection-ai",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Retail"
+      ],
+      "description": "Train/deploy models to detect defects",
+      "source_line": 267
+    },
+    {
+      "label": "VM Manager",
+      "suggested_id": "vm-manager",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Management Tools"
+      ],
+      "description": "Manage OS VM Fleets",
+      "source_line": 271
+    },
+    {
+      "label": "VMware Engine",
+      "suggested_id": "vmware-engine",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Compute"
+      ],
+      "description": "VMware as a service",
+      "source_line": 58
+    },
+    {
+      "label": "Web Security Scanner",
+      "suggested_id": "web-security-scanner",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Identity and Security"
+      ],
+      "description": "App engine security scanner",
+      "source_line": 193
+    },
+    {
+      "label": "Workflows",
+      "suggested_id": "workflows",
+      "kind": "technology",
+      "decision": "review_add",
+      "reasons": [
+        "unmatched source entry; curator approval required"
+      ],
+      "categories": [
+        "Application Integration"
+      ],
+      "description": "HTTP services orchestration",
+      "source_line": 234
+    },
+    {
+      "label": "YouTube Channels",
+      "suggested_id": "youtube-channels",
+      "kind": "reference",
+      "decision": "exclude",
+      "reasons": [
+        "documentation, community or reference category; not a cloud product"
+      ],
+      "categories": [
+        "Additional Resources"
+      ],
+      "source_line": 420
+    }
+  ],
+  "counts": {
+    "exclude": 61,
+    "review_add": 162,
+    "review_alias": 2,
+    "review_parent": 5,
+    "review_scope": 68
+  },
+  "notice": "Suggestions only. No taxonomy entries, aliases, domain mappings, lifecycle statuses, or quiz data are changed. Verify all lifecycle and alias suggestions against current official documentation; source categories are not exam domains."
+}
