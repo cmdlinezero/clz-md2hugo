@@ -1,0 +1,234 @@
+{
+  "attribution": {
+    "adaptation_notice": "Curated taxonomy derived in part from source classifications; modifications and additional labels tracked separately. Promotion: curator-approved Google Cloud in 4 Words labels and feature relationships; source commit 6944032502c3f3bad4274352679c313f9f166263.",
+    "creator": "Priyanka Vergadia",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "Google Cloud in 4 Words",
+    "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+    "url": "https://github.com/priyankavergadia/google-cloud-4-words"
+  },
+  "classification_exceptions": [
+    {
+      "label": "General Google Cloud / Architecture",
+      "kind": "topic",
+      "reason": "Quiz metadata placeholder, not a product"
+    }
+  ],
+  "domains": [
+    {
+      "id": "ai-and-machine-learning",
+      "label": "AI and Machine Learning"
+    },
+    {
+      "id": "data-analytics",
+      "label": "Data Analytics"
+    },
+    {
+      "id": "databases",
+      "label": "Databases"
+    },
+    {
+      "id": "management-tools",
+      "label": "Management Tools"
+    },
+    {
+      "id": "migration",
+      "label": "Migration"
+    },
+    {
+      "id": "networking",
+      "label": "Networking"
+    },
+    {
+      "id": "security-and-identity",
+      "label": "Security and Identity"
+    },
+    {
+      "id": "storage",
+      "label": "Storage"
+    }
+  ],
+  "id": "google-cloud",
+  "schema_version": "1.0-draft",
+  "source_notes": "Initial values extracted from supplied PDE quiz JSON; not yet a full import of Google Cloud in 4 Words. All product mappings require curator review.",
+  "status": "draft",
+  "technologies": [
+    {
+      "aliases": [],
+      "id": "alloydb",
+      "label": "AlloyDB",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "bigquery",
+      "label": "BigQuery",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Cloud Bigtable"
+      ],
+      "id": "bigtable",
+      "label": "Bigtable",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "cloud-logging",
+      "label": "Cloud Logging",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "cloud-monitoring",
+      "label": "Cloud Monitoring",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "cloud-sql",
+      "label": "Cloud SQL",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Google Cloud Storage"
+      ],
+      "id": "cloud-storage",
+      "label": "Cloud Storage",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Cloud Dataflow"
+      ],
+      "id": "dataflow",
+      "label": "Dataflow",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "dataform",
+      "label": "Dataform",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "dataplex",
+      "label": "Dataplex",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "dataproc",
+      "label": "Dataproc",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Cloud Firestore"
+      ],
+      "id": "firestore",
+      "label": "Firestore",
+      "review_status": "pending_cheat_sheet_reconciliation",
+      "categories": [
+        "Database",
+        "Mobile (Firebase)"
+      ],
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 70,
+          "modification": "curator-confirmed shared Database and Mobile (Firebase) classification; Cloud Firestore alias"
+        }
+      ]
+    },
+    {
+      "aliases": [
+        "Identity and Access Management",
+        "Cloud IAM"
+      ],
+      "id": "iam",
+      "label": "IAM",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "looker",
+      "label": "Looker",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "memorystore",
+      "label": "Memorystore",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Cloud Pub/Sub",
+        "Google Cloud Pub/Sub"
+      ],
+      "id": "pub-sub",
+      "label": "Pub/Sub",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "sensitive-data-protection",
+      "label": "Sensitive Data Protection",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Cloud Spanner"
+      ],
+      "id": "spanner",
+      "label": "Spanner",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "storage-transfer-service",
+      "label": "Storage Transfer Service",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "vpc-service-controls",
+      "label": "VPC Service Controls",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "vertex-ai",
+      "label": "Vertex AI",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "cloud-run",
+      "label": "Cloud Run",
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "id": "bigquery-ml",
+      "kind": "feature",
+      "label": "BigQuery ML",
+      "review_status": "curator_approved"
+    }
+  ],
+  "technology_relationships": [
+    {
+      "child_id": "bigquery-ml",
+      "parent_id": "bigquery",
+      "relation": "feature_of"
+    }
+  ],
+  "version": "0.1.0-draft"
+}

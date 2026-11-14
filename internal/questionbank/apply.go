@@ -164,7 +164,10 @@ func ApplyPromotion(taxonomyPath, backupPath string, c CurationReport, approvals
 	put(attr, "source_commit", c.SourceCommit)
 	var notice string
 	_ = json.Unmarshal(attr["adaptation_notice"], &notice)
-	notice += " Promotion: curator-approved Google Cloud in 4 Words labels and feature relationships; source commit " + c.SourceCommit + "."
+	promotionNotice := "Promotion: curator-approved Google Cloud in 4 Words labels and feature relationships; source commit " + c.SourceCommit + "."
+	if !strings.Contains(notice, promotionNotice) {
+		notice = strings.TrimSpace(notice + " " + promotionNotice)
+	}
 	put(attr, "adaptation_notice", strings.TrimSpace(notice))
 	put(root, "attribution", attr)
 	// Version remains unchanged intentionally: curator must version the pack in a separate reviewed commit.

@@ -130,13 +130,12 @@
       "aliases": [
         "Cloud Firestore"
       ],
-      "id": "firestore",
-      "label": "Firestore",
-      "review_status": "pending_cheat_sheet_reconciliation",
       "categories": [
         "Database",
         "Mobile (Firebase)"
       ],
+      "id": "firestore",
+      "label": "Firestore",
       "provenance": [
         {
           "source": "https://github.com/priyankavergadia/google-cloud-4-words",
@@ -145,7 +144,8 @@
           "source_line": 70,
           "modification": "curator-confirmed shared Database and Mobile (Firebase) classification; Cloud Firestore alias"
         }
-      ]
+      ],
+      "review_status": "pending_cheat_sheet_reconciliation"
     },
     {
       "aliases": [
@@ -220,6 +220,96 @@
       "id": "bigquery-ml",
       "kind": "feature",
       "label": "BigQuery ML",
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "id": "artifact-registry",
+      "label": "Artifact Registry",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 225,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "id": "cloud-build",
+      "label": "Cloud Build",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 223,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Networking"
+      ],
+      "id": "cloud-dns",
+      "label": "Cloud DNS",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 151,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Application Integration"
+      ],
+      "id": "cloud-scheduler",
+      "label": "Cloud Scheduler",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 232,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Identity and Security"
+      ],
+      "id": "secret-manager",
+      "label": "Secret Manager",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 198,
+          "modification": "curator-approved technology addition"
+        }
+      ],
       "review_status": "curator_approved"
     }
   ],
