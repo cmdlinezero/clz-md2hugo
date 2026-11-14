@@ -1,0 +1,972 @@
+{
+  "attribution": {
+    "adaptation_notice": "Curated taxonomy derived in part from source classifications; modifications and additional labels tracked separately. Promotion: curator-approved Google Cloud in 4 Words labels and feature relationships; source commit 6944032502c3f3bad4274352679c313f9f166263.",
+    "creator": "Priyanka Vergadia",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "Google Cloud in 4 Words",
+    "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+    "url": "https://github.com/priyankavergadia/google-cloud-4-words"
+  },
+  "classification_exceptions": [
+    {
+      "label": "General Google Cloud / Architecture",
+      "kind": "topic",
+      "reason": "Quiz metadata placeholder, not a product"
+    }
+  ],
+  "domains": [
+    {
+      "id": "ai-and-machine-learning",
+      "label": "AI and Machine Learning"
+    },
+    {
+      "id": "data-analytics",
+      "label": "Data Analytics"
+    },
+    {
+      "id": "databases",
+      "label": "Databases"
+    },
+    {
+      "id": "management-tools",
+      "label": "Management Tools"
+    },
+    {
+      "id": "migration",
+      "label": "Migration"
+    },
+    {
+      "id": "networking",
+      "label": "Networking"
+    },
+    {
+      "id": "security-and-identity",
+      "label": "Security and Identity"
+    },
+    {
+      "id": "storage",
+      "label": "Storage"
+    }
+  ],
+  "id": "google-cloud",
+  "schema_version": "1.0-draft",
+  "source_notes": "Initial values extracted from supplied PDE quiz JSON; not yet a full import of Google Cloud in 4 Words. All product mappings require curator review.",
+  "status": "draft",
+  "technologies": [
+    {
+      "aliases": [],
+      "id": "alloydb",
+      "label": "AlloyDB",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "bigquery",
+      "label": "BigQuery",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Cloud Bigtable"
+      ],
+      "id": "bigtable",
+      "label": "Bigtable",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "cloud-logging",
+      "label": "Cloud Logging",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "cloud-monitoring",
+      "label": "Cloud Monitoring",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "cloud-sql",
+      "label": "Cloud SQL",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Google Cloud Storage"
+      ],
+      "id": "cloud-storage",
+      "label": "Cloud Storage",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Cloud Dataflow"
+      ],
+      "id": "dataflow",
+      "label": "Dataflow",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "dataform",
+      "label": "Dataform",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "dataplex",
+      "label": "Dataplex",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "dataproc",
+      "label": "Dataproc",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Cloud Firestore"
+      ],
+      "categories": [
+        "Database",
+        "Mobile (Firebase)"
+      ],
+      "id": "firestore",
+      "label": "Firestore",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 70,
+          "modification": "curator-confirmed shared Database and Mobile (Firebase) classification; Cloud Firestore alias"
+        }
+      ],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Identity and Access Management",
+        "Cloud IAM"
+      ],
+      "id": "iam",
+      "label": "IAM",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "looker",
+      "label": "Looker",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "memorystore",
+      "label": "Memorystore",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Cloud Pub/Sub",
+        "Google Cloud Pub/Sub"
+      ],
+      "id": "pub-sub",
+      "label": "Pub/Sub",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "sensitive-data-protection",
+      "label": "Sensitive Data Protection",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [
+        "Cloud Spanner"
+      ],
+      "id": "spanner",
+      "label": "Spanner",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "storage-transfer-service",
+      "label": "Storage Transfer Service",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "vpc-service-controls",
+      "label": "VPC Service Controls",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "vertex-ai",
+      "label": "Vertex AI",
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "aliases": [],
+      "id": "cloud-run",
+      "label": "Cloud Run",
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "id": "bigquery-ml",
+      "kind": "feature",
+      "label": "BigQuery ML",
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "id": "artifact-registry",
+      "label": "Artifact Registry",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 225,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "id": "cloud-build",
+      "label": "Cloud Build",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 223,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Networking"
+      ],
+      "id": "cloud-dns",
+      "label": "Cloud DNS",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 151,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Application Integration"
+      ],
+      "id": "cloud-scheduler",
+      "label": "Cloud Scheduler",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 232,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Identity and Security"
+      ],
+      "id": "secret-manager",
+      "label": "Secret Manager",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 198,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Identity and Security"
+      ],
+      "id": "access-transparency",
+      "label": "Access Transparency",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 178,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "API Platform and Ecosystems"
+      ],
+      "id": "api-gateway",
+      "label": "API Gateway",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 242,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Compute"
+      ],
+      "id": "app-engine",
+      "label": "App Engine",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 49,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Identity and Security"
+      ],
+      "id": "assured-workloads",
+      "label": "Assured Workloads",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 179,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Identity and Security"
+      ],
+      "id": "binary-authorization",
+      "label": "Binary Authorization",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 180,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Management Tools"
+      ],
+      "id": "carbon-footprint",
+      "label": "Carbon Footprint",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 279,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Identity and Security"
+      ],
+      "id": "certificate-authority-service",
+      "label": "Certificate Authority Service",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 181,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Identity and Security"
+      ],
+      "id": "cloud-asset-inventory",
+      "label": "Cloud Asset Inventory",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 182,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Identity and Security"
+      ],
+      "id": "cloud-audit-logs",
+      "label": "Cloud Audit Logs",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 183,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Management Tools"
+      ],
+      "id": "cloud-billing",
+      "label": "Cloud Billing",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 274,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Networking"
+      ],
+      "id": "cloud-cdn",
+      "label": "Cloud CDN",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 150,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Developer Tools"
+      ],
+      "id": "cloud-code",
+      "label": "Cloud Code",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 286,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Data Analytics"
+      ],
+      "id": "cloud-composer",
+      "label": "Cloud Composer",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 85,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Data Analytics"
+      ],
+      "id": "cloud-data-fusion",
+      "label": "Cloud Data Fusion",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 86,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "DevOps CI/CD"
+      ],
+      "id": "cloud-deploy",
+      "label": "Cloud Deploy",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 224,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Storage"
+      ],
+      "id": "cloud-filestore",
+      "label": "Cloud Filestore",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 62,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Identity and Security"
+      ],
+      "id": "cloud-hsm",
+      "label": "Cloud HSM",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 185,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Identity and Security"
+      ],
+      "id": "cloud-identity",
+      "label": "Cloud Identity",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 188,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Networking"
+      ],
+      "id": "cloud-ids",
+      "label": "Cloud IDS",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 172,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Networking"
+      ],
+      "id": "cloud-load-balancing",
+      "label": "Cloud Load Balancing",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 152,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Networking"
+      ],
+      "id": "cloud-nat",
+      "label": "Cloud NAT",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 153,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Networking"
+      ],
+      "id": "cloud-router",
+      "label": "Cloud Router",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 154,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Developer Tools"
+      ],
+      "id": "cloud-shell",
+      "label": "Cloud Shell",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 291,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Application Integration"
+      ],
+      "id": "cloud-tasks",
+      "label": "Cloud Tasks",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 233,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "AI and ML"
+      ],
+      "id": "cloud-tpu",
+      "label": "Cloud TPU",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 133,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Operations \u0026 Monitoring"
+      ],
+      "id": "cloud-trace",
+      "label": "Cloud Trace",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 218,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Networking"
+      ],
+      "id": "cloud-vpn",
+      "label": "Cloud VPN",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 155,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Compute"
+      ],
+      "id": "compute-engine",
+      "label": "Compute Engine",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 53,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Database"
+      ],
+      "id": "database-migration-service",
+      "label": "Database Migration Service",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 74,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Data Analytics"
+      ],
+      "id": "datastream",
+      "label": "Datastream",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 90,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Application Integration"
+      ],
+      "id": "eventarc",
+      "label": "Eventarc",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 231,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Networking"
+      ],
+      "id": "google-cloud-armor",
+      "label": "Google Cloud Armor",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 149,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Networking"
+      ],
+      "id": "network-connectivity-center",
+      "label": "Network Connectivity Center",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 169,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Networking"
+      ],
+      "id": "private-service-connect",
+      "label": "Private Service Connect",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 167,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Identity and Security"
+      ],
+      "id": "security-command-center",
+      "label": "Security Command Center",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 192,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "Application Integration"
+      ],
+      "id": "workflows",
+      "label": "Workflows",
+      "provenance": [
+        {
+          "source": "https://github.com/priyankavergadia/google-cloud-4-words",
+          "source_commit": "6944032502c3f3bad4274352679c313f9f166263",
+          "license": "CC-BY-4.0",
+          "source_line": 234,
+          "modification": "curator-approved technology addition"
+        }
+      ],
+      "review_status": "curator_approved"
+    }
+  ],
+  "technology_relationships": [
+    {
+      "child_id": "bigquery-ml",
+      "parent_id": "bigquery",
+      "relation": "feature_of"
+    }
+  ],
+  "version": "0.1.0-draft"
+}

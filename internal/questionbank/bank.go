@@ -42,13 +42,20 @@ type Attribution struct {
 	AdaptationNotice string  `json:"adaptation_notice"`
 	SourceCommit     *string `json:"source_commit,omitempty"`
 }
+type TechnologyRelationship struct {
+	ChildID  string `json:"child_id"`
+	ParentID string `json:"parent_id"`
+	Relation string `json:"relation"`
+}
+
 type Taxonomy struct {
-	ID           string      `json:"id"`
-	Version      string      `json:"version"`
-	Attribution  Attribution `json:"attribution"`
-	Domains      []Entry     `json:"domains"`
-	Technologies []Entry     `json:"technologies"`
-	Exceptions   []Exception `json:"classification_exceptions,omitempty"`
+	ID                      string                   `json:"id"`
+	Version                 string                   `json:"version"`
+	Attribution             Attribution              `json:"attribution"`
+	Domains                 []Entry                  `json:"domains"`
+	Technologies            []Entry                  `json:"technologies"`
+	Exceptions              []Exception              `json:"classification_exceptions,omitempty"`
+	TechnologyRelationships []TechnologyRelationship `json:"technology_relationships,omitempty"`
 }
 type Task struct {
 	Tag         json.RawMessage `json:"tag"`
@@ -135,11 +142,16 @@ func index(entries []Entry, name string) (map[string]string, error) {
 				return nil, fmt.Errorf("invalid provenance on %s %q", name, e.ID)
 			}
 		}
+		localLabels := map[string]bool{}
 		for _, s := range append([]string{e.Label}, e.Aliases...) {
 			k := key(s)
 			if k == "" {
 				return nil, fmt.Errorf("empty %s alias", name)
 			}
+			if localLabels[k] {
+				return nil, fmt.Errorf("duplicate %s label or alias %q on %s", name, s, e.ID)
+			}
+			localLabels[k] = true
 			if old, ok := m[k]; ok && old != e.ID {
 				return nil, fmt.Errorf("ambiguous %s label %q", name, s)
 			}
@@ -168,6 +180,9 @@ func LoadTaxonomy(path string) (Taxonomy, error) {
 	if _, e := index(t.Technologies, "technology"); e != nil {
 		return t, e
 	}
+	if e := validateTechnologyRelationships(t.Technologies, t.TechnologyRelationships); e != nil {
+		return t, e
+	}
 	seen := map[string]bool{}
 	for _, x := range t.Exceptions {
 		if key(x.Label) == "" || x.Kind == "" {
@@ -180,6 +195,58 @@ func LoadTaxonomy(path string) (Taxonomy, error) {
 	}
 	return t, nil
 }
+
+// validateTechnologyRelationships checks the curated feature graph, not exam domains.
+func validateTechnologyRelationships(technologies []Entry, edges []TechnologyRelationship) error {
+	ids := map[string]bool{}
+	for _, t := range technologies {
+		ids[t.ID] = true
+	}
+	seen := map[string]bool{}
+	graph := map[string][]string{}
+	for _, edge := range edges {
+		if edge.Relation != "feature_of" {
+			return fmt.Errorf("unsupported technology relationship %q", edge.Relation)
+		}
+		if !ids[edge.ChildID] || !ids[edge.ParentID] {
+			return fmt.Errorf("technology relationship references missing endpoint %q -> %q", edge.ChildID, edge.ParentID)
+		}
+		if edge.ChildID == edge.ParentID {
+			return fmt.Errorf("self-referential feature_of edge %q", edge.ChildID)
+		}
+		k := edge.ChildID + "\x00" + edge.ParentID + "\x00" + edge.Relation
+		if seen[k] {
+			return fmt.Errorf("duplicate technology relationship %q -> %q", edge.ChildID, edge.ParentID)
+		}
+		seen[k] = true
+		graph[edge.ChildID] = append(graph[edge.ChildID], edge.ParentID)
+	}
+	state := map[string]int{}
+	var visit func(string) error
+	visit = func(id string) error {
+		if state[id] == 1 {
+			return fmt.Errorf("feature_of cycle involving %q", id)
+		}
+		if state[id] == 2 {
+			return nil
+		}
+		state[id] = 1
+		for _, parent := range graph[id] {
+			if err := visit(parent); err != nil {
+				return err
+			}
+		}
+		state[id] = 2
+		return nil
+	}
+	for id := range graph {
+		if err := visit(id); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
 func filesUnder(path string) ([]string, error) {
 	info, e := os.Stat(path)
 	if e != nil {
