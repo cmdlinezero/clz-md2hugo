@@ -260,16 +260,6 @@ portable `expected_output` field consumed by the Portal runtime. The smoke test
 checks both basic `fmt.Println` execution and standard-library
 `strings.ToUpper` execution.
 
-## 🤝 Contributing
-
-Contributions are welcome! If you'd like to help improve `clz-md2hugo`:
-
-1. Fork the Repository
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## Deterministic Hugo content generation
 
 From v0.4.0, `clz-md2hugo` also provides a generic deterministic content generator for Hugo sites:
@@ -288,12 +278,6 @@ See [`docs/GENERATOR.md`](docs/GENERATOR.md) for the configuration and template 
 v0.4.0 adds deterministic Hugo content generation without changing the existing Markdown compiler, validation, or projection contracts. Existing `build`, `project`, and `validate` commands remain available; `generate` is additive.
 
 ---
-
-## 📄 License
-
-Distributed under the GNU License. See `LICENSE` for more information.
-
-
 
 ### Quiz question selection modes
 
@@ -314,3 +298,17 @@ explanation: Cloud Run and GKE support container workloads.
 ```
 
 Do not set both `answer` and `answers`. Multiple-answer questions require at least one incorrect distractor; invalid or duplicate indices fail validation. Existing `answer` questions remain compatible. **Portal rendering and scoring must be updated separately** to consume these new fields.
+
+## 🤝 Contributing
+
+Contributions are welcome! If you'd like to help improve `clz-md2hugo`:
+
+1. Fork the Repository
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+Distributed under the GNU License. See `LICENSE` for more information.
