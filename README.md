@@ -294,3 +294,23 @@ v0.4.0 adds deterministic Hugo content generation without changing the existing 
 Distributed under the GNU License. See `LICENSE` for more information.
 
 
+
+### Quiz question selection modes
+
+Questions retain the existing zero-based `answer` field for a single correct option. Single-answer questions require 2–4 options and render as radio buttons with the instruction **Select one answer**.
+
+For multiple correct options, replace `answer` with zero-based `answers` (at least two distinct indices). The generator emits `selection_type: multi_select` and derives `required_selections` from the answer count. The portal should render checkboxes, display **Select exactly N answers**, and require exactly N selections before submission. Exact-match scoring requires all correct choices and no incorrect choices.
+
+```yaml
+---
+id: example-multi
+type: question
+title: Which services run containers? (Select exactly 2 answers.)
+status: published
+options: [Cloud Run, Cloud Storage, Google Kubernetes Engine, BigQuery]
+answers: [0, 2]
+explanation: Cloud Run and GKE support container workloads.
+---
+```
+
+Do not set both `answer` and `answers`. Multiple-answer questions require at least one incorrect distractor; invalid or duplicate indices fail validation. Existing `answer` questions remain compatible. **Portal rendering and scoring must be updated separately** to consume these new fields.

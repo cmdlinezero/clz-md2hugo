@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0-draft",
+  "id": "google-cloud",
+  "version": "0.1.0-draft",
+  "status": "draft",
+  "source_notes": "Initial values extracted from supplied PDE quiz JSON; not yet a full import of Google Cloud in 4 Words. All product mappings require curator review.",
+  "attribution": {
+    "source": "Google Cloud in 4 Words",
+    "creator": "Priyanka Vergadia",
+    "url": "https://github.com/priyankavergadia/google-cloud-4-words",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "adaptation_notice": "Curated taxonomy derived in part from source classifications; modifications and additional labels tracked separately.",
+    "source_commit": null
+  },
+  "domains": [
+    {
+      "id": "ai-and-machine-learning",
+      "label": "AI and Machine Learning"
+    },
+    {
+      "id": "data-analytics",
+      "label": "Data Analytics"
+    },
+    {
+      "id": "databases",
+      "label": "Databases"
+    },
+    {
+      "id": "management-tools",
+      "label": "Management Tools"
+    },
+    {
+      "id": "migration",
+      "label": "Migration"
+    },
+    {
+      "id": "networking",
+      "label": "Networking"
+    },
+    {
+      "id": "security-and-identity",
+      "label": "Security and Identity"
+    },
+    {
+      "id": "storage",
+      "label": "Storage"
+    }
+  ],
+  "technologies": [
+    {
+      "id": "alloydb",
+      "label": "AlloyDB",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "bigquery",
+      "label": "BigQuery",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "bigtable",
+      "label": "Bigtable",
+      "aliases": [
+        "Cloud Bigtable"
+      ],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "cloud-logging",
+      "label": "Cloud Logging",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "cloud-monitoring",
+      "label": "Cloud Monitoring",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "cloud-sql",
+      "label": "Cloud SQL",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "cloud-storage",
+      "label": "Cloud Storage",
+      "aliases": [
+        "Google Cloud Storage"
+      ],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "dataflow",
+      "label": "Dataflow",
+      "aliases": [
+        "Cloud Dataflow"
+      ],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "dataform",
+      "label": "Dataform",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "dataplex",
+      "label": "Dataplex",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "dataproc",
+      "label": "Dataproc",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "firestore",
+      "label": "Firestore",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "iam",
+      "label": "IAM",
+      "aliases": [
+        "Identity and Access Management"
+      ],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "looker",
+      "label": "Looker",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "memorystore",
+      "label": "Memorystore",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "pub-sub",
+      "label": "Pub/Sub",
+      "aliases": [
+        "Cloud Pub/Sub",
+        "Google Cloud Pub/Sub"
+      ],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "sensitive-data-protection",
+      "label": "Sensitive Data Protection",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "spanner",
+      "label": "Spanner",
+      "aliases": [
+        "Cloud Spanner"
+      ],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "storage-transfer-service",
+      "label": "Storage Transfer Service",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "vpc-service-controls",
+      "label": "VPC Service Controls",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    },
+    {
+      "id": "vertex-ai",
+      "label": "Vertex AI",
+      "aliases": [],
+      "review_status": "pending_cheat_sheet_reconciliation"
+    }
+  ],
+  "classification_exceptions": [
+    {
+      "label": "General Google Cloud / Architecture",
+      "kind": "topic",
+      "reason": "Quiz metadata placeholder, not a product"
+    }
+  ]
+}

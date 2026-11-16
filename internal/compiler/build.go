@@ -119,13 +119,39 @@ func validateContent(c Content, file string) error {
 		if len(c.Options) < 2 {
 			return fmt.Errorf("%s: question requires at least 2 options", file)
 		}
-		if c.Answer == nil {
-			return fmt.Errorf("%s: question requires answer", file)
+		if c.Answer != nil && len(c.Answers) > 0 {
+			return fmt.Errorf("%s: question must use either answer or answers, not both", file)
 		}
-		if *c.Answer < 0 || *c.Answer >= len(c.Options) {
-			return fmt.Errorf("%s: answer index %d is outside options range", file, *c.Answer)
+		if len(c.Answers) > 0 {
+			if len(c.Answers) < 2 {
+				return fmt.Errorf("%s: multiple-answer question requires at least 2 answers", file)
+			}
+			if len(c.Answers) >= len(c.Options) {
+				return fmt.Errorf("%s: multiple-answer question requires at least one incorrect option", file)
+			}
+			seen := map[int]bool{}
+			for _, answer := range c.Answers {
+				if answer < 0 || answer >= len(c.Options) {
+					return fmt.Errorf("%s: answer index %d is outside options range", file, answer)
+				}
+				if seen[answer] {
+					return fmt.Errorf("%s: duplicate answer index %d", file, answer)
+				}
+				seen[answer] = true
+			}
+		} else {
+			if len(c.Options) > 4 {
+				return fmt.Errorf("%s: single-answer question allows at most 4 options", file)
+			}
+			if c.Answer == nil {
+				return fmt.Errorf("%s: question requires answer", file)
+			}
+			if *c.Answer < 0 || *c.Answer >= len(c.Options) {
+				return fmt.Errorf("%s: answer index %d is outside options range", file, *c.Answer)
+			}
 		}
 	}
+
 	if c.Type == "flashcard-deck" {
 		if len(c.Cards) == 0 {
 			return fmt.Errorf("%s: flashcard-deck requires at least 1 flashcard", file)

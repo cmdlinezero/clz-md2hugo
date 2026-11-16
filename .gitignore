@@ -1,5 +1,12 @@
 .DS_Store
 clz-md2hugo
 examples
+
+google-cloud-4-words
+*.json
+
+# Archives
+*.patch
+*.tar
+*.tar.gz
 *.zip
-test.json
