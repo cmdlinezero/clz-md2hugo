@@ -3,7 +3,7 @@ clz-md2hugo
 examples
 
 google-cloud-4-words
-test.json
+*.json
 
 # Archives
 *.patch

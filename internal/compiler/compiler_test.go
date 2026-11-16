@@ -930,3 +930,66 @@ func TestVideoBlockV1PreservesUnknownProvider(t *testing.T) {
 		t.Fatalf("unknown provider should remain portable for downstream fallback: %+v", blocks)
 	}
 }
+
+func TestQuestionSelectionModes(t *testing.T) {
+	for _, tc := range []struct {
+		name, front string
+		valid       bool
+		mode        string
+		count       int
+	}{
+		{"legacy single", "answer: 0", true, "single_select", 1},
+		{"multiple", "answers: [0, 2]", true, "multi_select", 2},
+		{"duplicate", "answers: [0, 0]", false, "", 0},
+		{"out of range", "answers: [0, 4]", false, "", 0},
+		{"both", "answer: 0\nanswers: [0, 2]", false, "", 0},
+		{"all correct", "answers: [0, 1, 2, 3]", false, "", 0},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			src := "---\nid: q\ntype: question\ntitle: Test\noptions: [a, b, c, d]\n" + tc.front + "\n---\n"
+			c, err := Parse(src, "question.md")
+			if err != nil {
+				t.Fatal(err)
+			}
+			err = validateContent(c, "question.md")
+			if (err == nil) != tc.valid {
+				t.Fatalf("validation = %v; valid=%v", err, tc.valid)
+			}
+			if tc.valid && (c.SelectionType != tc.mode || c.RequiredSelections != tc.count) {
+				t.Fatalf("mode=%q count=%d", c.SelectionType, c.RequiredSelections)
+			}
+		})
+	}
+}
+
+func TestSingleAnswerOptionLimit(t *testing.T) {
+	c := Content{ID: "q", Title: "Question", Type: "question", Status: "published", Access: Access{Tier: "public"}, Options: []string{"a", "b", "c", "d", "e"}, Answer: intPtr(0)}
+	if err := validateContent(c, "q.md"); err == nil || !strings.Contains(err.Error(), "at most 4") {
+		t.Fatalf("unexpected error: %v", err)
+	}
+}
+
+func TestQuestionOptionsWithQuotedCommas(t *testing.T) {
+	src := `---
+id: pca-q10
+type: question
+title: Migration cutover
+status: draft
+options: ["Only whether the new VMs boot", "Only the projected monthly bill", "Only that DNS records exist", "Dependency order, data synchronization, rollback and timed cutover rehearsal"]
+answer: 3
+---
+`
+	c, err := Parse(src, "pca-q10.md")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(c.Options) != 4 {
+		t.Fatalf("got %d options, want 4: %#v", len(c.Options), c.Options)
+	}
+	if c.Options[3] != "Dependency order, data synchronization, rollback and timed cutover rehearsal" {
+		t.Fatalf("fourth option corrupted: %q", c.Options[3])
+	}
+	if err := validateContent(c, "pca-q10.md"); err != nil {
+		t.Fatal(err)
+	}
+}

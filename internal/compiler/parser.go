@@ -49,13 +49,22 @@ func Parse(src, path string) (Content, error) {
 		RatingID: stringValue(meta["rating_id"]), ProductID: stringValue(meta["product_id"]),
 		Access:  Access{Tier: stringValue(meta["access.tier"])},
 		Runtime: stringValue(meta["runtime"]), Entrypoint: stringValue(meta["entrypoint"]), Difficulty: stringValue(meta["difficulty"]),
-		Options: stringSlice(meta["options"]), Answer: optionalIntValue(meta["answer"]), Explanation: stringValue(meta["explanation"]),
+		Options: stringSlice(meta["options"]), Answer: optionalIntValue(meta["answer"]), Answers: intSlice(meta["answers"]), Explanation: stringValue(meta["explanation"]),
 		Volume: intValue(meta["volume"]), Special: boolValue(meta["special_edition"]),
 	}
 	if err := applyLabContract(&c, meta); err != nil {
 		return Content{}, fmt.Errorf("%s: %w", path, err)
 	}
 
+	if c.Type == "question" {
+		if len(c.Answers) > 0 {
+			c.SelectionType = "multi_select"
+			c.RequiredSelections = len(c.Answers)
+		} else {
+			c.SelectionType = "single_select"
+			c.RequiredSelections = 1
+		}
+	}
 	c.AccessDeclared = c.Access.Tier != ""
 	if c.Access.Tier == "" {
 		c.Access.Tier = "public"
@@ -232,11 +241,43 @@ func parseScalar(v string) any {
 
 func parseInlineList(v string) []string {
 	var result []string
-	for _, p := range strings.Split(v, ",") {
-		p = strings.TrimSpace(p)
-		if p != "" {
-			result = append(result, strings.Trim(p, "\"'"))
+	var current strings.Builder
+	var quote byte
+	for i := 0; i < len(v); i++ {
+		ch := v[i]
+		if quote != 0 {
+			if ch == quote {
+				// YAML single-quoted strings escape an apostrophe by doubling it.
+				if quote == '\'' && i+1 < len(v) && v[i+1] == '\'' {
+					current.WriteByte(ch)
+					i++
+					continue
+				}
+				quote = 0
+				continue
+			}
+			if ch == '\\' && quote == '"' && i+1 < len(v) && (v[i+1] == '"' || v[i+1] == '\\') {
+				current.WriteByte(v[i+1])
+				i++
+				continue
+			}
+			current.WriteByte(ch)
+			continue
 		}
+		switch ch {
+		case '\'', '"':
+			quote = ch
+		case ',':
+			if part := strings.TrimSpace(current.String()); part != "" {
+				result = append(result, part)
+			}
+			current.Reset()
+		default:
+			current.WriteByte(ch)
+		}
+	}
+	if part := strings.TrimSpace(current.String()); part != "" {
+		result = append(result, part)
 	}
 	return result
 }
@@ -602,6 +643,21 @@ func optionalIntValue(v any) *int {
 		return nil
 	}
 	return &i
+}
+func intSlice(v any) []int {
+	values, ok := v.([]string)
+	if !ok {
+		return nil
+	}
+	result := make([]int, 0, len(values))
+	for _, value := range values {
+		n, err := strconv.Atoi(value)
+		if err != nil {
+			return []int{-1}
+		}
+		result = append(result, n)
+	}
+	return result
 }
 func stringSlice(v any) []string {
 	if s, ok := v.([]string); ok {
