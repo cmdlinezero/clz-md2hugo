@@ -105,6 +105,9 @@ func Parse(src, path string) (Content, error) {
 		return Content{}, fmt.Errorf("%s: %w", path, err)
 	}
 	c.Steps, c.Conclusion = steps, conclusion
+	if c.Type == "topic" {
+		c.Content = strings.TrimSpace(body)
+	}
 	if c.Type == "flashcard-deck" || c.Type == "challenge-lab" {
 		blocks, err := parseBlocks(body)
 		if err != nil {
