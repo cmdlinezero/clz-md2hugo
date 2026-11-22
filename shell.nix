@@ -18,7 +18,10 @@ in pkgs.mkShell {
   name = "go-dev";
 
   nativeBuildInputs = with pkgs; [
+    asciinema
+    asciinema-agg
     go
+    nodejs_22
     tree
     zsh
     zellij

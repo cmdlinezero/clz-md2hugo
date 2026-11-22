@@ -16,6 +16,7 @@ type Content struct {
 	Type               string       `json:"type"`
 	Title              string       `json:"title"`
 	Description        string       `json:"description,omitempty"`
+	Content            string       `json:"content,omitempty"`
 	Slug               string       `json:"slug"`
 	Date               string       `json:"date,omitempty"`
 	Status             string       `json:"status"`
